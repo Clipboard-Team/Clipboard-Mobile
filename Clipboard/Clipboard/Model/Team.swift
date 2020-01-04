@@ -43,4 +43,11 @@ class Team{
     
     func removeMember(member:Member){
     }
+    
+    func addTask(task: Task){
+        self.tasks.append(task)
+    }
+    func getTasks()->[Task]{
+        return self.tasks
+    }
 }

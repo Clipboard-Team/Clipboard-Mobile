@@ -68,5 +68,10 @@ class Project {
             print("\t\tMember: "+member.getName()+", role: "+member.getRole())
         }
         
+        guard let tasks = getTeam()?.getTasks() else {return}
+        for t in tasks {
+            print("\t\tTask: "+t.getTitle()+", "+t.getStatus()+", "+t.getDifficulty())
+        }
+        
     }
 }

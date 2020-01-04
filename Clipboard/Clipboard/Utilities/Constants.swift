@@ -73,5 +73,17 @@ func getIcons()->[Icon]?{
 struct Constants{
     public static var currProject = Project(title: "Default")
     public static var currMember = Member(name: "Default", role: "Default", team: "Default")
+    public static let resetProject = Project(title: "Default")
+    public static let resetMember = Member(name: "Default", role: "Default", team: "Default")
+    public static let statuses = ["To Do", "In Progress", "Halted", "Done"]
+    public static let difficulties = ["Easy", "Medium", "Hard", "Unknown"]
+    
+    func updateMember(member:Member){
+        for mem in (Constants.currProject.getTeam()?.getMembers())! {
+            if(member.getName() == mem.getName()){
+                
+            }
+        }
+    }
 }
 

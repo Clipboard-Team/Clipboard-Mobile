@@ -10,17 +10,21 @@ import UIKit
 
 class HomeController: UIViewController {
 
-    private var project: Project?
-    private var currMember: Member?
+    @IBAction func addTaskTapped(_ sender: Any) {
+        performSegue(withIdentifier: "fromHomeToCreateTask", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        currMember = Constants.currMember
-        // Do any additional setup after loading the view.
     }
     
-    func setProject(project:Project){
-        self.project = project
-        self.project?.printEntireProject()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let secondViewController = segue.destination as? CreateTaskController {
+            secondViewController.modalPresentationStyle = .fullScreen
+        }
+        if let secondViewController = segue.destination as? HomeController {
+            secondViewController.modalPresentationStyle = .fullScreen
+        }
     }
 
 }

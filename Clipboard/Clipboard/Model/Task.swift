@@ -17,6 +17,77 @@ class Task{
     private var totalComments: Int = 0
     private var startDate = Date()
     private var dueDate = Date()
-    private var assignedTo: Member?
+    private var assignedTo = Constants.resetMember
+    
+    init(title:String, status:String, difficulty:String) {
+        self.title = title
+        self.status = status
+        self.difficulty = difficulty
+        self.startDate = Date.init()
+    }
+    
+    func setTitle(title:String){
+        self.title = title
+    }
+    
+    func getTitle()->String{
+        return self.title
+    }
+    
+    func setStatus(status:String){
+        self.status = status
+    }
+    
+    func getStatus()->String{
+        return self.status
+    }
+    
+    func setDifficulty(difficulty:String){
+        self.difficulty = difficulty
+    }
+    
+    func getDifficulty()->String{
+        return self.difficulty
+    }
+    
+    func setDescription(description:String){
+        self.description = description
+    }
+    
+    func getDescription()->String{
+        return self.description
+    }
+    
+    func setStartDate(date:Date){
+        self.startDate = date
+    }
+    
+    func getStartDate()->Date{
+        return self.startDate
+    }
+    
+    func setDueDate(date:Date){
+        self.dueDate = date
+    }
+    
+    func getDueDate()->Date{
+        return self.dueDate
+    }
+    
+    func addComment(comment:Comment){
+        self.comments.append(comment)
+    }
+    
+    func getComments()->[Comment]{
+        return self.comments
+    }
+    
+    func setAssignedTo(member:Member){
+        self.assignedTo = member
+    }
+    
+    func getAssignedTo()->Member{
+        return self.assignedTo
+    }
 }
     

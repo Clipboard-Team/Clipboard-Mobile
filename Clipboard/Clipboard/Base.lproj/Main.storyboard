@@ -398,6 +398,9 @@
                                 <rect key="frame" x="356" y="760" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="addTaskTapped:" destination="jre-66-9fV" eventType="touchUpInside" id="Lss-rY-tye"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gx-95-iG7">
                                 <rect key="frame" x="172" y="305" width="42" height="21"/>
@@ -413,10 +416,132 @@
                     <navigationItem key="navigationItem" title="Task Board" id="F4W-19-zye">
                         <barButtonItem key="backBarButtonItem" title="Go Back" id="fNm-q4-l9L"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="bVV-lN-vT5" kind="show" identifier="fromHomeToCreateTask" id="2up-Eo-FGQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pB9-0v-cTM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3217" y="138"/>
+        </scene>
+        <!--Create Task Controller-->
+        <scene sceneID="gvx-7B-UZ8">
+            <objects>
+                <viewController id="bVV-lN-vT5" customClass="CreateTaskController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ph2-YK-FpF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTn-6Z-jQA">
+                                <rect key="frame" x="20" y="20" width="162" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="DUO-qf-Z9Y"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="hNg-X5-34f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVe-Wa-WBM">
+                                <rect key="frame" x="0.0" y="592" width="414" height="216"/>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the task?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPr-8v-qWw">
+                                <rect key="frame" x="20" y="94" width="250" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="V3i-US-JlB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38B-kn-PHI">
+                                <rect key="frame" x="20" y="158" width="130" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="0Zv-XI-FwB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Difficulty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28w-5e-gE2">
+                                <rect key="frame" x="20" y="200" width="130" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="uDG-JV-aO9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Assigned To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-1f-35V">
+                                <rect key="frame" x="20" y="242" width="130" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="bsH-D6-spm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Due Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-Dt-rEO">
+                                <rect key="frame" x="20" y="284" width="146.5" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="JSP-Ks-w5S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EO8-OH-L4O">
+                                <rect key="frame" x="20" y="326" width="370" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="1ph-5x-him"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-uv-gBN">
+                                <rect key="frame" x="157" y="510" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="uPP-GW-pqR"/>
+                                </constraints>
+                                <state key="normal" title="Create Task"/>
+                                <connections>
+                                    <action selector="createTaskTapped:" destination="bVV-lN-vT5" eventType="touchUpInside" id="uJC-2j-7a0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QTn-6Z-jQA" firstAttribute="top" secondItem="KoM-Ar-Haz" secondAttribute="top" constant="20" id="2On-UM-pVS"/>
+                            <constraint firstItem="UJG-1f-35V" firstAttribute="top" secondItem="28w-5e-gE2" secondAttribute="bottom" constant="8" id="2s3-fg-7qM"/>
+                            <constraint firstItem="EO8-OH-L4O" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="6sd-zj-cRl"/>
+                            <constraint firstItem="UJG-1f-35V" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="9KH-my-A5Y"/>
+                            <constraint firstItem="38B-kn-PHI" firstAttribute="top" secondItem="fPr-8v-qWw" secondAttribute="bottom" constant="30" id="CYU-wJ-PgG"/>
+                            <constraint firstItem="QTn-6Z-jQA" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="M1d-rb-Cdh"/>
+                            <constraint firstItem="UVe-Wa-WBM" firstAttribute="trailing" secondItem="KoM-Ar-Haz" secondAttribute="trailing" id="d0B-y9-JrW"/>
+                            <constraint firstItem="28w-5e-gE2" firstAttribute="top" secondItem="38B-kn-PHI" secondAttribute="bottom" constant="8" id="d6E-fb-mnX"/>
+                            <constraint firstItem="38B-kn-PHI" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="g41-aQ-urG"/>
+                            <constraint firstItem="fPr-8v-qWw" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="glf-BR-xcl"/>
+                            <constraint firstItem="SH8-Dt-rEO" firstAttribute="top" secondItem="UJG-1f-35V" secondAttribute="bottom" constant="8" id="gwm-L2-hBg"/>
+                            <constraint firstItem="EO8-OH-L4O" firstAttribute="top" secondItem="SH8-Dt-rEO" secondAttribute="bottom" constant="8" id="jNy-IH-Vr9"/>
+                            <constraint firstItem="fPr-8v-qWw" firstAttribute="top" secondItem="QTn-6Z-jQA" secondAttribute="bottom" constant="40" id="kHM-gl-PhM"/>
+                            <constraint firstItem="28w-5e-gE2" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="loV-Hr-ohO"/>
+                            <constraint firstItem="5ag-uv-gBN" firstAttribute="centerX" secondItem="UVe-Wa-WBM" secondAttribute="centerX" id="n00-2V-23f"/>
+                            <constraint firstItem="SH8-Dt-rEO" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="nOx-c9-p1S"/>
+                            <constraint firstItem="5ag-uv-gBN" firstAttribute="top" secondItem="EO8-OH-L4O" secondAttribute="bottom" constant="150" id="nTq-W9-SnC"/>
+                            <constraint firstItem="UVe-Wa-WBM" firstAttribute="bottom" secondItem="KoM-Ar-Haz" secondAttribute="bottom" id="wCj-sJ-RpT"/>
+                            <constraint firstItem="UVe-Wa-WBM" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" id="zyg-Nj-bKW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KoM-Ar-Haz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QI9-fd-1Mf"/>
+                    <connections>
+                        <outlet property="assignedToTextField" destination="UJG-1f-35V" id="d9c-8e-MiH"/>
+                        <outlet property="descriptionTextField" destination="EO8-OH-L4O" id="aLd-EM-8Fa"/>
+                        <outlet property="difficultyTextField" destination="28w-5e-gE2" id="aLx-Dy-IFh"/>
+                        <outlet property="pickerView" destination="UVe-Wa-WBM" id="ViZ-Zl-UcE"/>
+                        <outlet property="statusTextField" destination="38B-kn-PHI" id="X4V-e7-BFd"/>
+                        <outlet property="titleTextField" destination="fPr-8v-qWw" id="cL6-Hc-aeg"/>
+                        <segue destination="jre-66-9fV" kind="show" identifier="fromCreateTaskToHome" id="VoE-bi-8dI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KA8-YB-0VH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4000.0000000000005" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mQr-9e-gPx">
@@ -439,7 +564,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CNu-fG-f7U"/>
+        <segue reference="VoE-bi-8dI"/>
+        <segue reference="k5s-eK-PCD"/>
         <segue reference="UoZ-KM-M0d"/>
     </inferredMetricsTieBreakers>
 </document>
