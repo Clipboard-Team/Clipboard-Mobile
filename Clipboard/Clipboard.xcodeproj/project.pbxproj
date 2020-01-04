@@ -26,6 +26,7 @@
 		2596A29223BE84AA005FDEB4 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A29123BE84AA005FDEB4 /* IconCell.swift */; };
 		2596A29423BE8549005FDEB4 /* ChooseIconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A29323BE8549005FDEB4 /* ChooseIconController.swift */; };
 		25D3AF6623BF17A400987087 /* AddMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6523BF17A400987087 /* AddMemberController.swift */; };
+		25D3AF6823C01AC600987087 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6723C01AC600987087 /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		2596A29123BE84AA005FDEB4 /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		2596A29323BE8549005FDEB4 /* ChooseIconController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseIconController.swift; sourceTree = "<group>"; };
 		25D3AF6523BF17A400987087 /* AddMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberController.swift; sourceTree = "<group>"; };
+		25D3AF6723C01AC600987087 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				2596A29323BE8549005FDEB4 /* ChooseIconController.swift */,
 				2596A28823BE46E2005FDEB4 /* AddMembersController.swift */,
 				25D3AF6523BF17A400987087 /* AddMemberController.swift */,
+				25D3AF6723C01AC600987087 /* HomeController.swift */,
 				2596A28123BACA22005FDEB4 /* Model */,
 				2596A26C23BAAF5B005FDEB4 /* Assets.xcassets */,
 				2596A26E23BAAF5B005FDEB4 /* LaunchScreen.storyboard */,
@@ -201,6 +204,7 @@
 				2596A26623BAAF59005FDEB4 /* SceneDelegate.swift in Sources */,
 				2596A29423BE8549005FDEB4 /* ChooseIconController.swift in Sources */,
 				2596A27823BAC4EA005FDEB4 /* Project.swift in Sources */,
+				25D3AF6823C01AC600987087 /* HomeController.swift in Sources */,
 				2596A27E23BAC9D7005FDEB4 /* Task.swift in Sources */,
 				25D3AF6623BF17A400987087 /* AddMemberController.swift in Sources */,
 				2596A29223BE84AA005FDEB4 /* IconCell.swift in Sources */,

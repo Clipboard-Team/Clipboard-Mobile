@@ -13,7 +13,7 @@ class Project {
     private var title = String()
     private var description = String()
     private var startDate = Date()
-    private var team: Team?
+    private var team = Team(title: "Default")
     
     init(title: String){
         self.title = title
@@ -24,7 +24,6 @@ class Project {
         self.team = Team(title: team)
     }
     func getTeam() -> Team?{
-        guard let team = self.team else {return nil}
         return team
     }
     

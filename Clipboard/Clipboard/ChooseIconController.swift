@@ -9,7 +9,6 @@
 import UIKit
 
 class ChooseIconController: UIViewController {
-    private var project: Project?
     private var member: Member?
 
     @IBOutlet weak var tableView: UITableView!
@@ -21,16 +20,10 @@ class ChooseIconController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 100
         tableView.register(IconCell.self, forCellReuseIdentifier: "iconCell")
-        print("** test")
-        print(getIcons() as Any)
+
         
         guard let icons = getIcons() else {return}
         self.icons = icons
-    }
-
-    func setProject(project:Project){
-        self.project = project
-        self.project?.printEntireProject()
     }
     
     func setMember(member:Member){
@@ -52,7 +45,15 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let icon = icons[indexPath.row]
-        self.member?.setIcon(icon: icon.getImage())
+        for n in 0...(Constants.currProject.getTeam()?.getMembers().count)!-1{
+            if(Constants.currProject.getTeam()?.getMembers()[n].getName() == member?.getName()){
+                print("found")
+                Constants.currProject.getTeam()?.getMembers()[n].setIcon(icon: icon.getImage())
+                print("new: "+(Constants.currProject.getTeam()?.getMembers()[n].getIcon().description)!)
+                member = Constants.currProject.getTeam()?.getMembers()[n]
+                break
+            }
+        }
         performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
 //        print("*test*: "+String((self.member?.getIcon().description)!))
     }
@@ -61,8 +62,8 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
 
         if let secondViewController = segue.destination as? AddMembersController{
             secondViewController.modalPresentationStyle = .fullScreen
-            guard let project = self.project else {return}
-            secondViewController.setProject(project: project)
+            guard let member = self.member else {return}
+            secondViewController.setPreviouslyCustomizedMember(member: member)
         }
     }
 }

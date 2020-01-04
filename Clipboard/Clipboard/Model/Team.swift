@@ -37,7 +37,7 @@ class Team{
         members.append(member)
     }
     
-    func getMembers()->[Member]?{
+    func getMembers()->[Member]{
         return members
     }
     

@@ -10,7 +10,6 @@ import UIKit
 
 class CreateProjectController: UIViewController {
     private var state:String? // project, team, admin, member
-    private var project:Project?
     private var currentMember:Member?
     
     override func viewDidLoad() {
@@ -24,15 +23,14 @@ class CreateProjectController: UIViewController {
         switch state {
         case "project":
             print("will segue")
-            project = nil
-            project?.printEntireProject()
+            Constants.currProject.printEntireProject()
             setState(state: "project")
             dynamicTextField.text = ""
             performSegue(withIdentifier: "fromCreateProjectToLogin", sender: self)
         case "team":
             print("will not segue")
             print("will instead change state and ui labels")
-            project?.printEntireProject()
+            Constants.currProject.printEntireProject()
             setState(state: "project")
             titleLabel.text = "New Project"
             subtitleLabel.text = "Think of a cool name for your project!"
@@ -41,7 +39,7 @@ class CreateProjectController: UIViewController {
         case "admin":
             print("will not segue")
             print("will instead change state and ui labels")
-            project?.printEntireProject()
+            Constants.currProject.printEntireProject()
             setState(state: "team")
             titleLabel.text = "New Team"
             subtitleLabel.text = "What do you want to name your team?"
@@ -62,8 +60,8 @@ class CreateProjectController: UIViewController {
             case "project":
                 print("will not segue")
                 print("will instead change state and ui labels")
-                project = Project(title: text)
-                project?.printEntireProject()
+                Constants.currProject = Project(title: text)
+                Constants.currProject.printEntireProject()
                 setState(state: "team")
                 titleLabel.text = "New Team"
                 subtitleLabel.text = "What do you want to name your team?"
@@ -72,8 +70,8 @@ class CreateProjectController: UIViewController {
             case "team":
                 print("will not segue")
                 print("will instead change state and ui labels")
-                project?.setTeam(team: text)
-                project?.printEntireProject()
+                Constants.currProject.setTeam(team: text)
+                Constants.currProject.printEntireProject()
                 setState(state: "admin")
                 titleLabel.text = "Create your own Admin account"
                 subtitleLabel.text = "You can create more admin accounts later on"
@@ -81,9 +79,11 @@ class CreateProjectController: UIViewController {
                 dynamicTextField.text = ""
             case "admin":
                 print("will segue")
-                guard let teamTitle = project?.getTeam()?.getTitle() else {return}
-                project?.getTeam()?.addMember(member: Member(name: text, role: "Admin", team: teamTitle))
-                project?.printEntireProject()
+                guard let teamTitle = Constants.currProject.getTeam()?.getTitle() else {return}
+                let newMem = Member(name: text, role: "Admin", team: teamTitle)
+                Constants.currProject.getTeam()?.addMember(member: newMem)
+                Constants.currMember = newMem
+                Constants.currProject.printEntireProject()
                 performSegue(withIdentifier: "fromCreateProjectToChooseIcon", sender: self)
             default:
                 break
@@ -105,10 +105,8 @@ class CreateProjectController: UIViewController {
         }
         if let secondViewController = segue.destination as? ChooseIconController{
             secondViewController.modalPresentationStyle = .fullScreen
-            guard let project = self.project else {return}
-            secondViewController.setProject(project: project)
-            guard let member = self.project?.getTeam()?.getMembers()?[0] else {return}
-            secondViewController.setMember(member: member)
+
+            secondViewController.setMember(member: Constants.currMember)
         }
     }
 }

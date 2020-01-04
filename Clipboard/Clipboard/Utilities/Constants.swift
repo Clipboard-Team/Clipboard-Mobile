@@ -70,3 +70,8 @@ func getIcons()->[Icon]?{
     return icons
 }
 
+struct Constants{
+    public static var currProject = Project(title: "Default")
+    public static var currMember = Member(name: "Default", role: "Default", team: "Default")
+}
+

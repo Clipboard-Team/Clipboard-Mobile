@@ -389,8 +389,8 @@
         <!--Task Board-->
         <scene sceneID="nYe-DF-yxe">
             <objects>
-                <viewController id="jre-66-9fV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kmd-l1-M7L">
+                <viewController id="jre-66-9fV" customClass="HomeController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kmd-l1-M7L" customClass="hom">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
