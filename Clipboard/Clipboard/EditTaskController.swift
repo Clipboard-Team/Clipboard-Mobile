@@ -13,7 +13,8 @@ class EditTaskController: UIViewController {
     private var backupTask = Task(title: "Default", status: "Default", difficulty: "Default")
     private var pickerData = [Constants.statuses, Constants.difficulties]
 
-    @IBOutlet weak var pickerView: UIPickerView!
+    private var datePickerView: UIDatePicker?
+    private var pickerView: UIPickerView?
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
@@ -34,8 +35,15 @@ class EditTaskController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 80
         
+        datePickerView = UIDatePicker()
+        dueDateTextField.inputView = datePickerView
+        datePickerView?.datePickerMode = .date
+        datePickerView?.addTarget(self, action: #selector(EditTaskController.dateChanged(datePicker: )), for: .valueChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditTaskController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.dateFormat
+        dateFormatter.dateFormat = Constants.dateFormatShort
         startDateLabel.text = dateFormatter.string(from: task.getStartDate())
         titleTextField.text = task.getTitle()
         statusTextField.text = task.getStatus()
@@ -50,14 +58,25 @@ class EditTaskController: UIViewController {
 //        dueDateTextField.isUserInteractionEnabled = false
         
         //dueDateTextField.inputView = datePickerView
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        pickerView = UIPickerView()
+        pickerView?.delegate = self
+        pickerView?.dataSource = self
         statusTextField.inputView = pickerView
         difficultyTextField.inputView = pickerView
     }
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormatShort
+        dueDateTextField.text = dateFormatter.string(from: datePickerView!.date)
+        view.endEditing(true)
+    }
     @IBAction func resetTapped(_ sender: Any) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.dateFormat
+        dateFormatter.dateFormat = Constants.dateFormatShort
         startDateLabel.text = dateFormatter.string(from: task.getStartDate())
         titleTextField.text = backupTask.getTitle()
         statusTextField.text = backupTask.getStatus()
@@ -75,7 +94,8 @@ class EditTaskController: UIViewController {
                 task.setStatus(status: statusTextField.text!)
                 task.setDifficulty(difficulty: difficultyTextField.text!)
                 //task.setAssignedTo(member: )
-                //task.setDueDate(date: )
+                guard let date = datePickerView?.date else {return}
+                task.setDueDate(date: date)
                 task.setDescription(description: descriptionTextField.text ?? "")
                 
                 if(commentTextField.hasText){
@@ -126,9 +146,14 @@ extension EditTaskController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "commentCell")
 
         guard let comment = task.getComments()[indexPath.row].getComment() else {return cell}
-        guard let date = task.getComments()[indexPath.row].getDate()?.description else {return cell}
+        guard let date = task.getComments()[indexPath.row].getDate() else {return cell}
         cell.textLabel?.text = comment
-        cell.detailTextLabel?.text = date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormatLong
+
+        cell.detailTextLabel?.text = dateFormatter.string(from: date)
+        view.endEditing(true)
         
         return cell
     }

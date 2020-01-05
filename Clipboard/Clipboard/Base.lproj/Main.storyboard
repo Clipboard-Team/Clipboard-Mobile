@@ -526,9 +526,6 @@
                                     <action selector="resetTapped:" destination="kxh-uA-jJt" eventType="touchUpInside" id="d3f-md-2ex"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vag-WG-55K">
-                                <rect key="frame" x="0.0" y="592" width="394" height="216"/>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhO-rz-Pk7">
                                 <rect key="frame" x="190" y="27" width="87" height="21"/>
                                 <constraints>
@@ -593,7 +590,6 @@
                             <constraint firstItem="595-lh-ylv" firstAttribute="top" secondItem="uL6-L7-vyl" secondAttribute="bottom" constant="30" id="TXs-Nz-QTm"/>
                             <constraint firstItem="teg-aO-nL7" firstAttribute="leading" secondItem="XuC-p1-eTk" secondAttribute="leading" constant="20" id="aJS-SR-5Q0"/>
                             <constraint firstItem="uL6-L7-vyl" firstAttribute="leading" secondItem="XuC-p1-eTk" secondAttribute="leading" constant="20" id="bay-6X-lxd"/>
-                            <constraint firstAttribute="trailing" secondItem="vag-WG-55K" secondAttribute="trailing" constant="20" symbolic="YES" id="cZE-VV-XkD"/>
                             <constraint firstItem="A9z-1v-xpX" firstAttribute="top" secondItem="XuC-p1-eTk" secondAttribute="top" constant="27" id="d9K-yH-LqZ"/>
                             <constraint firstItem="Oda-31-7rm" firstAttribute="top" secondItem="A4P-MO-qDE" secondAttribute="bottom" constant="8" id="egm-ub-Kz4"/>
                             <constraint firstItem="VJn-Q0-L41" firstAttribute="top" secondItem="10s-4R-G7g" secondAttribute="bottom" constant="83" id="hVa-K9-Clm"/>
@@ -601,8 +597,6 @@
                             <constraint firstItem="A4P-MO-qDE" firstAttribute="top" secondItem="UWu-ro-uFY" secondAttribute="bottom" constant="8" id="lq6-jG-gvM"/>
                             <constraint firstItem="A4P-MO-qDE" firstAttribute="leading" secondItem="XuC-p1-eTk" secondAttribute="leading" constant="20" id="mtn-MW-rc4"/>
                             <constraint firstItem="uL6-L7-vyl" firstAttribute="top" secondItem="teg-aO-nL7" secondAttribute="bottom" constant="40" id="myh-Ad-mvv"/>
-                            <constraint firstItem="XuC-p1-eTk" firstAttribute="bottom" secondItem="vag-WG-55K" secondAttribute="bottom" id="nWe-sB-bbV"/>
-                            <constraint firstItem="vag-WG-55K" firstAttribute="leading" secondItem="XuC-p1-eTk" secondAttribute="leading" id="pE2-NP-nFN"/>
                             <constraint firstItem="teg-aO-nL7" firstAttribute="top" secondItem="XuC-p1-eTk" secondAttribute="top" constant="20" id="pFA-US-mcG"/>
                             <constraint firstItem="A9z-1v-xpX" firstAttribute="leading" secondItem="DhO-rz-Pk7" secondAttribute="trailing" constant="4" id="vJP-el-UlY"/>
                             <constraint firstItem="VJn-Q0-L41" firstAttribute="leading" secondItem="XuC-p1-eTk" secondAttribute="leading" id="wO9-XA-aYk"/>
@@ -617,7 +611,6 @@
                         <outlet property="descriptionTextField" destination="A4P-MO-qDE" id="GWg-xE-ZzC"/>
                         <outlet property="difficultyTextField" destination="Ow6-R9-bHj" id="hT7-b5-SHI"/>
                         <outlet property="dueDateTextField" destination="UWu-ro-uFY" id="qt1-78-S6s"/>
-                        <outlet property="pickerView" destination="vag-WG-55K" id="6sD-9c-cW1"/>
                         <outlet property="startDateLabel" destination="A9z-1v-xpX" id="tgf-a8-krZ"/>
                         <outlet property="statusTextField" destination="595-lh-ylv" id="ix9-c9-Hje"/>
                         <outlet property="tableView" destination="VJn-Q0-L41" id="c26-Cb-487"/>

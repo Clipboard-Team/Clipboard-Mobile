@@ -85,6 +85,7 @@ struct Constants{
             }
         }
     }
-    public static let dateFormat = "MM/dd/yyyy : hh:mm"
+    public static let dateFormatShort = "MM/dd/yyyy"
+    public static let dateFormatLong = "MM/dd/yyyy : hh:mm"
 }
 

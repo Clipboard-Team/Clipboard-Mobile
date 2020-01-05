@@ -47,7 +47,7 @@ class CreateTaskController: UIViewController {
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.dateFormat
+        dateFormatter.dateFormat = Constants.dateFormatShort
         dueDateTextField.text = dateFormatter.string(from: datePickerView!.date)
         view.endEditing(true)
     }
