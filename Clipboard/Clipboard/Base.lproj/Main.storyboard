@@ -737,6 +737,7 @@
                         <outlet property="assignedToTextField" destination="UJG-1f-35V" id="d9c-8e-MiH"/>
                         <outlet property="descriptionTextField" destination="EO8-OH-L4O" id="aLd-EM-8Fa"/>
                         <outlet property="difficultyTextField" destination="28w-5e-gE2" id="aLx-Dy-IFh"/>
+                        <outlet property="dueDateTextField" destination="SH8-Dt-rEO" id="cB9-k6-Gvb"/>
                         <outlet property="pickerView" destination="UVe-Wa-WBM" id="ViZ-Zl-UcE"/>
                         <outlet property="statusTextField" destination="38B-kn-PHI" id="X4V-e7-BFd"/>
                         <outlet property="titleTextField" destination="fPr-8v-qWw" id="cL6-Hc-aeg"/>
@@ -768,7 +769,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2up-Eo-FGQ"/>
         <segue reference="VoE-bi-8dI"/>
         <segue reference="k5s-eK-PCD"/>
         <segue reference="UoZ-KM-M0d"/>

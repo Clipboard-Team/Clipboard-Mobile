@@ -43,6 +43,7 @@ class EditTaskController: UIViewController {
         statusTextField.isUserInteractionEnabled = false
         difficultyTextField.isUserInteractionEnabled = false
         assignedToTextField.isUserInteractionEnabled = false
+        dueDateTextField.isUserInteractionEnabled = false
     }
     @IBAction func resetTapped(_ sender: Any) {
         startDateLabel.text = backupTask.getStartDate().description

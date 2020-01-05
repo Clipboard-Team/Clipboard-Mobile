@@ -16,6 +16,7 @@ class CreateTaskController: UIViewController {
     @IBOutlet weak var statusTextField: UITextField!
     @IBOutlet weak var difficultyTextField: UITextField!
     @IBOutlet weak var assignedToTextField: UITextField!
+    @IBOutlet weak var dueDateTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class CreateTaskController: UIViewController {
         statusTextField.isUserInteractionEnabled = false
         difficultyTextField.isUserInteractionEnabled = false
         assignedToTextField.isUserInteractionEnabled = false
+        dueDateTextField.isUserInteractionEnabled = false
     }
     @IBAction func createTaskTapped(_ sender: Any) {
         if(titleTextField.hasText && statusTextField.hasText
