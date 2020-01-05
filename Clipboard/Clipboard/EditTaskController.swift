@@ -82,7 +82,7 @@ class EditTaskController: UIViewController {
         statusTextField.text = backupTask.getStatus()
         difficultyTextField.text = backupTask.getDifficulty()
         assignedToTextField.text = backupTask.getAssignedTo()?.getName()
-        dueDateTextField.text = dateFormatter.string(from: task.getDueDate())
+        dueDateTextField.text = dateFormatter.string(from: backupTask.getDueDate())
         descriptionTextField.text = backupTask.getDescription()
         commentTextField.text = ""
     }
