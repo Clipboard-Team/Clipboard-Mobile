@@ -90,5 +90,9 @@ class Task{
         guard let assignedTo = self.assignedTo else {return nil}
         return assignedTo
     }
+    
+    func resetAssignedTo(){
+        self.assignedTo = nil
+    }
 }
     

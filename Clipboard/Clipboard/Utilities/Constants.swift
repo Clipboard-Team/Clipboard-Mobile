@@ -75,16 +75,19 @@ struct Constants{
     public static var currMember = Member(name: "Default", role: "Default", team: "Default")
     public static let resetProject = Project(title: "Default")
     public static let resetMember = Member(name: "Default", role: "Default", team: "Default")
+    
     public static let statuses = ["To Do", "In Progress", "Halted", "Done"]
     public static let difficulties = ["Easy", "Medium", "Hard", "Unknown"]
-    
-    func updateMember(member:Member){
-        for mem in (Constants.currProject.getTeam()?.getMembers())! {
-            if(member.getName() == mem.getName()){
-                
-            }
+    public static func getMemberNames()->[String]?{
+        var memberNames = [String]()
+        guard let members = Constants.currProject.getTeam()?.getMembers() else {return nil}
+        for mem in members{
+            memberNames.append(mem.getName())
         }
+        memberNames.append("none")
+        return memberNames
     }
+    
     public static let dateFormatShort = "MM/dd/yyyy"
     public static let dateFormatLong = "MM/dd/yyyy : hh:mm"
 }

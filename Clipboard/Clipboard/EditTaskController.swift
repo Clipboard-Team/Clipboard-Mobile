@@ -31,6 +31,10 @@ class EditTaskController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let memberNames = Constants.getMemberNames() else {return}
+        pickerData.append(memberNames)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 80
@@ -52,17 +56,13 @@ class EditTaskController: UIViewController {
         dueDateTextField.text = dateFormatter.string(from: task.getDueDate())
         descriptionTextField.text = task.getDescription()
         
-//        statusTextField.isUserInteractionEnabled = false
-//        difficultyTextField.isUserInteractionEnabled = false
-        assignedToTextField.isUserInteractionEnabled = false
-//        dueDateTextField.isUserInteractionEnabled = false
-        
-        //dueDateTextField.inputView = datePickerView
         pickerView = UIPickerView()
         pickerView?.delegate = self
         pickerView?.dataSource = self
+        
         statusTextField.inputView = pickerView
         difficultyTextField.inputView = pickerView
+        assignedToTextField.inputView = pickerView
     }
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
@@ -93,7 +93,17 @@ class EditTaskController: UIViewController {
                 task.setTitle(title: titleTextField.text ?? "")
                 task.setStatus(status: statusTextField.text!)
                 task.setDifficulty(difficulty: difficultyTextField.text!)
-                //task.setAssignedTo(member: )
+                if(assignedToTextField.hasText){
+                    for mem in (Constants.currProject.getTeam()?.getMembers())! {
+                        if(mem.getName() == assignedToTextField.text){
+                            task.setAssignedTo(member: mem)
+                            break
+                        } else if(assignedToTextField.text == "none"){
+                            task.resetAssignedTo()
+                            break
+                        }
+                    }
+                }
                 guard let date = datePickerView?.date else {return}
                 task.setDueDate(date: date)
                 task.setDescription(description: descriptionTextField.text ?? "")
@@ -113,7 +123,7 @@ class EditTaskController: UIViewController {
 }
 extension EditTaskController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 4
+        return self.pickerData[component].count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -133,6 +143,8 @@ extension EditTaskController: UIPickerViewDataSource, UIPickerViewDelegate {
             statusTextField.text = pickerData[component][row]
         } else if (Constants.difficulties.contains(pickerData[component][row])){
             difficultyTextField.text = pickerData[component][row]
+        } else if ((Constants.getMemberNames()?.contains(pickerData[component][row]))!){
+            assignedToTextField.text = pickerData[component][row]
         }
     }
     
