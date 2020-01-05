@@ -17,7 +17,7 @@ class Task{
     private var totalComments: Int = 0
     private var startDate = Date()
     private var dueDate = Date()
-    private var assignedTo = Constants.resetMember
+    private var assignedTo: Member?
     
     init(title:String, status:String, difficulty:String) {
         self.title = title
@@ -86,8 +86,9 @@ class Task{
         self.assignedTo = member
     }
     
-    func getAssignedTo()->Member{
-        return self.assignedTo
+    func getAssignedTo()->Member?{
+        guard let assignedTo = self.assignedTo else {return nil}
+        return assignedTo
     }
 }
     
