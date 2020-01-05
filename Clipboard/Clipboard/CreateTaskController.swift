@@ -24,6 +24,7 @@ class CreateTaskController: UIViewController {
         
         statusTextField.isUserInteractionEnabled = false
         difficultyTextField.isUserInteractionEnabled = false
+        assignedToTextField.isUserInteractionEnabled = false
     }
     @IBAction func createTaskTapped(_ sender: Any) {
         if(titleTextField.hasText && statusTextField.hasText

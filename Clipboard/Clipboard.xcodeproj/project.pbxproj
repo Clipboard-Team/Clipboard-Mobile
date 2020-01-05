@@ -28,6 +28,7 @@
 		25D3AF6623BF17A400987087 /* AddMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6523BF17A400987087 /* AddMemberController.swift */; };
 		25D3AF6823C01AC600987087 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6723C01AC600987087 /* HomeController.swift */; };
 		25D3AF6A23C06C2400987087 /* CreateTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6923C06C2400987087 /* CreateTaskController.swift */; };
+		25D3AF6C23C1638000987087 /* EditTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6B23C1638000987087 /* EditTaskController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		25D3AF6523BF17A400987087 /* AddMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberController.swift; sourceTree = "<group>"; };
 		25D3AF6723C01AC600987087 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		25D3AF6923C06C2400987087 /* CreateTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskController.swift; sourceTree = "<group>"; };
+		25D3AF6B23C1638000987087 /* EditTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				25D3AF6523BF17A400987087 /* AddMemberController.swift */,
 				25D3AF6723C01AC600987087 /* HomeController.swift */,
 				25D3AF6923C06C2400987087 /* CreateTaskController.swift */,
+				25D3AF6B23C1638000987087 /* EditTaskController.swift */,
 				2596A28123BACA22005FDEB4 /* Model */,
 				2596A26C23BAAF5B005FDEB4 /* Assets.xcassets */,
 				2596A26E23BAAF5B005FDEB4 /* LaunchScreen.storyboard */,
@@ -210,6 +213,7 @@
 				25D3AF6823C01AC600987087 /* HomeController.swift in Sources */,
 				2596A27E23BAC9D7005FDEB4 /* Task.swift in Sources */,
 				25D3AF6623BF17A400987087 /* AddMemberController.swift in Sources */,
+				25D3AF6C23C1638000987087 /* EditTaskController.swift in Sources */,
 				2596A29223BE84AA005FDEB4 /* IconCell.swift in Sources */,
 				25D3AF6A23C06C2400987087 /* CreateTaskController.swift in Sources */,
 				2596A28923BE46E2005FDEB4 /* AddMembersController.swift in Sources */,

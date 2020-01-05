@@ -13,6 +13,9 @@ class HomeController: UIViewController {
     @IBAction func addTaskTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromHomeToCreateTask", sender: self)
     }
+    @IBAction func viewTaskTapped(_ sender: Any) {
+        performSegue(withIdentifier: "fromHomeToEditTask", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,6 +27,11 @@ class HomeController: UIViewController {
         }
         if let secondViewController = segue.destination as? HomeController {
             secondViewController.modalPresentationStyle = .fullScreen
+        }
+        if let secondViewController = segue.destination as? EditTaskController {
+            secondViewController.modalPresentationStyle = .fullScreen
+            guard let task = Constants.currProject.getTeam()?.getTasks()[0] else {return}
+            secondViewController.setTask(task: task)
         }
     }
 
