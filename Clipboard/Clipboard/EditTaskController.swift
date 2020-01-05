@@ -45,10 +45,34 @@ class EditTaskController: UIViewController {
         assignedToTextField.isUserInteractionEnabled = false
     }
     @IBAction func resetTapped(_ sender: Any) {
+        startDateLabel.text = backupTask.getStartDate().description
+        titleTextField.text = backupTask.getTitle()
+        statusTextField.text = backupTask.getStatus()
+        difficultyTextField.text = backupTask.getDifficulty()
+        assignedToTextField.text = backupTask.getAssignedTo().getName()
+        dueDateTextField.text = backupTask.getDueDate().description
+        descriptionTextField.text = backupTask.getDescription()
     }
     @IBAction func editTapped(_ sender: Any) {
+        guard let tasks = Constants.currProject.getTeam()?.getTasks() else {return}
+        for task in tasks {
+            if(task.getTitle() == backupTask.getTitle()){
+                task.setTitle(title: titleTextField.text ?? "")
+                task.setStatus(status: statusTextField.text!)
+                task.setDifficulty(difficulty: difficultyTextField.text!)
+                //task.setAssignedTo(member: )
+                //task.setDueDate(date: )
+                task.setDescription(description: descriptionTextField.text ?? "")
+                
+                if(commentTextField.hasText){
+                    task.addComment(comment: Comment(comment: commentTextField.text!))
+                }
+            }
+        }
+        _ = navigationController?.popViewController(animated: true)
     }
     @IBAction func deleteTapped(_ sender: Any) {
+        
     }
     
     
