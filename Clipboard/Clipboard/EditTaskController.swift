@@ -34,31 +34,36 @@ class EditTaskController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 80
         
-        startDateLabel.text = task.getStartDate().description
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormat
+        startDateLabel.text = dateFormatter.string(from: task.getStartDate())
         titleTextField.text = task.getTitle()
         statusTextField.text = task.getStatus()
         difficultyTextField.text = task.getDifficulty()
         assignedToTextField.text = task.getAssignedTo()?.getName()
-        dueDateTextField.text = task.getDueDate().description
+        dueDateTextField.text = dateFormatter.string(from: task.getDueDate())
         descriptionTextField.text = task.getDescription()
         
 //        statusTextField.isUserInteractionEnabled = false
 //        difficultyTextField.isUserInteractionEnabled = false
         assignedToTextField.isUserInteractionEnabled = false
-        dueDateTextField.isUserInteractionEnabled = false
+//        dueDateTextField.isUserInteractionEnabled = false
         
+        //dueDateTextField.inputView = datePickerView
         pickerView.delegate = self
         pickerView.dataSource = self
         statusTextField.inputView = pickerView
         difficultyTextField.inputView = pickerView
     }
     @IBAction func resetTapped(_ sender: Any) {
-        startDateLabel.text = backupTask.getStartDate().description
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormat
+        startDateLabel.text = dateFormatter.string(from: task.getStartDate())
         titleTextField.text = backupTask.getTitle()
         statusTextField.text = backupTask.getStatus()
         difficultyTextField.text = backupTask.getDifficulty()
         assignedToTextField.text = backupTask.getAssignedTo()?.getName()
-        dueDateTextField.text = backupTask.getDueDate().description
+        dueDateTextField.text = dateFormatter.string(from: task.getDueDate())
         descriptionTextField.text = backupTask.getDescription()
         commentTextField.text = ""
     }

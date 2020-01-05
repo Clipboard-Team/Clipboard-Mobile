@@ -11,23 +11,47 @@ import UIKit
 class CreateTaskController: UIViewController {
     private var pickerData = [Constants.statuses, Constants.difficulties]
 
-    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
     @IBOutlet weak var difficultyTextField: UITextField!
     @IBOutlet weak var assignedToTextField: UITextField!
     @IBOutlet weak var dueDateTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
+    
+    private var datePickerView: UIDatePicker?
+    private var pickerView: UIPickerView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView.delegate = self
-        pickerView.dataSource = self
         
-        statusTextField.isUserInteractionEnabled = false
-        difficultyTextField.isUserInteractionEnabled = false
+//        statusTextField.isUserInteractionEnabled = false
+//        difficultyTextField.isUserInteractionEnabled = false
         assignedToTextField.isUserInteractionEnabled = false
-        dueDateTextField.isUserInteractionEnabled = false
+        
+        datePickerView = UIDatePicker()
+        dueDateTextField.inputView = datePickerView
+        datePickerView?.datePickerMode = .date
+        datePickerView?.addTarget(self, action: #selector(CreateTaskController.dateChanged(datePicker: )), for: .valueChanged)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateTaskController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        pickerView = UIPickerView()
+        pickerView?.delegate = self
+        pickerView?.dataSource = self
+        statusTextField.inputView = pickerView
+        difficultyTextField.inputView = pickerView
     }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormat
+        dueDateTextField.text = dateFormatter.string(from: datePickerView!.date)
+        view.endEditing(true)
+    }
+    
     @IBAction func createTaskTapped(_ sender: Any) {
         if(titleTextField.hasText && statusTextField.hasText
             && difficultyTextField.hasText){
@@ -43,6 +67,9 @@ class CreateTaskController: UIViewController {
             }
             if(descriptionTextField.hasText){
                 t.setDescription(description: descriptionTextField.text!)
+            }
+            if(dueDateTextField.hasText){
+                t.setDueDate(date: datePickerView!.date)
             }
             
             Constants.currProject.getTeam()?.addTask(task: t)
