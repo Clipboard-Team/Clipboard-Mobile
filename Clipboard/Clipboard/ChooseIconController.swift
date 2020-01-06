@@ -47,13 +47,13 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
-        AddMembersController.previousMember = ChooseIconController.member
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let secondViewController = segue.destination as? AddMembersController{
             secondViewController.modalPresentationStyle = .fullScreen
+            AddMembersController.previousMember = ChooseIconController.member
         }
     }
 }

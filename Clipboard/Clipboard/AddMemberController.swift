@@ -28,9 +28,6 @@ class AddMemberController: UIViewController {
         Constants.currProject.getTeam()?.addMember(member: Member(name: name, role: role, team: team))
         
         performSegue(withIdentifier: "fromAddMemberToChooseIcon", sender: self)
-        guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
-        guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
-        ChooseIconController.member = member
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,6 +38,10 @@ class AddMemberController: UIViewController {
         }
         if let secondViewController = segue.destination as? ChooseIconController{
             secondViewController.modalPresentationStyle = .fullScreen
+            
+            guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
+            guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
+            ChooseIconController.member = member
         }
     }
 }

@@ -75,7 +75,6 @@ class CreateProjectController: UIViewController {
                 Constants.currMember = newMem
                 Constants.currProject.printEntireProject()
                 performSegue(withIdentifier: "fromCreateProjectToChooseIcon", sender: self)
-                ChooseIconController.member = Constants.currMember
             default:
                 break
             }
@@ -92,6 +91,7 @@ class CreateProjectController: UIViewController {
         }
         if let secondViewController = segue.destination as? ChooseIconController{
             secondViewController.modalPresentationStyle = .fullScreen
+            ChooseIconController.member = Constants.currMember
         }
     }
     
