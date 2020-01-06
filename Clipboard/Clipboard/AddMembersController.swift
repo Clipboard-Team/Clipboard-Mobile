@@ -63,5 +63,20 @@ extension AddMembersController: UITableViewDelegate, UITableViewDataSource{
         cell.set(member: member)
         return cell
     }
-     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let DeleteAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("Update action ...")
+            success(true)
+        })
+        DeleteAction.backgroundColor = .red
+
+        let EditAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("Update action ...")
+            success(true)
+        })
+        EditAction.backgroundColor = .blue
+
+
+        return UISwipeActionsConfiguration(actions: [DeleteAction,EditAction])
+    }
 }
