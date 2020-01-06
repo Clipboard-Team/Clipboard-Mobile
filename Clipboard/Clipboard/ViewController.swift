@@ -22,18 +22,16 @@ class ViewController: UIViewController {
         
         if(projectText.isEmpty || usernameText.isEmpty){
         } else{
-            Constants.currProject = Constants.currProject
         }
     }
     @IBAction func createTapped(_ sender: Any) {
-        print("Hello")
         performSegue(withIdentifier: "fromLoginToCreateProject", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let secondViewController = segue.destination as? CreateProjectController {
             secondViewController.modalPresentationStyle = .fullScreen
-            secondViewController.setState(state: "project")
+            CreateProjectController.state = "project"
         }
     }
 }

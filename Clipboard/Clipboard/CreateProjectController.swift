@@ -9,76 +9,67 @@
 import UIKit
 
 class CreateProjectController: UIViewController {
-    private var state:String? // project, team, admin, member
-    private var currentMember:Member?
+    
+    public static var state = String() // project, team, admin
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var dynamicTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var dynamicTextField: UITextField!
     @IBAction func backTapped(_ sender: Any) {
-        switch state {
+        switch CreateProjectController.state {
         case "project":
-            print("will segue")
+            print("segue to login page")
             Constants.currProject.printEntireProject()
-            setState(state: "project")
-            dynamicTextField.text = ""
             performSegue(withIdentifier: "fromCreateProjectToLogin", sender: self)
         case "team":
-            print("will not segue")
-            print("will instead change state and ui labels")
+            print("state team changing to state project")
             Constants.currProject.printEntireProject()
-            setState(state: "project")
-            titleLabel.text = "New Project"
-            subtitleLabel.text = "Think of a cool name for your project!"
-            dynamicTextField.placeholder = "Project name"
-            dynamicTextField.text = ""
+            changeState(
+                state: "project",
+                title: "New Project",
+                subtitle: "Think of a cool name for your project!",
+                placeholder: "Project name")
         case "admin":
-            print("will not segue")
-            print("will instead change state and ui labels")
+            print("state admin changing to state team")
             Constants.currProject.printEntireProject()
-            setState(state: "team")
-            titleLabel.text = "New Team"
-            subtitleLabel.text = "What do you want to name your team?"
-            dynamicTextField.placeholder = "Team name"
-            dynamicTextField.text = ""
+            changeState(
+                state: "team",
+                title: "New Team",
+                subtitle: "What do you want to name your team?",
+                placeholder: "Team name")
         default:
             break
         }
     }
+    
     @IBAction func forwardTapped(_ sender: Any) {
         guard let text = dynamicTextField.text else {return}
-        guard let state = state else {return}
         if(!text.isEmpty){
-            print("good")
-            
-            // call for segue if in admin state, else change UI
-            switch state {
+            switch CreateProjectController.state {
             case "project":
-                print("will not segue")
-                print("will instead change state and ui labels")
+                print("state project changing to state team")
                 Constants.currProject = Project(title: text)
                 Constants.currProject.printEntireProject()
-                setState(state: "team")
-                titleLabel.text = "New Team"
-                subtitleLabel.text = "What do you want to name your team?"
-                dynamicTextField.placeholder = "Team name"
-                dynamicTextField.text = ""
+                changeState(
+                    state: "team",
+                    title: "New Team",
+                    subtitle: "What do you want to name your team?",
+                    placeholder: "Team name")
             case "team":
-                print("will not segue")
-                print("will instead change state and ui labels")
+                print("state team changing to state admin")
                 Constants.currProject.setTeam(team: text)
                 Constants.currProject.printEntireProject()
-                setState(state: "admin")
-                titleLabel.text = "Create your own Admin account"
-                subtitleLabel.text = "You can create more admin accounts later on"
-                dynamicTextField.placeholder = "Admin name"
-                dynamicTextField.text = ""
+                changeState(
+                    state: "admin",
+                    title: "Create your own Admin account",
+                    subtitle: "You can create more admin accounts later on",
+                    placeholder: "Admin name")
             case "admin":
-                print("will segue")
+                print("segue to choose icon page")
                 guard let teamTitle = Constants.currProject.getTeam()?.getTitle() else {return}
                 let newMem = Member(name: text, role: "Admin", team: teamTitle)
                 Constants.currProject.getTeam()?.addMember(member: newMem)
@@ -90,13 +81,9 @@ class CreateProjectController: UIViewController {
             }
             
         } else{
-            print("not good")
         }
     }
     
-    func setState(state:String){
-        self.state = state
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -108,5 +95,13 @@ class CreateProjectController: UIViewController {
 
             secondViewController.setMember(member: Constants.currMember)
         }
+    }
+    
+    func changeState(state: String, title: String, subtitle: String, placeholder: String){
+        CreateProjectController.state = state
+        titleLabel.text = title
+        subtitleLabel.text = subtitle
+        dynamicTextField.placeholder = placeholder
+        dynamicTextField.text = ""
     }
 }
