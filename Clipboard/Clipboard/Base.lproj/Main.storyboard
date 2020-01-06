@@ -837,6 +837,13 @@
                                     <action selector="confirmTapped:" destination="5E4-Hu-Bez" eventType="touchUpInside" id="ys7-gQ-J5J"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-dt-Jum">
+                                <rect key="frame" x="138" y="375" width="30" height="30"/>
+                                <state key="normal" title="edit"/>
+                                <connections>
+                                    <action selector="editTapped:" destination="5E4-Hu-Bez" eventType="touchUpInside" id="E3y-vQ-OAh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -851,6 +858,7 @@
                             <constraint firstItem="WCD-vk-XRC" firstAttribute="top" secondItem="nir-4J-byL" secondAttribute="bottom" constant="20" id="DtR-4g-kVX"/>
                             <constraint firstItem="nVu-lS-1Nq" firstAttribute="leading" secondItem="XHj-WX-Z90" secondAttribute="leading" constant="20" id="IgG-Ku-Gap"/>
                             <constraint firstItem="nir-4J-byL" firstAttribute="top" secondItem="Qqg-YH-KHf" secondAttribute="bottom" constant="8" id="MP2-vg-2xP"/>
+                            <constraint firstItem="A9a-dt-Jum" firstAttribute="leading" secondItem="MeR-Bu-q7x" secondAttribute="trailing" constant="8" id="Mmg-qX-CQO"/>
                             <constraint firstItem="8qt-0d-MrU" firstAttribute="top" secondItem="wX1-qy-hbQ" secondAttribute="bottom" constant="20" id="N7i-yn-sFP"/>
                             <constraint firstItem="qXl-ml-Tfm" firstAttribute="top" secondItem="WCD-vk-XRC" secondAttribute="bottom" constant="150" id="NFR-sW-nta"/>
                             <constraint firstItem="ApN-c5-zbf" firstAttribute="top" secondItem="XHj-WX-Z90" secondAttribute="top" constant="20" id="Osk-D5-poz"/>
@@ -861,6 +869,7 @@
                             <constraint firstItem="ApN-c5-zbf" firstAttribute="leading" secondItem="XHj-WX-Z90" secondAttribute="leading" constant="20" id="fCt-NI-4a0"/>
                             <constraint firstItem="MeR-Bu-q7x" firstAttribute="top" secondItem="0Bt-gF-jWl" secondAttribute="bottom" constant="20" id="gny-2G-sXJ"/>
                             <constraint firstItem="wX1-qy-hbQ" firstAttribute="leading" secondItem="XHj-WX-Z90" secondAttribute="leading" constant="20" id="hwT-ry-APs"/>
+                            <constraint firstItem="A9a-dt-Jum" firstAttribute="top" secondItem="WCD-vk-XRC" secondAttribute="bottom" constant="55" id="mHv-LJ-GVz"/>
                             <constraint firstItem="XHj-WX-Z90" firstAttribute="trailing" secondItem="2dS-Hl-7yz" secondAttribute="trailing" constant="20" id="ojn-bg-XWD"/>
                             <constraint firstItem="8qt-0d-MrU" firstAttribute="leading" secondItem="XHj-WX-Z90" secondAttribute="leading" constant="80" id="pFD-vD-lfH"/>
                             <constraint firstItem="nir-4J-byL" firstAttribute="leading" secondItem="XHj-WX-Z90" secondAttribute="leading" constant="20" id="sei-sC-0lk"/>
@@ -881,11 +890,68 @@
                         <outlet property="roleToggle" destination="0Bt-gF-jWl" id="Tos-Px-RJw"/>
                         <outlet property="teamDescriptionTextField" destination="nir-4J-byL" id="W57-xL-hMP"/>
                         <outlet property="teamNameTextField" destination="Qqg-YH-KHf" id="uOd-IC-Kuw"/>
+                        <segue destination="6h4-w3-E68" kind="show" identifier="fromManageToManageMembers" id="JCr-HU-wQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1H9-ej-oPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4028" y="-534"/>
+        </scene>
+        <!--Manage Members Controller-->
+        <scene sceneID="NHq-eS-eeK">
+            <objects>
+                <viewController id="6h4-w3-E68" customClass="ManageMembersController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fd0-ii-9ZK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7G5-Ya-lRr">
+                                <rect key="frame" x="20" y="20" width="218" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="3oL-OB-tWA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add, edit, or remove team members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bt2-2L-hRx">
+                                <rect key="frame" x="20" y="62" width="274" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sYO-kx-2WO">
+                                <rect key="frame" x="0.0" y="91" width="414" height="637"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skA-hN-fTH">
+                                <rect key="frame" x="364" y="758" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sYO-kx-2WO" firstAttribute="trailing" secondItem="lNI-4H-aci" secondAttribute="trailing" id="2do-8O-ZCx"/>
+                            <constraint firstItem="bt2-2L-hRx" firstAttribute="top" secondItem="7G5-Ya-lRr" secondAttribute="bottom" constant="8" id="CG4-vE-XX4"/>
+                            <constraint firstItem="lNI-4H-aci" firstAttribute="trailing" secondItem="skA-hN-fTH" secondAttribute="trailing" constant="20" id="Gqc-xV-KMG"/>
+                            <constraint firstItem="sYO-kx-2WO" firstAttribute="top" secondItem="bt2-2L-hRx" secondAttribute="bottom" constant="8" id="TwB-8Z-JU9"/>
+                            <constraint firstItem="7G5-Ya-lRr" firstAttribute="leading" secondItem="lNI-4H-aci" secondAttribute="leading" constant="20" id="Xba-4z-K1c"/>
+                            <constraint firstItem="lNI-4H-aci" firstAttribute="bottom" secondItem="skA-hN-fTH" secondAttribute="bottom" constant="20" id="ayY-Do-cnZ"/>
+                            <constraint firstItem="bt2-2L-hRx" firstAttribute="leading" secondItem="lNI-4H-aci" secondAttribute="leading" constant="20" id="g89-uU-mzX"/>
+                            <constraint firstItem="7G5-Ya-lRr" firstAttribute="top" secondItem="lNI-4H-aci" secondAttribute="top" constant="20" id="jgB-Qc-Gmg"/>
+                            <constraint firstItem="skA-hN-fTH" firstAttribute="top" secondItem="sYO-kx-2WO" secondAttribute="bottom" constant="30" id="lHf-TN-LTB"/>
+                            <constraint firstItem="sYO-kx-2WO" firstAttribute="leading" secondItem="lNI-4H-aci" secondAttribute="leading" id="mTu-Ah-75N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lNI-4H-aci"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wKV-Gn-UzY"/>
+                    <connections>
+                        <outlet property="tableView" destination="sYO-kx-2WO" id="ogH-T0-HXT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlv-83-QtK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4982.608695652174" y="-534.375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mQr-9e-gPx">
@@ -908,7 +974,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2up-Eo-FGQ"/>
         <segue reference="VoE-bi-8dI"/>
         <segue reference="k5s-eK-PCD"/>
         <segue reference="UoZ-KM-M0d"/>
