@@ -10,18 +10,20 @@ import UIKit
 
 class CreateTaskController: UIViewController {
     private var pickerData = [Constants.statuses, Constants.difficulties]
-
+    private var datePickerView: UIDatePicker?
+    private var pickerView: UIPickerView?
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
     @IBOutlet weak var difficultyTextField: UITextField!
     @IBOutlet weak var assignedToTextField: UITextField!
     @IBOutlet weak var dueDateTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
-    
-    private var datePickerView: UIDatePicker?
-    private var pickerView: UIPickerView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateTaskController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
         
         guard let memberNames = Constants.getMemberNames() else {return}
         pickerData.append(memberNames)
@@ -30,8 +32,6 @@ class CreateTaskController: UIViewController {
         dueDateTextField.inputView = datePickerView
         datePickerView?.datePickerMode = .date
         datePickerView?.addTarget(self, action: #selector(CreateTaskController.dateChanged(datePicker: )), for: .valueChanged)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateTaskController.viewTapped(gestureRecognizer:)))
-        view.addGestureRecognizer(tapGesture)
         
         pickerView = UIPickerView()
         pickerView?.delegate = self
@@ -54,10 +54,15 @@ class CreateTaskController: UIViewController {
     }
     
     @IBAction func createTaskTapped(_ sender: Any) {
-        if(titleTextField.hasText && statusTextField.hasText
+        if(titleTextField.hasText
+            && statusTextField.hasText
             && difficultyTextField.hasText){
-            _ = navigationController?.popViewController(animated: true)
-            let t = Task(title: titleTextField.text!, status: statusTextField.text!, difficulty: difficultyTextField.text!)
+                    
+            let t = Task(
+                title: titleTextField.text!,
+                status: statusTextField.text!,
+                difficulty: difficultyTextField.text!)
+            
             if(assignedToTextField.hasText){
                 for mem in (Constants.currProject.getTeam()?.getMembers())! {
                     if(mem.getName() == assignedToTextField.text){
@@ -69,9 +74,11 @@ class CreateTaskController: UIViewController {
                     }
                 }
             }
+            
             if(descriptionTextField.hasText){
                 t.setDescription(description: descriptionTextField.text!)
             }
+            
             if(dueDateTextField.hasText){
                 t.setDueDate(date: datePickerView!.date)
             }
@@ -79,6 +86,7 @@ class CreateTaskController: UIViewController {
             Constants.currProject.getTeam()?.addTask(task: t)
             print("added new task")
             Constants.currProject.printEntireProject()
+            _ = navigationController?.popViewController(animated: true)
         } else{
             print("cant")
         }
@@ -97,15 +105,11 @@ extension CreateTaskController: UIPickerViewDataSource, UIPickerViewDelegate {
         return self.pickerData.count
     }
     
-
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[component][row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // This method is triggered whenever the user makes a change to the picker selection.
-        // The parameter named row and component represents what was selected.
         if(Constants.statuses.contains(pickerData[component][row]) ){
             statusTextField.text = pickerData[component][row]
         } else if (Constants.difficulties.contains(pickerData[component][row])){
