@@ -18,13 +18,11 @@ class ManageMembersController: UIViewController {
         tableView.rowHeight = 100
         tableView.register(MemberCell.self, forCellReuseIdentifier: "memberCell")
     }
-//    @IBAction func backTapped(_ sender: Any) {
-//        _ = navigationController?.popViewController(animated: true)
-//    }
-//    @IBAction func addTapped(_ sender: Any) {
-//        performSegue(withIdentifier: "fromManageMembersToAddMember", sender: self)
-//        AddMemberController.state = "login"
-//    }
+
+    @IBAction func addTapped(_ sender: Any) {
+        performSegue(withIdentifier: "fromManageMembersToAddMember", sender: self)
+        AddMemberController.state = "login"
+    }
     
 }
 

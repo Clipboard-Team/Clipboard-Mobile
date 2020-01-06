@@ -9,6 +9,7 @@
 import UIKit
 
 class ChooseIconController: UIViewController {
+    public static var state = String() // create, login
     public static var member = Member(name: "Default", role: "Default", team: "Default")
     var icons: [Icon] = []
     @IBOutlet weak var tableView: UITableView!
@@ -46,7 +47,19 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
                 break
             }
         }
-        performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
+        if(ChooseIconController.state == "login"){
+            popViewControllerss(popViews: 2)
+        } else{
+            performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
+        }
+    }
+    
+    func popViewControllerss(popViews: Int, animated: Bool = true) {
+        if self.navigationController!.viewControllers.count > popViews
+        {
+            let vc = self.navigationController!.viewControllers[self.navigationController!.viewControllers.count - popViews - 1]
+             self.navigationController?.popToViewController(vc, animated: animated)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

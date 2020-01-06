@@ -9,6 +9,7 @@
 import UIKit
 
 class AddMemberController: UIViewController {
+    public static var state = String() // create, login
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var roleToggle: UISegmentedControl!
     
@@ -18,7 +19,12 @@ class AddMemberController: UIViewController {
 
 
     @IBAction func backTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromAddMemberToAddMembers", sender: self)
+       
+        if(AddMemberController.state == "login"){
+            _ = navigationController?.popViewController(animated: true)
+        } else {
+             performSegue(withIdentifier: "fromAddMemberToAddMembers", sender: self)
+        }
     }
     
     @IBAction func nextTapped(_ sender: Any) {
@@ -27,6 +33,7 @@ class AddMemberController: UIViewController {
         guard let team = Constants.currProject.getTeam()?.getTitle() else {return}
         Constants.currProject.getTeam()?.addMember(member: Member(name: name, role: role, team: team))
         
+
         performSegue(withIdentifier: "fromAddMemberToChooseIcon", sender: self)
     }
     
@@ -42,6 +49,9 @@ class AddMemberController: UIViewController {
             guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
             guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
             ChooseIconController.member = member
+            if(AddMemberController.state == "login"){
+                ChooseIconController.state = "login"
+            }
         }
     }
 }
