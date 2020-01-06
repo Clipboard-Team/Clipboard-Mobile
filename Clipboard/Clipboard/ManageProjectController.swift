@@ -10,6 +10,8 @@ import UIKit
 
 class ManageProjectController: UIViewController {
 
+    private var backupProject = Project(title: "Default")
+    private var backupMember = Member(name: "Default", role: "Default", team: "Default")
     @IBOutlet weak var projectStartDateLabel: UILabel!
     @IBOutlet weak var projectNameTextField: UITextField!
     @IBOutlet weak var projectDescriptionTextField: UITextField!
@@ -21,8 +23,6 @@ class ManageProjectController: UIViewController {
     @IBOutlet weak var numAdminsLabel: UILabel!
     @IBOutlet weak var numLeadsLabel: UILabel!
     
-    private var backupProject = Project(title: "Default")
-    private var backupMember = Member(name: "Default", role: "Default", team: "Default")
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,8 +51,6 @@ class ManageProjectController: UIViewController {
         if(teamDescriptionTextField.hasText){
             Constants.currProject.getTeam()?.setDescription(description: teamDescriptionTextField.text!)
         }
-        
-        
 
 //        if(memberNameTextField.hasText){
 //            guard let members = Constants.currProject.getTeam()?.getMembers() else {return}
