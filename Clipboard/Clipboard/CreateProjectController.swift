@@ -9,7 +9,6 @@
 import UIKit
 
 class CreateProjectController: UIViewController {
-    
     public static var state = String() // project, team, admin
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -76,6 +75,7 @@ class CreateProjectController: UIViewController {
                 Constants.currMember = newMem
                 Constants.currProject.printEntireProject()
                 performSegue(withIdentifier: "fromCreateProjectToChooseIcon", sender: self)
+                ChooseIconController.member = Constants.currMember
             default:
                 break
             }
@@ -92,8 +92,6 @@ class CreateProjectController: UIViewController {
         }
         if let secondViewController = segue.destination as? ChooseIconController{
             secondViewController.modalPresentationStyle = .fullScreen
-
-            secondViewController.setMember(member: Constants.currMember)
         }
     }
     

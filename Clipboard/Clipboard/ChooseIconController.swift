@@ -9,25 +9,18 @@
 import UIKit
 
 class ChooseIconController: UIViewController {
-    private var member: Member?
-
-    @IBOutlet weak var tableView: UITableView!
+    public static var member = Member(name: "Default", role: "Default", team: "Default")
     var icons: [Icon] = []
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
         tableView.register(IconCell.self, forCellReuseIdentifier: "iconCell")
-
-        
         guard let icons = getIcons() else {return}
         self.icons = icons
-    }
-    
-    func setMember(member:Member){
-        self.member = member
     }
 }
 
@@ -45,25 +38,22 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let icon = icons[indexPath.row]
-        for n in 0...(Constants.currProject.getTeam()?.getMembers().count)!-1{
-            if(Constants.currProject.getTeam()?.getMembers()[n].getName() == member?.getName()){
-                print("found")
+        let count = (Constants.currProject.getTeam()?.getMembers().count)!-1
+        for n in 0...count{
+            if(Constants.currProject.getTeam()?.getMembers()[n].getName() == ChooseIconController.member.getName()){
                 Constants.currProject.getTeam()?.getMembers()[n].setIcon(icon: icon.getImage())
-                print("new: "+(Constants.currProject.getTeam()?.getMembers()[n].getIcon().description)!)
-                member = Constants.currProject.getTeam()?.getMembers()[n]
+                ChooseIconController.member = (Constants.currProject.getTeam()?.getMembers()[n])!
                 break
             }
         }
         performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
-//        print("*test*: "+String((self.member?.getIcon().description)!))
+        AddMembersController.previousMember = ChooseIconController.member
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-
         if let secondViewController = segue.destination as? AddMembersController{
             secondViewController.modalPresentationStyle = .fullScreen
-            guard let member = self.member else {return}
-            secondViewController.setPreviouslyCustomizedMember(member: member)
         }
     }
 }

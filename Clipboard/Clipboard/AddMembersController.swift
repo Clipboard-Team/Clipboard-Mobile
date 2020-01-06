@@ -9,18 +9,15 @@
 import UIKit
 
 class AddMembersController: UIViewController{
-    private var prevMember: Member?
+    public static var previousMember = Member(name: "Default", role: "Default", team: "Default")
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
         tableView.register(MemberCell.self, forCellReuseIdentifier: "memberCell")
-    }
-    
-    func setPreviouslyCustomizedMember(member: Member){
-        self.prevMember = member
     }
 
     @IBAction func backTapped(_ sender: Any) {
@@ -40,8 +37,7 @@ class AddMembersController: UIViewController{
         }
         if let secondViewController = segue.destination as? ChooseIconController{
             secondViewController.modalPresentationStyle = .fullScreen
-            guard let member = prevMember else {return}
-            secondViewController.setMember(member: member)
+            ChooseIconController.member = AddMembersController.previousMember
         }
         if let secondViewController = segue.destination as? AddMemberController{
             print("match")

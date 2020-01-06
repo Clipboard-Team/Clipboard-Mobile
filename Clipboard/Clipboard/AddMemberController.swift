@@ -40,7 +40,7 @@ class AddMemberController: UIViewController {
             secondViewController.modalPresentationStyle = .fullScreen
             guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
             guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
-            secondViewController.setMember(member: member)
+            ChooseIconController.member = member
         }
     }
 }
