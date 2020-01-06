@@ -30,12 +30,12 @@ class Project {
     func setTitle(title: String){
         self.title = title
     }
-    func getTitle() -> String? {
+    func getTitle() -> String {
         return title
     }
     
-    func setDescription(startDate: Date){
-        self.startDate = startDate
+    func setDescription(description: String){
+        self.description = description
     }
     func getDescription() -> String? {
         return description
@@ -44,15 +44,14 @@ class Project {
     func setStartDate(startDate: Date){
         self.startDate = startDate
     }
-    func getStartDate() -> Date? {
+    func getStartDate() -> Date {
         return startDate
     }
     
     func printEntireProject(){
         print("Printing project details")
         
-        guard let title = getTitle() else {return}
-        print("\tProject Title: "+title)
+        print("\tProject Title: "+getTitle())
         
 //        guard let description = getDescription() else {return}
 //        print("\tProject Description: "+description)

@@ -10,6 +10,7 @@ import Foundation
 
 class Team{
     private var title = String()
+    private var description = String()
     private var tasks = [Task]()
     private var members = [Member]()
     
@@ -20,8 +21,17 @@ class Team{
     func setTitle(title:String){
         self.title = title
     }
+    
     func getTitle()->String{
         return title
+    }
+    
+    func setDescription(description: String){
+        self.description = description
+    }
+    
+    func getDescription() -> String?{
+        return self.description
     }
     
     func doesMemberAlreadyExist(member: Member) -> Bool{
