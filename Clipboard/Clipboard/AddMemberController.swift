@@ -11,23 +11,28 @@ import UIKit
 class AddMemberController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var roleToggle: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
 
     @IBAction func backTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromAddMemberToAddMembers", sender: self)
     }
+    
     @IBAction func nextTapped(_ sender: Any) {
         guard let name = usernameTextField.text else {return}
         guard let role = roleToggle.titleForSegment(at: roleToggle.selectedSegmentIndex) else {return}
         guard let team = Constants.currProject.getTeam()?.getTitle() else {return}
-        
         Constants.currProject.getTeam()?.addMember(member: Member(name: name, role: role, team: team))
+        
         performSegue(withIdentifier: "fromAddMemberToChooseIcon", sender: self)
+        guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
+        guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
+        ChooseIconController.member = member
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -36,9 +41,6 @@ class AddMemberController: UIViewController {
         }
         if let secondViewController = segue.destination as? ChooseIconController{
             secondViewController.modalPresentationStyle = .fullScreen
-            guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
-            guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
-            ChooseIconController.member = member
         }
     }
 }
