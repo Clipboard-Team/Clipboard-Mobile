@@ -22,6 +22,7 @@ class AddMembersController: UIViewController{
 
     @IBAction func backTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromAddMembersToChooseIcon", sender: self)
+        ChooseIconController.member = AddMembersController.previousMember
     }
     @IBAction func addTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromAddMembersToAddMember", sender: self)
@@ -37,10 +38,8 @@ class AddMembersController: UIViewController{
         }
         if let secondViewController = segue.destination as? ChooseIconController{
             secondViewController.modalPresentationStyle = .fullScreen
-            ChooseIconController.member = AddMembersController.previousMember
         }
         if let secondViewController = segue.destination as? AddMemberController{
-            print("match")
             secondViewController.modalPresentationStyle = .fullScreen
         }
     }

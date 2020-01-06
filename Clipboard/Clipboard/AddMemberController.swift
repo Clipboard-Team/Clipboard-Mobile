@@ -21,7 +21,6 @@ class AddMemberController: UIViewController {
         performSegue(withIdentifier: "fromAddMemberToAddMembers", sender: self)
     }
     @IBAction func nextTapped(_ sender: Any) {
-        print("CAUGHT")
         guard let name = usernameTextField.text else {return}
         guard let role = roleToggle.titleForSegment(at: roleToggle.selectedSegmentIndex) else {return}
         guard let team = Constants.currProject.getTeam()?.getTitle() else {return}
@@ -36,7 +35,6 @@ class AddMemberController: UIViewController {
             secondViewController.modalPresentationStyle = .fullScreen
         }
         if let secondViewController = segue.destination as? ChooseIconController{
-            print("MATCH")
             secondViewController.modalPresentationStyle = .fullScreen
             guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
             guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
