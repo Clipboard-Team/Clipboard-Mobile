@@ -96,7 +96,18 @@
 				2596A26523BAAF59005FDEB4 /* SceneDelegate.swift */,
 				2596A26923BAAF59005FDEB4 /* Main.storyboard */,
 				2596A28C23BE7E0A005FDEB4 /* Utilities */,
-				25D3AF7323C3CC8500987087 /* Controller */,
+				2596A26723BAAF59005FDEB4 /* ViewController.swift */,
+				2596A28423BB1C51005FDEB4 /* CreateProjectController.swift */,
+				2596A29323BE8549005FDEB4 /* ChooseIconController.swift */,
+				2596A28823BE46E2005FDEB4 /* AddMembersController.swift */,
+				25D3AF6523BF17A400987087 /* AddMemberController.swift */,
+				25D3AF6723C01AC600987087 /* HomeController.swift */,
+				25D3AF6923C06C2400987087 /* CreateTaskController.swift */,
+				25D3AF6B23C1638000987087 /* EditTaskController.swift */,
+				25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */,
+				25D3AF7123C3C81D00987087 /* ManageMembersController.swift */,
+				2596A29123BE84AA005FDEB4 /* IconCell.swift */,
+				2596A28A23BE4E95005FDEB4 /* MemberCell.swift */,
 				2596A28123BACA22005FDEB4 /* Model */,
 				2596A26C23BAAF5B005FDEB4 /* Assets.xcassets */,
 				2596A26E23BAAF5B005FDEB4 /* LaunchScreen.storyboard */,
@@ -121,28 +132,9 @@
 		2596A28C23BE7E0A005FDEB4 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				2596A29123BE84AA005FDEB4 /* IconCell.swift */,
-				2596A28A23BE4E95005FDEB4 /* MemberCell.swift */,
 				2596A28D23BE7E26005FDEB4 /* Constants.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		25D3AF7323C3CC8500987087 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				2596A26723BAAF59005FDEB4 /* ViewController.swift */,
-				2596A28423BB1C51005FDEB4 /* CreateProjectController.swift */,
-				2596A29323BE8549005FDEB4 /* ChooseIconController.swift */,
-				2596A28823BE46E2005FDEB4 /* AddMembersController.swift */,
-				25D3AF6523BF17A400987087 /* AddMemberController.swift */,
-				25D3AF6723C01AC600987087 /* HomeController.swift */,
-				25D3AF6923C06C2400987087 /* CreateTaskController.swift */,
-				25D3AF6B23C1638000987087 /* EditTaskController.swift */,
-				25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */,
-				25D3AF7123C3C81D00987087 /* ManageMembersController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

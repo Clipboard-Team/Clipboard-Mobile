@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 
@@ -22,9 +21,8 @@ class ViewController: UIViewController {
         guard let usernameText = usernameTextField.text else {return}
         
         if(projectText.isEmpty || usernameText.isEmpty){
-            print("not good")
         } else{
-            print("good")
+            Constants.currProject = Constants.currProject
         }
     }
     @IBAction func createTapped(_ sender: Any) {
