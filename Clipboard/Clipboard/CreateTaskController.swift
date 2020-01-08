@@ -88,7 +88,6 @@ class CreateTaskController: UIViewController {
             Constants.currProject.printEntireProject()
             _ = navigationController?.popViewController(animated: true)
         } else{
-            print("cant")
         }
 
     }

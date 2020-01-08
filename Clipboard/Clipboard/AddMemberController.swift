@@ -15,6 +15,8 @@ class AddMemberController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMemberController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
     }
 
 
@@ -53,5 +55,13 @@ class AddMemberController: UIViewController {
                 ChooseIconController.state = "login"
             }
         }
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        view.endEditing(true)
     }
 }

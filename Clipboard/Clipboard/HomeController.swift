@@ -12,6 +12,8 @@ class HomeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
     @IBAction func addTaskTapped(_ sender: Any) {
@@ -44,6 +46,14 @@ class HomeController: UIViewController {
             guard let task = Constants.currProject.getTeam()?.getTasks()[0] else {return}
             secondViewController.setTask(task: task)
         }
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        view.endEditing(true)
     }
 
 }

@@ -13,6 +13,8 @@ class ManageMembersController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ManageMembersController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
@@ -60,4 +62,11 @@ extension ManageMembersController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [DeleteAction,EditAction])
     }
     
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        view.endEditing(true)
+    }
 }

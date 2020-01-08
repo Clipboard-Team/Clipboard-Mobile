@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
     }
 
     @IBAction func loginTapped(_ sender: Any) {
@@ -35,6 +37,14 @@ class ViewController: UIViewController {
             secondViewController.modalPresentationStyle = .fullScreen
             CreateProjectController.state = "project"
         }
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        view.endEditing(true)
     }
 }
 

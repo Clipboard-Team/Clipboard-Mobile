@@ -16,6 +16,7 @@ class ChooseIconController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
@@ -69,4 +70,6 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
             AddMembersController.previousMember = ChooseIconController.member
         }
     }
+    
+
 }

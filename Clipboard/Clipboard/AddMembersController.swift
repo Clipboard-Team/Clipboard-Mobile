@@ -14,6 +14,8 @@ class AddMembersController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMembersController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
@@ -73,5 +75,13 @@ extension AddMembersController: UITableViewDelegate, UITableViewDataSource{
 
 
         return UISwipeActionsConfiguration(actions: [DeleteAction,EditAction])
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        view.endEditing(true)
     }
 }

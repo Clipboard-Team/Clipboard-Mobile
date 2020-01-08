@@ -25,6 +25,8 @@ class ManageProjectController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ManageProjectController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
 
         backupProject = Constants.currProject
         backupMember = Constants.currMember
@@ -110,5 +112,13 @@ class ManageProjectController: UIViewController {
         numMembersLabel.text = String(memCount) + " total member(s)"
         numAdminsLabel.text = String(adminCount) + " admin(s)"
         numLeadsLabel.text = String(leadCount) + " lead(s)"
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        view.endEditing(true)
     }
 }

@@ -16,6 +16,8 @@ class CreateProjectController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProjectController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
     }
 
     @IBAction func backTapped(_ sender: Any) {
@@ -101,5 +103,13 @@ class CreateProjectController: UIViewController {
         subtitleLabel.text = subtitle
         dynamicTextField.placeholder = placeholder
         dynamicTextField.text = ""
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        view.endEditing(true)
     }
 }
