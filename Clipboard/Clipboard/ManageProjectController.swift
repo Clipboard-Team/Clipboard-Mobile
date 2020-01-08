@@ -30,6 +30,10 @@ class ManageProjectController: UIViewController {
         backupMember = Constants.currMember
         displayOriginalProject()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        displayOriginalProject()
+    }
 
     @IBAction func editTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromManageToManageMembers", sender: self)

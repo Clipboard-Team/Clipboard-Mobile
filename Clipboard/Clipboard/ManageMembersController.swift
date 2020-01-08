@@ -18,6 +18,10 @@ class ManageMembersController: UIViewController {
         tableView.rowHeight = 100
         tableView.register(MemberCell.self, forCellReuseIdentifier: "memberCell")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     @IBAction func addTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromManageMembersToAddMember", sender: self)
