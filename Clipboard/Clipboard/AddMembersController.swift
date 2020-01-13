@@ -10,6 +10,7 @@ import UIKit
 
 class AddMembersController: UIViewController{
     public static var previousMember = Member(name: "Default", role: "Default", team: "Default")
+    private var memberToEditOrDelete = Member(name: "Default", role: "Default", team: "Default")
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -34,7 +35,8 @@ class AddMembersController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let secondViewController = segue.destination as? HomeController {
+        if let secondViewController = segue.destination as? UINavigationController {
+            print("caught")
             secondViewController.modalPresentationStyle = .fullScreen
         }
         if let secondViewController = segue.destination as? ChooseIconController{
@@ -67,14 +69,8 @@ extension AddMembersController: UITableViewDelegate, UITableViewDataSource{
         })
         DeleteAction.backgroundColor = .red
 
-        let EditAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            print("Update action ...")
-            success(true)
-        })
-        EditAction.backgroundColor = .blue
 
-
-        return UISwipeActionsConfiguration(actions: [DeleteAction,EditAction])
+        return UISwipeActionsConfiguration(actions: [DeleteAction])
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){

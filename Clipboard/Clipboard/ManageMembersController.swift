@@ -9,8 +9,9 @@
 import UIKit
 
 class ManageMembersController: UIViewController {
-
+    private var memberToEditOrDelete = Member(name: "Default", role: "Default", team: "Default")
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ManageMembersController.viewTapped(gestureRecognizer:)))
@@ -27,9 +28,21 @@ class ManageMembersController: UIViewController {
 
     @IBAction func addTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromManageMembersToAddMember", sender: self)
-        AddMemberController.state = "login"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        if let secondViewController = segue.destination as? AddMemberController {
+            secondViewController.modalPresentationStyle = .fullScreen
+            AddMemberController.state = "login"
+        }
+        
+        if let secondViewController = segue.destination as? EditMemberController {
+            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.setMember(member: memberToEditOrDelete)
+        }
+    }
 }
 
 extension ManageMembersController: UITableViewDelegate, UITableViewDataSource {
@@ -54,6 +67,9 @@ extension ManageMembersController: UITableViewDelegate, UITableViewDataSource {
 
         let EditAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("Update action ...")
+            guard let mem = Constants.currProject.getTeam()?.getMembers()[indexPath.row] else {return}
+            self.memberToEditOrDelete = mem
+            self.performSegue(withIdentifier: "fromManageMembersToEditMember", sender: self)
             success(true)
         })
         EditAction.backgroundColor = .blue
