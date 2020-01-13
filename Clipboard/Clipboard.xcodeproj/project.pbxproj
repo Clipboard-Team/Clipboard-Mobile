@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		257DBE8C23CD187D006097B7 /* EditMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DBE8B23CD187D006097B7 /* EditMemberController.swift */; };
 		2596A26423BAAF59005FDEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A26323BAAF59005FDEB4 /* AppDelegate.swift */; };
 		2596A26623BAAF59005FDEB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A26523BAAF59005FDEB4 /* SceneDelegate.swift */; };
 		2596A26823BAAF59005FDEB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A26723BAAF59005FDEB4 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		257DBE8B23CD187D006097B7 /* EditMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberController.swift; sourceTree = "<group>"; };
 		2596A26023BAAF59005FDEB4 /* Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2596A26323BAAF59005FDEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2596A26523BAAF59005FDEB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				25D3AF6B23C1638000987087 /* EditTaskController.swift */,
 				25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */,
 				25D3AF7123C3C81D00987087 /* ManageMembersController.swift */,
+				257DBE8B23CD187D006097B7 /* EditMemberController.swift */,
 				2596A29123BE84AA005FDEB4 /* IconCell.swift */,
 				2596A28A23BE4E95005FDEB4 /* MemberCell.swift */,
 				2596A28123BACA22005FDEB4 /* Model */,
@@ -211,6 +214,7 @@
 				2596A28B23BE4E95005FDEB4 /* MemberCell.swift in Sources */,
 				2596A27C23BAC832005FDEB4 /* Team.swift in Sources */,
 				2596A26823BAAF59005FDEB4 /* ViewController.swift in Sources */,
+				257DBE8C23CD187D006097B7 /* EditMemberController.swift in Sources */,
 				2596A28523BB1C51005FDEB4 /* CreateProjectController.swift in Sources */,
 				2596A26423BAAF59005FDEB4 /* AppDelegate.swift in Sources */,
 				2596A26623BAAF59005FDEB4 /* SceneDelegate.swift in Sources */,
