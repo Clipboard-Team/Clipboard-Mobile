@@ -13,12 +13,25 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var dynamicTextField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProjectController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         //isModalInPresentation = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(CreateProjectController.state == "project"){
+            //backButton.isHidden = true
+            /*
+             TODO: Figure out how to program a horizontal align on next button
+             */
+        } else{
+            //backButton.isHidden = false
+        }
     }
     
     
@@ -118,7 +131,7 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
             secondViewController.modalPresentationStyle = .fullScreen
         }
         if let secondViewController = segue.destination as? ChooseIconController{
-            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.modalPresentationStyle = .formSheet
             ChooseIconController.member = Constants.currMember
         }
     }

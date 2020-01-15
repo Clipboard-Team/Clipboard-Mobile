@@ -44,7 +44,7 @@ class AddMembersController: UIViewController{
             ChooseIconController.member = AddMembersController.previousMember
         }
         if let secondViewController = segue.destination as? AddMemberController{
-            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.modalPresentationStyle = .formSheet
         }
     }
 }

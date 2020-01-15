@@ -66,7 +66,7 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let secondViewController = segue.destination as? AddMembersController{
-            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.modalPresentationStyle = .formSheet
             AddMembersController.previousMember = ChooseIconController.member
         }
     }

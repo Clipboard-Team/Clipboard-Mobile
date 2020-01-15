@@ -96,8 +96,8 @@
 			children = (
 				2596A26323BAAF59005FDEB4 /* AppDelegate.swift */,
 				2596A26523BAAF59005FDEB4 /* SceneDelegate.swift */,
-				2596A26923BAAF59005FDEB4 /* Main.storyboard */,
 				2596A28C23BE7E0A005FDEB4 /* Utilities */,
+				2596A26923BAAF59005FDEB4 /* Main.storyboard */,
 				2596A26723BAAF59005FDEB4 /* ViewController.swift */,
 				2596A28423BB1C51005FDEB4 /* CreateProjectController.swift */,
 				2596A29323BE8549005FDEB4 /* ChooseIconController.swift */,

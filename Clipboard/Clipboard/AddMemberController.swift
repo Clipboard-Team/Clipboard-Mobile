@@ -46,7 +46,7 @@ class AddMemberController: UIViewController {
             secondViewController.modalPresentationStyle = .fullScreen
         }
         if let secondViewController = segue.destination as? ChooseIconController{
-            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.modalPresentationStyle = .formSheet
             
             guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
             guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}

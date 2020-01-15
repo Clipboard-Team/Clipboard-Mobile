@@ -27,6 +27,7 @@ class HomeController: UIViewController {
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     @IBAction func addTaskTapped(_ sender: Any) {
