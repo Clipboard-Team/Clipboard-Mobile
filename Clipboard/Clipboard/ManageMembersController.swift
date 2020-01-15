@@ -14,6 +14,8 @@ class ManageMembersController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Your Team"
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ManageMembersController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         tableView.delegate = self

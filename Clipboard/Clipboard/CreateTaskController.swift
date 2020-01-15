@@ -21,6 +21,7 @@ class CreateTaskController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Create Task"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateTaskController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)

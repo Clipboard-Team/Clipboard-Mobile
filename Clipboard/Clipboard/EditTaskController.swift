@@ -31,6 +31,7 @@ class EditTaskController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Edit Task"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditTaskController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)

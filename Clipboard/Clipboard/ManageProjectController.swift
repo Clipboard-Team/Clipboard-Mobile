@@ -25,6 +25,8 @@ class ManageProjectController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Manage Project"
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ManageProjectController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
 
@@ -112,6 +114,14 @@ class ManageProjectController: UIViewController {
         numMembersLabel.text = String(memCount) + " total member(s)"
         numAdminsLabel.text = String(adminCount) + " admin(s)"
         numLeadsLabel.text = String(leadCount) + " lead(s)"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let secondViewController = segue.destination as? ManageMembersController {
+            secondViewController.modalPresentationStyle = .formSheet
+        }
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){

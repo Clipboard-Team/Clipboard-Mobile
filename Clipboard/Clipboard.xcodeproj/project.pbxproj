@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		257DBE8C23CD187D006097B7 /* EditMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DBE8B23CD187D006097B7 /* EditMemberController.swift */; };
+		257DBE8E23CEBDE5006097B7 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DBE8D23CEBDE5006097B7 /* UIButtonExtension.swift */; };
 		2596A26423BAAF59005FDEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A26323BAAF59005FDEB4 /* AppDelegate.swift */; };
 		2596A26623BAAF59005FDEB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A26523BAAF59005FDEB4 /* SceneDelegate.swift */; };
 		2596A26823BAAF59005FDEB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A26723BAAF59005FDEB4 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		257DBE8B23CD187D006097B7 /* EditMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemberController.swift; sourceTree = "<group>"; };
+		257DBE8D23CEBDE5006097B7 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		2596A26023BAAF59005FDEB4 /* Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2596A26323BAAF59005FDEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2596A26523BAAF59005FDEB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				2596A28D23BE7E26005FDEB4 /* Constants.swift */,
+				257DBE8D23CEBDE5006097B7 /* UIButtonExtension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				2596A28523BB1C51005FDEB4 /* CreateProjectController.swift in Sources */,
 				2596A26423BAAF59005FDEB4 /* AppDelegate.swift in Sources */,
 				2596A26623BAAF59005FDEB4 /* SceneDelegate.swift in Sources */,
+				257DBE8E23CEBDE5006097B7 /* UIButtonExtension.swift in Sources */,
 				2596A29423BE8549005FDEB4 /* ChooseIconController.swift in Sources */,
 				2596A27823BAC4EA005FDEB4 /* Project.swift in Sources */,
 				25D3AF6823C01AC600987087 /* HomeController.swift in Sources */,
