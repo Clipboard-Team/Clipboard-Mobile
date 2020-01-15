@@ -471,7 +471,7 @@
             </objects>
             <point key="canvasLocation" x="2729" y="874"/>
         </scene>
-        <!--Task Board-->
+        <!--Home Controller-->
         <scene sceneID="nYe-DF-yxe">
             <objects>
                 <viewController id="jre-66-9fV" customClass="HomeController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
@@ -523,7 +523,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eWg-vM-eGO"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Task Board" id="F4W-19-zye">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="F4W-19-zye">
                         <barButtonItem key="backBarButtonItem" title="Go Back" id="fNm-q4-l9L"/>
                     </navigationItem>
                     <connections>

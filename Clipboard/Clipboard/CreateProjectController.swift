@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateProjectController: UIViewController {
+class CreateProjectController: UIViewController, UIAdaptivePresentationControllerDelegate {
     public static var state = String() // project, team, admin
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -18,7 +18,33 @@ class CreateProjectController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProjectController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
+        //isModalInPresentation = true
     }
+    
+    
+//    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+//        print("detected:")
+//        // Create the action buttons for the alert.
+//        let defaultAction = UIAlertAction(title: "Agree",
+//                             style: .default) { (action) in
+//         // Respond to user selection of the action.
+//        }
+//        let cancelAction = UIAlertAction(title: "Disagree",
+//                             style: .cancel) { (action) in
+//         // Respond to user selection of the action.
+//        }
+//        
+//        // Create and configure the alert controller.
+//        let alert = UIAlertController(title: "Terms and Conditions",
+//              message: "Click Agree to accept the terms and conditions.",
+//              preferredStyle: .alert)
+//        alert.addAction(defaultAction)
+//        alert.addAction(cancelAction)
+//             
+//        self.present(alert, animated: true) {
+//           // The alert was presented
+//        }
+//    }
 
     @IBAction func backTapped(_ sender: Any) {
         switch CreateProjectController.state {

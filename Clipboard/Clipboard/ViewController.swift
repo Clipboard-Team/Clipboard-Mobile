@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     @IBOutlet weak var projectTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let secondViewController = segue.destination as? CreateProjectController {
-            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.modalPresentationStyle = .formSheet
             CreateProjectController.state = "project"
         }
     }
