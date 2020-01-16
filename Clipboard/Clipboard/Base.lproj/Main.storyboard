@@ -513,9 +513,9 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="F4W-19-zye">
                         <barButtonItem key="backBarButtonItem" title="Go Back" id="fNm-q4-l9L"/>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="action" id="ehu-O7-ezK"/>
-                            <barButtonItem systemItem="search" id="m77-za-bHX"/>
-                            <barButtonItem systemItem="organize" id="yEv-EE-v8p">
+                            <barButtonItem image="chart.pie" catalog="system" id="ehu-O7-ezK"/>
+                            <barButtonItem image="table" catalog="system" id="m77-za-bHX"/>
+                            <barButtonItem title="Item" image="hammer" catalog="system" id="yEv-EE-v8p">
                                 <connections>
                                     <action selector="manageBarButtonTapped:" destination="jre-66-9fV" id="EX8-xZ-h4e"/>
                                 </connections>
@@ -718,7 +718,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the task?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPr-8v-qWw">
-                                <rect key="frame" x="20" y="76" width="250" height="34"/>
+                                <rect key="frame" x="20" y="20" width="250" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="V3i-US-JlB"/>
                                 </constraints>
@@ -726,7 +726,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38B-kn-PHI">
-                                <rect key="frame" x="20" y="140" width="130" height="34"/>
+                                <rect key="frame" x="20" y="84" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="0Zv-XI-FwB"/>
                                 </constraints>
@@ -734,7 +734,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Difficulty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28w-5e-gE2">
-                                <rect key="frame" x="20" y="182" width="130" height="34"/>
+                                <rect key="frame" x="20" y="126" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="uDG-JV-aO9"/>
                                 </constraints>
@@ -742,7 +742,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Assigned To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-1f-35V">
-                                <rect key="frame" x="20" y="224" width="130" height="34"/>
+                                <rect key="frame" x="20" y="168" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="bsH-D6-spm"/>
                                 </constraints>
@@ -750,7 +750,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Due Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-Dt-rEO">
-                                <rect key="frame" x="20" y="266" width="146.5" height="34"/>
+                                <rect key="frame" x="20" y="210" width="146.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="JSP-Ks-w5S"/>
                                 </constraints>
@@ -758,7 +758,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EO8-OH-L4O">
-                                <rect key="frame" x="20" y="308" width="300" height="34"/>
+                                <rect key="frame" x="20" y="252" width="300" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="1ph-5x-him"/>
                                 </constraints>
@@ -766,7 +766,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-uv-gBN">
-                                <rect key="frame" x="157" y="492" width="100" height="30"/>
+                                <rect key="frame" x="157" y="436" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="uPP-GW-pqR"/>
                                 </constraints>
@@ -1081,6 +1081,11 @@
             <point key="canvasLocation" x="2487" y="138"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chart.pie" catalog="system" width="64" height="60"/>
+        <image name="hammer" catalog="system" width="64" height="56"/>
+        <image name="table" catalog="system" width="64" height="46"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w73-mv-ciT"/>
         <segue reference="7Xu-fV-Wwr"/>
