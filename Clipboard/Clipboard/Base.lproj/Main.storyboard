@@ -492,8 +492,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-h7-7md">
-                                <rect key="frame" x="364" y="754" width="30" height="34"/>
-                                <state key="normal">
+                                <rect key="frame" x="344" y="738" width="50" height="50"/>
+                                <state key="normal" image="icons8-add">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                 </state>
                                 <connections>
@@ -1084,6 +1084,7 @@
     <resources>
         <image name="chart.pie" catalog="system" width="64" height="60"/>
         <image name="hammer" catalog="system" width="64" height="56"/>
+        <image name="icons8-add" width="50" height="50"/>
         <image name="table" catalog="system" width="64" height="46"/>
     </resources>
     <inferredMetricsTieBreakers>
