@@ -36,5 +36,22 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "To Do Tasks"
+        case 1:
+            return "In Progress Tasks"
+        case 2:
+            return "Halted Tasks"
+        case 3:
+            return "Done Tasks"
+        default:
+            return "Default Header"
+        }
+    }
 }
