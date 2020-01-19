@@ -33,6 +33,7 @@
 		25D3AF6C23C1638000987087 /* EditTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6B23C1638000987087 /* EditTaskController.swift */; };
 		25D3AF6E23C3A6FE00987087 /* ManageProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */; };
 		25D3AF7223C3C81D00987087 /* ManageMembersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF7123C3C81D00987087 /* ManageMembersController.swift */; };
+		25E5572223D4E193009FF119 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5572123D4E193009FF119 /* TaskListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		25D3AF6B23C1638000987087 /* EditTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskController.swift; sourceTree = "<group>"; };
 		25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProjectController.swift; sourceTree = "<group>"; };
 		25D3AF7123C3C81D00987087 /* ManageMembersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageMembersController.swift; sourceTree = "<group>"; };
+		25E5572123D4E193009FF119 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */,
 				25D3AF7123C3C81D00987087 /* ManageMembersController.swift */,
 				257DBE8B23CD187D006097B7 /* EditMemberController.swift */,
+				25E5572123D4E193009FF119 /* TaskListController.swift */,
 				2596A29123BE84AA005FDEB4 /* IconCell.swift */,
 				2596A28A23BE4E95005FDEB4 /* MemberCell.swift */,
 				2596A28123BACA22005FDEB4 /* Model */,
@@ -228,6 +231,7 @@
 				2596A27E23BAC9D7005FDEB4 /* Task.swift in Sources */,
 				25D3AF6623BF17A400987087 /* AddMemberController.swift in Sources */,
 				25D3AF6C23C1638000987087 /* EditTaskController.swift in Sources */,
+				25E5572223D4E193009FF119 /* TaskListController.swift in Sources */,
 				25D3AF7223C3C81D00987087 /* ManageMembersController.swift in Sources */,
 				25D3AF6E23C3A6FE00987087 /* ManageProjectController.swift in Sources */,
 				2596A29223BE84AA005FDEB4 /* IconCell.swift in Sources */,

@@ -33,6 +33,9 @@ class HomeController: UIViewController {
     @IBAction func manageBarButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromHomeToManage", sender: self)
     }
+    @IBAction func taskListButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "fromHomeToTaskList", sender: self)
+    }
     @IBAction func addTaskTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromHomeToCreateTask", sender: self)
     }
@@ -58,6 +61,9 @@ class HomeController: UIViewController {
             
             guard let task = Constants.currProject.getTeam()?.getTasks()[0] else {return}
             secondViewController.setTask(task: task)
+        }
+        if let secondViewController = segue.destination as? TaskListController {
+            secondViewController.modalPresentationStyle = .fullScreen
         }
     }
     
