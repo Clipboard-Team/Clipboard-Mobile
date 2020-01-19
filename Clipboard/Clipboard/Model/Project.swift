@@ -72,5 +72,24 @@ class Project {
             print("\t\tTask: "+t.getTitle()+", "+t.getStatus()+", "+t.getDifficulty())
         }
         
+        guard let toDoTasks = getTeam()?.getToDoTasks() else {return}
+        for t in toDoTasks {
+            print("\t\tTo Do Task: "+t.getTitle()+", "+t.getStatus()+", "+t.getDifficulty())
+        }
+        
+        guard let inProgressTasks = getTeam()?.getToDoTasks() else {return}
+        for t in inProgressTasks {
+            print("\t\tIn Progress Task: "+t.getTitle()+", "+t.getStatus()+", "+t.getDifficulty())
+        }
+        
+        guard let haltedTasks = getTeam()?.getToDoTasks() else {return}
+        for t in haltedTasks {
+            print("\t\tHalted Task: "+t.getTitle()+", "+t.getStatus()+", "+t.getDifficulty())
+        }
+        
+        guard let doneTasks = getTeam()?.getToDoTasks() else {return}
+        for t in doneTasks {
+            print("\t\tDone Task: "+t.getTitle()+", "+t.getStatus()+", "+t.getDifficulty())
+        }
     }
 }

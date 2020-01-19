@@ -8,7 +8,12 @@
 
 import Foundation
 
-class Task{
+class Task: Equatable{
+    static func == (lhs: Task, rhs: Task) -> Bool {
+        return lhs.getTitle() == rhs.getTitle()
+    }
+    
+    let uuid = UUID().uuidString
     private var title = String()
     private var status = String()
     private var difficulty = String()
@@ -24,6 +29,10 @@ class Task{
         self.status = status
         self.difficulty = difficulty
         self.startDate = Date.init()
+    }
+    
+    func getUUID() -> String{
+        return self.uuid
     }
     
     func setTitle(title:String){
