@@ -10,6 +10,8 @@ import UIKit
 
 class HomeController: UIViewController {
     
+    @IBOutlet weak var quickBoardView: UIView!
+    
     @IBOutlet weak var toDoView: UIView!
     @IBOutlet weak var toDoCountLabel: UILabel!
     @IBOutlet weak var toDoTitleLabel: UILabel!
@@ -84,7 +86,9 @@ class HomeController: UIViewController {
         inProgressCountLabel.text = String(Constants.currProject.getTeam()?.getInProgressTasks().count ?? 0)
         haltedCountLabel.text = String(Constants.currProject.getTeam()?.getHaltedTasks().count ?? 0)
         doneCountLabel.text = String(Constants.currProject.getTeam()?.getDoneTasks().count ?? 0)
-
+        
+        quickBoardView.createStatusComponent()
+        
         toDoCountLabel.textColor = UIColor.purple
         inProgressCountLabel.textColor = UIColor.purple
         haltedCountLabel.textColor = UIColor.purple
