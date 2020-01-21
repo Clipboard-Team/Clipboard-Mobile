@@ -15,6 +15,16 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         
         // fake data
+        for n in 0...8{
+            let rand1 = Int.random(in: 0..<2)
+            let rand2 = Int.random(in: 0..<getIcons()!.count-1)
+            guard let teamTitle = Constants.currProject.getTeam()?.getTitle() else { return }
+            let member = Member(name: "Member "+String(n), role: Constants.roles[rand1], team: teamTitle)
+            guard let image = UIImage(named: (h+mid[rand2]+t)) else {return}
+            member.setIcon(icon: image)
+            Constants.currProject.getTeam()?.addMember(member: member)
+        }
+        
         for n in 0...20{
             let rand1 = Int.random(in: 0..<4)
             let rand2 = Int.random(in: 0..<4)
