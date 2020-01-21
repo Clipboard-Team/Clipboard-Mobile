@@ -9,6 +9,7 @@
 import UIKit
 
 class TaskListController: UIViewController {
+    private var taskToEditOrDelete = Task(title: "Default", status: "Default", difficulty: "Default")
     var taskLists = [ExpandableTasks]()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -34,6 +35,15 @@ class TaskListController: UIViewController {
     @IBAction func filterButtonTapped(_ sender: Any) {
     }
     @IBAction func searchButtonTapped(_ sender: Any) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let secondViewController = segue.destination as? EditTaskController {
+            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.setTask(task: taskToEditOrDelete)
+        }
     }
 }
 
@@ -125,5 +135,69 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
             print("caught to small")
             return 50
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let DeleteAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("Update action ...")
+            switch indexPath.section {
+            case 0:
+                guard let task = Constants.currProject.getTeam()?.getToDoTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                //Constants.currProject.getTeam()?.deleteTask(task: self.taskToEditOrDelete)
+                break
+            case 1:
+                guard let task = Constants.currProject.getTeam()?.getInProgressTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                //Constants.currProject.getTeam()?.deleteTask(task: self.taskToEditOrDelete)
+                break
+            case 2:
+                guard let task = Constants.currProject.getTeam()?.getHaltedTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                //Constants.currProject.getTeam()?.deleteTask(task: self.taskToEditOrDelete)
+                break
+            case 3:
+                guard let task = Constants.currProject.getTeam()?.getDoneTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                //Constants.currProject.getTeam()?.deleteTask(task: self.taskToEditOrDelete)
+                break
+            default:
+                break
+            }
+            tableView.reloadData()
+            success(true)
+        })
+        DeleteAction.backgroundColor = .red
+
+        let ViewAction = UIContextualAction(style: .normal, title:  "View", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("Update action ...")
+            
+            switch indexPath.section {
+            case 0:
+                guard let task = Constants.currProject.getTeam()?.getToDoTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                break
+            case 1:
+                guard let task = Constants.currProject.getTeam()?.getInProgressTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                break
+            case 2:
+                guard let task = Constants.currProject.getTeam()?.getHaltedTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                break
+            case 3:
+                guard let task = Constants.currProject.getTeam()?.getDoneTasks()[indexPath.row] else {return}
+                self.taskToEditOrDelete = task
+                break
+            default:
+                break
+            }
+            self.performSegue(withIdentifier: "fromTaskListToEditTask", sender: self)
+            success(true)
+        })
+        ViewAction.backgroundColor = .green
+
+
+        return UISwipeActionsConfiguration(actions: [DeleteAction,ViewAction])
     }
 }

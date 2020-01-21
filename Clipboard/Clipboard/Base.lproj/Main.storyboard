@@ -492,7 +492,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-h7-7md">
-                                <rect key="frame" x="344" y="738" width="50" height="50"/>
+                                <rect key="frame" x="294" y="688" width="100" height="100"/>
                                 <state key="normal" image="icons8-add">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                 </state>
@@ -869,6 +869,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="4eq-BB-Jfw" id="jrK-e7-zI5"/>
+                        <segue destination="kxh-uA-jJt" kind="show" identifier="fromTaskListToEditTask" id="JO8-df-CQj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBb-eM-ycG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1149,6 +1150,7 @@
         <image name="wrench" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="JO8-df-CQj"/>
         <segue reference="7Xu-fV-Wwr"/>
         <segue reference="jEg-lJ-eyY"/>
         <segue reference="E4e-ou-DyC"/>

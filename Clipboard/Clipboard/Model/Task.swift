@@ -100,15 +100,15 @@ class Task: Equatable{
     }
     
     func getAssignedTo()->Member?{
-        guard let assignedTo = self.assignedTo else {
-            let title = defaultImgFile.replacingOccurrences(of: "-", with: " ")
-            let image = UIImage(named: defaultImgFile)!
-            let member = Member(name: "Default", role: "Default", team: "Default")
-            member.setIcon(icon: image)
-            return member
-            
-        }
-        return assignedTo
+//        guard let assignedTo = self.assignedTo else {
+//            let title = defaultImgFile.replacingOccurrences(of: "-", with: " ")
+//            let image = UIImage(named: defaultImgFile)!
+//            let member = Member(name: "Default", role: "Default", team: "Default")
+//            member.setIcon(icon: image)
+//            return member
+//
+//        }
+        return self.assignedTo
     }
     
     func resetAssignedTo(){

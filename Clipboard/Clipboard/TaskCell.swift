@@ -39,7 +39,11 @@ class TaskCell: UITableViewCell {
     }
     
     func set(task:Task){
-        assignedToImageView.image = task.getAssignedTo()?.getIcon()
+        if(task.getAssignedTo() == nil){
+            assignedToImageView.image = UIImage(named: defaultImgFile)
+        } else{
+            assignedToImageView.image = task.getAssignedTo()?.getIcon()
+        }
         taskTitleLabel.text = task.getTitle()+", "+task.getStatus()
     }
     

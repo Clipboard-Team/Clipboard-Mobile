@@ -14,17 +14,23 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // fake data for testing
-        let task1 = Task(title: "Task 1 Test", status: "To Do", difficulty: "Easy")
-        task1.setAssignedTo(member: Constants.currMember)
-        Constants.currProject.getTeam()?.addTask(task: task1)
-        
-        let task2 = Task(title: "Task 2 Test", status: "In Progress", difficulty: "Medium")
-        task2.setAssignedTo(member: Constants.currMember)
-        Constants.currProject.getTeam()?.addTask(task: task2)
-
-        let task3 = Task(title: "Task 3 Test", status: "Halted", difficulty: "Hard")
-        Constants.currProject.getTeam()?.addTask(task: task3)
+        // fake data
+        for n in 0...20{
+            let rand1 = Int.random(in: 0..<4)
+            let rand2 = Int.random(in: 0..<4)
+            let rand3 = Int.random(in: 0..<4)
+            let task = Task(title: "Task "+String(n)+" Test", status: Constants.statuses[rand1], difficulty: Constants.difficulties[rand1])
+            task.setDescription(description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+            if(rand2 != 0){
+                guard let members = Constants.currProject.getTeam()?.getMembers() else {return}
+                let randMem = Int.random(in: 0..<members.count)
+                task.setAssignedTo(member: members[randMem])
+            }
+            if(rand3 != 0){
+                task.setDueDate(date: Date())
+            }
+            Constants.currProject.getTeam()?.addTask(task: task)
+        }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
