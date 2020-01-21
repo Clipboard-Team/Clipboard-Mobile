@@ -11,10 +11,48 @@ import UIKit
 class TaskListController: UIViewController {
     private var taskToEditOrDelete = Task(title: "Default", status: "Default", difficulty: "Default")
     var taskLists = [ExpandableTasks]()
+    var filteredTasks = [ExpandableTasks]()
     @IBOutlet weak var tableView: UITableView!
+    lazy var searchController: UISearchController = {
+        let s = UISearchController(searchResultsController: nil)
+        s.searchResultsUpdater = self
+        s.obscuresBackgroundDuringPresentation = false
+        s.searchBar.placeholder = "Filter Through Tasks"
+        s.searchBar.sizeToFit()
+        s.searchBar.searchBarStyle = .prominent
+        s.searchBar.scopeButtonTitles = ["All"] + Constants.statuses + Constants.difficulties
+        s.searchBar.delegate = self
+        return s
+    }()
+    
+    func filterContentForSearchBar(searchText: String, scope: String = "All"){
+        guard let allTasks = Constants.currProject.getTeam()?.getTasks() else {return}
+        filteredTasks[0].tasks = allTasks.filter({(task: Task)->Bool in
+            let doesTaskMatch = (scope == "All") || (task.getStatus() == scope) || (task.getDifficulty() == scope)
+            if(isSearchBarTextEmpty()){
+                return doesTaskMatch
+            } else{
+                return doesTaskMatch && (task.getTitle().lowercased().contains(searchText.lowercased()) || task.getDescription().lowercased().contains(searchText.lowercased()))
+            }
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func isSearchBarTextEmpty()->Bool{
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func isFiltering() -> Bool {
+        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+        return searchController.isActive && (!isSearchBarTextEmpty() || searchBarScopeIsFiltering)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "All Tasks"
+        
+        navigationItem.searchController = searchController
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -30,6 +68,11 @@ class TaskListController: UIViewController {
         taskLists.append(ExpandableTasks(isExpanded: true, tasks: inProgs))
         taskLists.append(ExpandableTasks(isExpanded: true, tasks: halts))
         taskLists.append(ExpandableTasks(isExpanded: true, tasks: dones))
+        
+        filteredTasks.append(ExpandableTasks(isExpanded: true, tasks: toDos))
+        filteredTasks.append(ExpandableTasks(isExpanded: true, tasks: inProgs))
+        filteredTasks.append(ExpandableTasks(isExpanded: true, tasks: halts))
+        filteredTasks.append(ExpandableTasks(isExpanded: true, tasks: dones))
     }
 
     @IBAction func filterButtonTapped(_ sender: Any) {
@@ -54,12 +97,21 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
             return 0
         }
         
+        if(isFiltering()){
+            return filteredTasks.count
+        }
         return taskLists[section].tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskCell
-        let task = taskLists[indexPath.section].tasks[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskCell
+        let task: Task
+        if(isFiltering()){
+            task = filteredTasks[indexPath.section].tasks[indexPath.row]
+
+        } else{
+            task = taskLists[indexPath.section].tasks[indexPath.row]
+        }
         cell.set(task: task)
                return cell
     }
@@ -199,5 +251,18 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
 
 
         return UISwipeActionsConfiguration(actions: [DeleteAction,ViewAction])
+    }
+}
+
+extension TaskListController: UISearchBarDelegate, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        
+        filterContentForSearchBar(searchText: searchController.searchBar.text!, scope: scope)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchBar(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }
