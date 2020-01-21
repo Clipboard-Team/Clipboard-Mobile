@@ -22,3 +22,14 @@ extension UIButton {
     }
 
 }
+
+extension UIView {
+    func createStatusComponent(){
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 0.25
+        layer.cornerRadius = 5
+        layer.shadowOpacity = 0.25
+        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+    }
+}

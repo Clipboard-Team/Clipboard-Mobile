@@ -47,6 +47,10 @@ class TaskListController: UIViewController {
         return searchController.isActive && (!isSearchBarTextEmpty() || searchBarScopeIsFiltering)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "All Tasks"
