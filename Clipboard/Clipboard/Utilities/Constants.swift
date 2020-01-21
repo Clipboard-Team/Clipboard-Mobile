@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+let defaultImgFile = "icons8-question-mark-50"
 let h = "icons8-"
 let t = "-50"
 let mid = [
@@ -68,6 +69,17 @@ func getIcons()->[Icon]?{
         icons.append(Icon(image: image, title: title))
     }
     return icons
+}
+
+func resizedImage(at url: URL, for size: CGSize) -> UIImage? {
+    guard let image = UIImage(contentsOfFile: url.path) else {
+        return nil
+    }
+
+    let renderer = UIGraphicsImageRenderer(size: size)
+    return renderer.image { (context) in
+        image.draw(in: CGRect(origin: .zero, size: size))
+    }
 }
 
 struct Constants{

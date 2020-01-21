@@ -34,6 +34,8 @@
 		25D3AF6E23C3A6FE00987087 /* ManageProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */; };
 		25D3AF7223C3C81D00987087 /* ManageMembersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF7123C3C81D00987087 /* ManageMembersController.swift */; };
 		25E5572223D4E193009FF119 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5572123D4E193009FF119 /* TaskListController.swift */; };
+		25E5572423D52ED3009FF119 /* ExpandableTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5572323D52ED3009FF119 /* ExpandableTasks.swift */; };
+		25E5572623D61B8A009FF119 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E5572523D61B8A009FF119 /* TaskCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		25D3AF6D23C3A6FE00987087 /* ManageProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProjectController.swift; sourceTree = "<group>"; };
 		25D3AF7123C3C81D00987087 /* ManageMembersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageMembersController.swift; sourceTree = "<group>"; };
 		25E5572123D4E193009FF119 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
+		25E5572323D52ED3009FF119 /* ExpandableTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTasks.swift; sourceTree = "<group>"; };
+		25E5572523D61B8A009FF119 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +118,10 @@
 				25D3AF7123C3C81D00987087 /* ManageMembersController.swift */,
 				257DBE8B23CD187D006097B7 /* EditMemberController.swift */,
 				25E5572123D4E193009FF119 /* TaskListController.swift */,
+				25E5572323D52ED3009FF119 /* ExpandableTasks.swift */,
 				2596A29123BE84AA005FDEB4 /* IconCell.swift */,
 				2596A28A23BE4E95005FDEB4 /* MemberCell.swift */,
+				25E5572523D61B8A009FF119 /* TaskCell.swift */,
 				2596A28123BACA22005FDEB4 /* Model */,
 				2596A26C23BAAF5B005FDEB4 /* Assets.xcassets */,
 				2596A26E23BAAF5B005FDEB4 /* LaunchScreen.storyboard */,
@@ -237,9 +243,11 @@
 				2596A29223BE84AA005FDEB4 /* IconCell.swift in Sources */,
 				25D3AF6A23C06C2400987087 /* CreateTaskController.swift in Sources */,
 				2596A28923BE46E2005FDEB4 /* AddMembersController.swift in Sources */,
+				25E5572423D52ED3009FF119 /* ExpandableTasks.swift in Sources */,
 				2596A29023BE7FA4005FDEB4 /* Icon.swift in Sources */,
 				2596A28723BE4171005FDEB4 /* Comment.swift in Sources */,
 				2596A27A23BAC6F6005FDEB4 /* Member.swift in Sources */,
+				25E5572623D61B8A009FF119 /* TaskCell.swift in Sources */,
 				2596A28E23BE7E26005FDEB4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

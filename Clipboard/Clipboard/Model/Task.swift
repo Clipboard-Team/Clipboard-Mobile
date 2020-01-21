@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 class Task: Equatable{
     static func == (lhs: Task, rhs: Task) -> Bool {
         return lhs.getTitle() == rhs.getTitle()
     }
-    
+    /*
+     TODO: ADD IMAGE
+     let title = mid[n].replacingOccurrences(of: "-", with: " ")
+     **/
     let uuid = UUID().uuidString
     private var title = String()
     private var status = String()
@@ -96,7 +100,14 @@ class Task: Equatable{
     }
     
     func getAssignedTo()->Member?{
-        guard let assignedTo = self.assignedTo else {return nil}
+        guard let assignedTo = self.assignedTo else {
+            let title = defaultImgFile.replacingOccurrences(of: "-", with: " ")
+            let image = UIImage(named: defaultImgFile)!
+            let member = Member(name: "Default", role: "Default", team: "Default")
+            member.setIcon(icon: image)
+            return member
+            
+        }
         return assignedTo
     }
     

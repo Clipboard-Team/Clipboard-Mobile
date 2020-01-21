@@ -13,6 +13,19 @@ class HomeController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // fake data for testing
+        let task1 = Task(title: "Task 1 Test", status: "To Do", difficulty: "Easy")
+        task1.setAssignedTo(member: Constants.currMember)
+        Constants.currProject.getTeam()?.addTask(task: task1)
+        
+        let task2 = Task(title: "Task 2 Test", status: "In Progress", difficulty: "Medium")
+        task2.setAssignedTo(member: Constants.currMember)
+        Constants.currProject.getTeam()?.addTask(task: task2)
+
+        let task3 = Task(title: "Task 3 Test", status: "Halted", difficulty: "Hard")
+        Constants.currProject.getTeam()?.addTask(task: task3)
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         
