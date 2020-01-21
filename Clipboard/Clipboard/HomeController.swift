@@ -132,6 +132,11 @@ class HomeController: UIViewController {
     @IBAction func taskListButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromHomeToTaskList", sender: self)
     }
+    @IBAction func analyticsBarButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Apologies", message: "The Analytics Page is an upcoming feature!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     @IBAction func addTaskTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromHomeToCreateTask", sender: self)
     }
