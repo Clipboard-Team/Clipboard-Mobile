@@ -64,7 +64,7 @@ class HomeController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         
-        navigationItem.title = "Task Board"
+        navigationItem.title = "Welcome, "+Constants.currMember.getName()
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]

@@ -491,7 +491,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaj-lL-q9O">
-                                <rect key="frame" x="20" y="324" width="374" height="374"/>
+                                <rect key="frame" x="20" y="344" width="374" height="374"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Mz-ck-TOc">
                                         <rect key="frame" x="20" y="20" width="150" height="150"/>
@@ -636,7 +636,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOm-fC-F4L">
-                                <rect key="frame" x="32" y="64" width="350" height="240"/>
+                                <rect key="frame" x="32" y="86" width="350" height="228"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgC-k3-clK">
                                         <rect key="frame" x="8" y="8" width="142" height="29"/>
@@ -682,11 +682,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="jOm-fC-F4L" firstAttribute="top" secondItem="eWg-vM-eGO" secondAttribute="top" constant="8" id="7VQ-4l-iju"/>
-                            <constraint firstItem="oT5-h7-7md" firstAttribute="top" secondItem="eaj-lL-q9O" secondAttribute="bottom" constant="40" id="7mh-X5-pd2"/>
+                            <constraint firstItem="jOm-fC-F4L" firstAttribute="top" secondItem="eWg-vM-eGO" secondAttribute="top" constant="30" id="7VQ-4l-iju"/>
+                            <constraint firstItem="oT5-h7-7md" firstAttribute="top" secondItem="eaj-lL-q9O" secondAttribute="bottom" constant="20" id="7mh-X5-pd2"/>
                             <constraint firstItem="eaj-lL-q9O" firstAttribute="leading" secondItem="eWg-vM-eGO" secondAttribute="leading" constant="20" id="CF2-r4-fbR"/>
                             <constraint firstItem="jOm-fC-F4L" firstAttribute="centerX" secondItem="kmd-l1-M7L" secondAttribute="centerX" id="FSR-H3-W1X"/>
-                            <constraint firstItem="eaj-lL-q9O" firstAttribute="top" secondItem="jOm-fC-F4L" secondAttribute="bottom" constant="20" id="HSL-p9-v9K"/>
+                            <constraint firstItem="eaj-lL-q9O" firstAttribute="top" secondItem="jOm-fC-F4L" secondAttribute="bottom" constant="30" id="HSL-p9-v9K"/>
                             <constraint firstItem="eWg-vM-eGO" firstAttribute="trailing" secondItem="eaj-lL-q9O" secondAttribute="trailing" constant="20" id="PF4-rE-dU2"/>
                             <constraint firstItem="eWg-vM-eGO" firstAttribute="bottom" secondItem="oT5-h7-7md" secondAttribute="bottom" constant="20" id="o1Y-F5-V5G"/>
                             <constraint firstItem="eWg-vM-eGO" firstAttribute="trailing" secondItem="oT5-h7-7md" secondAttribute="trailing" constant="20" id="rzL-gj-NAO"/>
