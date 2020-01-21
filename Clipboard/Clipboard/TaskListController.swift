@@ -209,25 +209,32 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
         let ViewAction = UIContextualAction(style: .normal, title:  "View", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("Update action ...")
             
-            switch indexPath.section {
-            case 0:
-                guard let task = Constants.currProject.getTeam()?.getToDoTasks()[indexPath.row] else {return}
+//            switch indexPath.section {
+//            case 0:
+//                guard let task = Constants.currProject.getTeam()?.getToDoTasks()[indexPath.row] else {return}
+//                self.taskToEditOrDelete = task
+//                break
+//            case 1:
+//                guard let task = Constants.currProject.getTeam()?.getInProgressTasks()[indexPath.row] else {return}
+//                self.taskToEditOrDelete = task
+//                break
+//            case 2:
+//                guard let task = Constants.currProject.getTeam()?.getHaltedTasks()[indexPath.row] else {return}
+//                self.taskToEditOrDelete = task
+//                break
+//            case 3:
+//                guard let task = Constants.currProject.getTeam()?.getDoneTasks()[indexPath.row] else {return}
+//                self.taskToEditOrDelete = task
+//                break
+//            default:
+//                break
+//            }
+            if(self.isFiltering()){
+                let task = self.filteredTasks[indexPath.row]
                 self.taskToEditOrDelete = task
-                break
-            case 1:
-                guard let task = Constants.currProject.getTeam()?.getInProgressTasks()[indexPath.row] else {return}
+            } else{
+                guard let task = Constants.currProject.getTeam()?.getTasks()[indexPath.row] else {return}
                 self.taskToEditOrDelete = task
-                break
-            case 2:
-                guard let task = Constants.currProject.getTeam()?.getHaltedTasks()[indexPath.row] else {return}
-                self.taskToEditOrDelete = task
-                break
-            case 3:
-                guard let task = Constants.currProject.getTeam()?.getDoneTasks()[indexPath.row] else {return}
-                self.taskToEditOrDelete = task
-                break
-            default:
-                break
             }
             self.performSegue(withIdentifier: "fromTaskListToEditTask", sender: self)
             success(true)
