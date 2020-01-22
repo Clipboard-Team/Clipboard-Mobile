@@ -10,19 +10,36 @@ import UIKit
 
 class EditMemberController: UIViewController {
 
-    private var member = Member(name: "Default", role: "Default", team: "Default")
+
+    static var member = Member(name: "Default", role: "Default", team: "Default")
     @IBOutlet weak var memberNameTextField: UITextField!
     @IBOutlet weak var roleSlider: UISegmentedControl!
     @IBOutlet weak var iconButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Member"
-        memberNameTextField.text = member.getName()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        memberNameTextField.text = EditMemberController.member.getName()
         // catch slider
-        iconButton.setBackgroundImage(member.getIcon(), for: .normal)
+        iconButton.setBackgroundImage(EditMemberController.member.getIcon(), for: .normal)
     }
 
+    @IBAction func iconButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "fromEditMemberToChooseIcon", sender: self)
+    }
     func setMember(member: Member){
-        self.member = member
+        EditMemberController.member = member
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let secondViewController = segue.destination as? ChooseIconController{
+            secondViewController.modalPresentationStyle = .formSheet
+            
+            ChooseIconController.member = EditMemberController.member
+            ChooseIconController.state = "edit"
+        }
     }
 }

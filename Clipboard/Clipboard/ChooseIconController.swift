@@ -9,7 +9,7 @@
 import UIKit
 
 class ChooseIconController: UIViewController {
-    public static var state = String() // create, login
+    public static var state = String() // create, login, edit
     public static var member = Member(name: "Default", role: "Default", team: "Default")
     var icons: [Icon] = []
     @IBOutlet weak var tableView: UITableView!
@@ -50,6 +50,9 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
         }
         if(ChooseIconController.state == "login"){
             popViewControllerss(popViews: 2)
+        } else if(ChooseIconController.state == "edit"){
+            EditMemberController.member = ChooseIconController.member
+            dismiss(animated: true, completion: nil)
         } else{
             performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
         }

@@ -424,6 +424,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="EZ5-Fn-pfB"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="TBI-b6-RY8"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="iconButtonTapped:" destination="em7-fP-iIN" eventType="touchUpInside" id="uTr-W3-rgb"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="usD-sG-snq">
                                 <rect key="frame" x="20" y="130" width="117" height="32"/>
@@ -455,6 +458,7 @@
                         <outlet property="iconButton" destination="9Md-AZ-ikv" id="yBE-Nc-m2k"/>
                         <outlet property="memberNameTextField" destination="w1q-6H-Sd7" id="JI7-NV-LZ6"/>
                         <outlet property="roleSlider" destination="usD-sG-snq" id="b8b-kd-fxf"/>
+                        <segue destination="ULX-34-kJs" kind="presentation" identifier="fromEditMemberToChooseIcon" id="lNw-1t-mPo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DxG-E1-UkY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1537,6 +1541,6 @@
         <segue reference="jEg-lJ-eyY"/>
         <segue reference="E4e-ou-DyC"/>
         <segue reference="k5s-eK-PCD"/>
-        <segue reference="p6d-to-xoS"/>
+        <segue reference="lNw-1t-mPo"/>
     </inferredMetricsTieBreakers>
 </document>
