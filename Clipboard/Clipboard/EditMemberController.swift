@@ -16,7 +16,7 @@ class EditMemberController: UIViewController {
     @IBOutlet weak var iconButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "Edit Member"
         memberNameTextField.text = member.getName()
         // catch slider
         iconButton.setBackgroundImage(member.getIcon(), for: .normal)
