@@ -16,8 +16,24 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet var mainView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.backgroundColor = UIColor(red:0.50, green:0.00, blue:0.50, alpha:1.0)
+        titleLabel.textColor = UIColor.white
+        subtitleLabel.textColor = UIColor.white
+        dynamicTextField.borderStyle = .none
+        dynamicTextField.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)
+        dynamicTextField.layer.borderColor = UIColor.white.cgColor
+        dynamicTextField.textColor = UIColor.white
+        dynamicTextField.tintColor = UIColor.white
+        dynamicTextField.backgroundColor = UIColor.clear
+        dynamicTextField.attributedPlaceholder = NSAttributedString(string: "Project name",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        backButton.createStandardHollowButton(color: UIColor.white)
+        nextButton.createStandardHollowButton(color: UIColor.white)
+
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProjectController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         //isModalInPresentation = true
@@ -105,7 +121,7 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
                 Constants.currProject.printEntireProject()
                 changeState(
                     state: "admin",
-                    title: "Create your own Admin account",
+                    title: "New Admin Account",
                     subtitle: "You can create more admin accounts later on",
                     placeholder: "Admin name")
             case "admin":

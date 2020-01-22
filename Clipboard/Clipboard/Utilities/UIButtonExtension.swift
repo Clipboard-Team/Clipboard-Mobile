@@ -17,6 +17,29 @@ extension UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 10)
     }
 
+    func createStandardFullButton(color: UIColor, fontColor: UIColor){
+        frame = CGRect(x: 0, y: 0, width: 80, height: 20)
+        backgroundColor = color
+        layer.cornerRadius = 10
+        layer.borderColor = color.cgColor
+        layer.borderWidth = 1
+        layer.shadowOpacity = 0.25
+        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+        tintColor = fontColor
+    }
+    
+    func createStandardHollowButton(color: UIColor){
+        frame = CGRect(x: 0, y: 0, width: 80, height: 20)
+        backgroundColor = UIColor.clear
+        layer.cornerRadius = 10
+        layer.borderColor = color.cgColor
+        layer.borderWidth = 1
+        layer.shadowOpacity = 0.25
+        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+        tintColor = color
+    }
 }
 
 extension UIView {
@@ -40,5 +63,15 @@ extension Date {
 
         let components = calendar.dateComponents([.day], from: date1, to: date2)
         return components.day  // This will return the number of day(s) between dates
+    }
+}
+
+extension UITextField {
+    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width,
+                              width: self.frame.size.width, height: width)
+        self.layer.addSublayer(border)
     }
 }
