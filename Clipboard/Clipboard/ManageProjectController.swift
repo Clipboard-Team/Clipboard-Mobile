@@ -48,40 +48,57 @@ class ManageProjectController: UIViewController {
     }
     
     @IBAction func confirmTapped(_ sender: Any) {
-        if(projectNameTextField.hasText){
-            Constants.currProject.setTitle(title: projectNameTextField.text!)
+        if(projectNameTextField.hasText && teamNameTextField.hasText && memberNameTextField.hasText){
+            if(projectNameTextField.hasText){
+                Constants.currProject.setTitle(title: projectNameTextField.text!)
+            }
+            if(projectDescriptionTextField.hasText){
+                Constants.currProject.setDescription(description: projectDescriptionTextField.text!)
+            }
+            if(teamNameTextField.hasText){
+                Constants.currProject.getTeam()?.setTitle(title: teamNameTextField.text!)
+            }
+            if(teamDescriptionTextField.hasText){
+                Constants.currProject.getTeam()?.setDescription(description: teamDescriptionTextField.text!)
+            }
+            if(memberNameTextField.hasText){
+                guard let name = memberNameTextField.text else {return}
+                Constants.currMember.setName(name: name)
+                guard let members = Constants.currProject.getTeam()?.getMembers() else {return}
+                for mem in members {
+                    if(mem.getUUID() == Constants.currMember.getUUID()){
+                        print("matched member UUID")
+                        mem.setName(name: name)
+                    }
+                }
+            }
+            if(roleToggle.selectedSegmentIndex == 0 && Constants.currMember.getRole() != Constants.roles[0]){
+                Constants.currMember.setRole(role: Constants.statuses[0])
+                guard let members = Constants.currProject.getTeam()?.getMembers() else {return}
+                for mem in members {
+                    if(mem.getUUID() == Constants.currMember.getUUID()){
+                        print("matched member UUID")
+                        mem.setRole(role: Constants.statuses[0])
+                    }
+                }
+            } else if(roleToggle.selectedSegmentIndex == 1 && Constants.currMember.getRole() != Constants.roles[1]){
+                Constants.currMember.setRole(role: Constants.statuses[1])
+                guard let members = Constants.currProject.getTeam()?.getMembers() else {return}
+                for mem in members {
+                    if(mem.getUUID() == Constants.currMember.getUUID()){
+                        print("matched member UUID")
+                        mem.setRole(role: Constants.statuses[1])
+                    }
+                }
+            }
+            
+            _ = navigationController?.popViewController(animated: true)
+        } else {
+            let alert = UIAlertController(title: "Could not update project", message: "Make sure project, team, and member name is filled out. \n\nAlso, make sure team name and member name does not already exist.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
-        if(projectDescriptionTextField.hasText){
-            Constants.currProject.setDescription(description: projectDescriptionTextField.text!)
-        }
-        if(teamNameTextField.hasText){
-            Constants.currProject.getTeam()?.setTitle(title: teamNameTextField.text!)
-        }
-        if(teamDescriptionTextField.hasText){
-            Constants.currProject.getTeam()?.setDescription(description: teamDescriptionTextField.text!)
-        }
-
-//        if(memberNameTextField.hasText){
-//            guard let members = Constants.currProject.getTeam()?.getMembers() else {return}
-//            for mem in members {
-//                if(mem.getName() == backupMember.getName()){
-//                    mem.setName(name: memberNameTextField.text!)
-//                    Constants.currMember.setName(name: memberNameTextField.text!)
-//                }
-//            }
-//        }
-//        guard let role = roleToggle.titleForSegment(at: roleToggle.selectedSegmentIndex) else {return}
-//        if(role != Constants.currMember.getRole()){
-//            guard let members = Constants.currProject.getTeam()?.getMembers() else {return}
-//            for mem in members {
-//                if(mem.getName() == backupMember.getName()){
-//                    mem.setName(name: memberNameTextField.text!)
-//                    Constants.currMember.setName(name: memberNameTextField.text!)
-//                }
-//            }
-//        }
         
-        _ = navigationController?.popViewController(animated: true)
     }
     
     func displayOriginalProject(){

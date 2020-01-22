@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Member{
+    let uuid = UUID().uuidString
     private var name = String()
     private var role = String()
     private var team = String()
@@ -19,6 +20,10 @@ class Member{
         self.name = name
         self.role = role
         self.team = team
+    }
+    
+    func getUUID() -> String{
+        return self.uuid
     }
     
     func setName(name: String){
