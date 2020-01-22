@@ -27,6 +27,8 @@
 		2596A29023BE7FA4005FDEB4 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A28F23BE7FA4005FDEB4 /* Icon.swift */; };
 		2596A29223BE84AA005FDEB4 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A29123BE84AA005FDEB4 /* IconCell.swift */; };
 		2596A29423BE8549005FDEB4 /* ChooseIconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2596A29323BE8549005FDEB4 /* ChooseIconController.swift */; };
+		25C8358123D7B6DA00496B94 /* CompleteTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C8358023D7B6DA00496B94 /* CompleteTaskCell.swift */; };
+		25C8358323D7BA9600496B94 /* CompleteTaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C8358223D7BA9600496B94 /* CompleteTaskListController.swift */; };
 		25D3AF6623BF17A400987087 /* AddMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6523BF17A400987087 /* AddMemberController.swift */; };
 		25D3AF6823C01AC600987087 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6723C01AC600987087 /* HomeController.swift */; };
 		25D3AF6A23C06C2400987087 /* CreateTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D3AF6923C06C2400987087 /* CreateTaskController.swift */; };
@@ -61,6 +63,8 @@
 		2596A28F23BE7FA4005FDEB4 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		2596A29123BE84AA005FDEB4 /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		2596A29323BE8549005FDEB4 /* ChooseIconController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseIconController.swift; sourceTree = "<group>"; };
+		25C8358023D7B6DA00496B94 /* CompleteTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskCell.swift; sourceTree = "<group>"; };
+		25C8358223D7BA9600496B94 /* CompleteTaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskListController.swift; sourceTree = "<group>"; };
 		25D3AF6523BF17A400987087 /* AddMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberController.swift; sourceTree = "<group>"; };
 		25D3AF6723C01AC600987087 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		25D3AF6923C06C2400987087 /* CreateTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskController.swift; sourceTree = "<group>"; };
@@ -118,10 +122,12 @@
 				25D3AF7123C3C81D00987087 /* ManageMembersController.swift */,
 				257DBE8B23CD187D006097B7 /* EditMemberController.swift */,
 				25E5572123D4E193009FF119 /* TaskListController.swift */,
+				25C8358223D7BA9600496B94 /* CompleteTaskListController.swift */,
 				25E5572323D52ED3009FF119 /* ExpandableTasks.swift */,
 				2596A29123BE84AA005FDEB4 /* IconCell.swift */,
 				2596A28A23BE4E95005FDEB4 /* MemberCell.swift */,
 				25E5572523D61B8A009FF119 /* TaskCell.swift */,
+				25C8358023D7B6DA00496B94 /* CompleteTaskCell.swift */,
 				2596A28123BACA22005FDEB4 /* Model */,
 				2596A26C23BAAF5B005FDEB4 /* Assets.xcassets */,
 				2596A26E23BAAF5B005FDEB4 /* LaunchScreen.storyboard */,
@@ -243,7 +249,9 @@
 				2596A29223BE84AA005FDEB4 /* IconCell.swift in Sources */,
 				25D3AF6A23C06C2400987087 /* CreateTaskController.swift in Sources */,
 				2596A28923BE46E2005FDEB4 /* AddMembersController.swift in Sources */,
+				25C8358123D7B6DA00496B94 /* CompleteTaskCell.swift in Sources */,
 				25E5572423D52ED3009FF119 /* ExpandableTasks.swift in Sources */,
+				25C8358323D7BA9600496B94 /* CompleteTaskListController.swift in Sources */,
 				2596A29023BE7FA4005FDEB4 /* Icon.swift in Sources */,
 				2596A28723BE4171005FDEB4 /* Comment.swift in Sources */,
 				2596A27A23BAC6F6005FDEB4 /* Member.swift in Sources */,

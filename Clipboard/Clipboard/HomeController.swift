@@ -55,7 +55,7 @@ class HomeController: UIViewController {
                 let randMem = Int.random(in: 0..<members.count)
                 task.setAssignedTo(member: members[randMem])
             }
-            if(rand3 != 0){
+            if(rand3 == 0){
                 task.setDueDate(date: Date())
             }
             Constants.currProject.getTeam()?.addTask(task: task)
@@ -116,18 +116,26 @@ class HomeController: UIViewController {
     
     @objc func handleToDoTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
+        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        CompleteTaskListController.type = Constants.statuses[0]
     }
     
     @objc func handleInProgressTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
+        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        CompleteTaskListController.type = Constants.statuses[1]
     }
     
     @objc func handleHaltedTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
+        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        CompleteTaskListController.type = Constants.statuses[2]
     }
     
     @objc func handleDoneTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
+        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        CompleteTaskListController.type = Constants.statuses[3]
     }
     
     @IBAction func manageBarButtonTapped(_ sender: Any) {

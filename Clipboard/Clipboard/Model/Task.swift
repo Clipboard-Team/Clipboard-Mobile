@@ -25,7 +25,7 @@ class Task: Equatable{
     private var comments = [Comment]()
     private var totalComments: Int = 0
     private var startDate = Date()
-    private var dueDate = Date()
+    private var dueDate : Date?
     private var assignedTo: Member?
     
     init(title:String, status:String, difficulty:String) {
@@ -83,7 +83,7 @@ class Task: Equatable{
         self.dueDate = date
     }
     
-    func getDueDate()->Date{
+    func getDueDate()->Date?{
         return self.dueDate
     }
     

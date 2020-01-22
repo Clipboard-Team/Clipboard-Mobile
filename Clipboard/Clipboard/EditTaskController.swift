@@ -71,9 +71,10 @@ class EditTaskController: UIViewController {
         statusTextField.text = backupTask.getStatus()
         difficultyTextField.text = backupTask.getDifficulty()
         assignedToTextField.text = backupTask.getAssignedTo()?.getName()
-        dueDateTextField.text = dateFormatter.string(from: backupTask.getDueDate())
         descriptionTextField.text = backupTask.getDescription()
         commentTextField.text = ""
+        guard let date = backupTask.getDueDate() else {return}
+        dueDateTextField.text = dateFormatter.string(from: date)
     }
     
     @IBAction func editTapped(_ sender: Any) {
