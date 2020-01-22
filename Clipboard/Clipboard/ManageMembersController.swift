@@ -36,13 +36,14 @@ class ManageMembersController: UIViewController {
         super.prepare(for: segue, sender: sender)
 
         if let secondViewController = segue.destination as? AddMemberController {
-            secondViewController.modalPresentationStyle = .fullScreen
+            secondViewController.modalPresentationStyle = .formSheet
             AddMemberController.state = "login"
         }
         
         if let secondViewController = segue.destination as? EditMemberController {
             secondViewController.modalPresentationStyle = .fullScreen
             secondViewController.setMember(member: memberToEditOrDelete)
+            EditMemberController.memberBackup = memberToEditOrDelete
         }
     }
 }

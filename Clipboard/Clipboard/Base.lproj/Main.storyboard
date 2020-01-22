@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zP-Pa-FKH">
-                                <rect key="frame" x="107" y="360" width="200" height="34"/>
+                                <rect key="frame" x="107" y="304" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="GW7-GK-6Z2"/>
                                 </constraints>
@@ -337,7 +337,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TyF-kR-mqy">
-                                <rect key="frame" x="147" y="402" width="120" height="32"/>
+                                <rect key="frame" x="147" y="346" width="120" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="JoE-T3-fFv"/>
                                 </constraints>
@@ -347,13 +347,13 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a New Member!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJp-iX-TGv">
-                                <rect key="frame" x="84" y="306" width="246" height="34"/>
+                                <rect key="frame" x="84" y="250" width="246" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot9-rf-0TQ">
-                                <rect key="frame" x="100" y="449" width="34" height="30"/>
+                                <rect key="frame" x="100" y="393" width="34" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="SfQ-rM-SBN"/>
                                 </constraints>
@@ -363,7 +363,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwU-Em-Qoa">
-                                <rect key="frame" x="282" y="449" width="32" height="30"/>
+                                <rect key="frame" x="282" y="393" width="32" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="ZSg-Id-8Pq"/>
                                 </constraints>
@@ -1498,7 +1498,7 @@
                     <navigationItem key="navigationItem" id="wKV-Gn-UzY"/>
                     <connections>
                         <outlet property="tableView" destination="sYO-kx-2WO" id="ogH-T0-HXT"/>
-                        <segue destination="uYv-oj-buW" kind="show" identifier="fromManageMembersToAddMember" id="E4e-ou-DyC"/>
+                        <segue destination="uYv-oj-buW" kind="presentation" identifier="fromManageMembersToAddMember" id="E4e-ou-DyC"/>
                         <segue destination="em7-fP-iIN" kind="show" identifier="fromManageMembersToEditMember" id="jEg-lJ-eyY"/>
                     </connections>
                 </viewController>

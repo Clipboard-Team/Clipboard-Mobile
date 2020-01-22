@@ -10,7 +10,7 @@ import UIKit
 
 class EditMemberController: UIViewController {
 
-
+    static var memberBackup  = Member(name: "Default", role: "Default", team: "Default")
     static var member = Member(name: "Default", role: "Default", team: "Default")
     @IBOutlet weak var memberNameTextField: UITextField!
     @IBOutlet weak var roleSlider: UISegmentedControl!
@@ -24,6 +24,11 @@ class EditMemberController: UIViewController {
         memberNameTextField.text = EditMemberController.member.getName()
         // catch slider
         iconButton.setBackgroundImage(EditMemberController.member.getIcon(), for: .normal)
+        if(EditMemberController.member.getRole() == Constants.roles[0]){
+            roleSlider.selectedSegmentIndex = 0
+        } else{
+            roleSlider.selectedSegmentIndex = 1
+        }
     }
 
     @IBAction func iconButtonTapped(_ sender: Any) {

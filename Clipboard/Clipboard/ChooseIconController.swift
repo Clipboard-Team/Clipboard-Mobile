@@ -49,9 +49,13 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         if(ChooseIconController.state == "login"){
-            popViewControllerss(popViews: 2)
+            dismiss(animated: true, completion: nil)
+
         } else if(ChooseIconController.state == "edit"){
-            EditMemberController.member = ChooseIconController.member
+            if let navController = presentingViewController as? UINavigationController {
+               let presenter = navController.topViewController as! EditMemberController
+                presenter.setMember(member: ChooseIconController.member)
+            }
             dismiss(animated: true, completion: nil)
         } else{
             performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
