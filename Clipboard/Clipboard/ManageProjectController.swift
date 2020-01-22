@@ -42,6 +42,7 @@ class ManageProjectController: UIViewController {
     @IBAction func editTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromManageToManageMembers", sender: self)
     }
+
     @IBAction func resetTapped(_ sender: Any) {
         displayOriginalProject()
     }
