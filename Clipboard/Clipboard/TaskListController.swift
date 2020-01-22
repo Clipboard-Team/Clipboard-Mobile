@@ -59,8 +59,9 @@ class TaskListController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 50
-        tableView.register(TaskCell.self, forCellReuseIdentifier: "taskCell")
+        tableView.rowHeight = 85
+        let taskCell = UINib(nibName: "TaskCell", bundle: nil)
+        tableView.register(taskCell, forCellReuseIdentifier: "TaskCell")
         
    
         print("total size: "+String(Constants.currProject.getTeam()?.getTasks().count ?? 0))
@@ -101,7 +102,16 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
             guard let allTasks = Constants.currProject.getTeam()?.getTasks() else{return UITableViewCell()}
             task = allTasks[indexPath.row]
         }
-        cell.set(task: task)
+        
+        if(task.getAssignedTo() == nil){
+            cell.assignedToImageView.image = UIImage(named: defaultImgFile)
+        } else{
+            cell.assignedToImageView.image = task.getAssignedTo()?.getIcon()
+        }
+        cell.taskTitleLabel.text = task.getTitle()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Constants.dateFormatShort
+        cell.taskStartDateLabel.text = dateFormatter.string(from: task.getStartDate())
         return cell
     }
     
@@ -171,10 +181,10 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
             && indexPath.row == tableView.indexPathForSelectedRow?.row
             ){
             print("caught to big")
-            return 75
+            return 100
         } else {
             print("caught to small")
-            return 50
+            return 70
         }
     }
     
