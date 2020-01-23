@@ -131,11 +131,7 @@ class ManageProjectController: UIViewController {
         guard let teamDescription = backupProject.getTeam()?.getDescription() else {return}
         teamDescriptionTextField.text = teamDescription
         memberNameTextField.text = Constants.currMember.getName()
-        if(Constants.currMember.getRole() == "Admin"){
-            roleToggle.setEnabled(true, forSegmentAt: 0)
-        } else{
-            roleToggle.setEnabled(false, forSegmentAt: 0)
-        }
+
         guard let members = backupProject.getTeam()?.getMembers() else {return}
         var memCount = Int()
         var adminCount = Int()
@@ -151,6 +147,11 @@ class ManageProjectController: UIViewController {
         numMembersLabel.text = String(memCount) + " total member(s)"
         numAdminsLabel.text = String(adminCount) + " admin(s)"
         numLeadsLabel.text = String(leadCount) + " lead(s)"
+        if(Constants.currMember.getRole() == Constants.roles[0]){
+            roleToggle.selectedSegmentIndex = 0
+        } else{
+            roleToggle.selectedSegmentIndex = 1
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
