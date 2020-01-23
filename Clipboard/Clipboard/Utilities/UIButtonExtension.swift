@@ -51,6 +51,15 @@ extension UIView {
         layer.shadowRadius = 5
         layer.shadowOffset = CGSize(width: 0, height: 10)
     }
+    
+    func createSettingDetailComponent(){
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 0.25
+        layer.cornerRadius = 5
+        layer.shadowOpacity = 0.25
+        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+    }
 }
 
 extension Date {
@@ -67,11 +76,17 @@ extension Date {
 }
 
 extension UITextField {
-    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
+    func createBottomBorderTextField(borderColor: UIColor, width: CGFloat, fontColor: UIColor, placeholderText: String) {
+        self.borderStyle = .none
         let border = CALayer()
-        border.backgroundColor = color.cgColor
+        border.backgroundColor = borderColor.cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width,
                               width: self.frame.size.width, height: width)
         self.layer.addSublayer(border)
+        self.layer.borderColor = fontColor.cgColor
+        self.textColor = fontColor
+        self.tintColor = fontColor
+        self.backgroundColor = UIColor.clear
+        self.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
 }

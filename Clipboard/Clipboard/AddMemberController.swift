@@ -22,13 +22,7 @@ class AddMemberController: UIViewController {
         super.viewDidLoad()
         mainView.backgroundColor = UIColor.purple
         titleLabel.textColor = UIColor.white
-        nameTextField.borderStyle = .none
-        nameTextField.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)
-        nameTextField.layer.borderColor = UIColor.white.cgColor
-        nameTextField.textColor = UIColor.white
-        nameTextField.tintColor = UIColor.white
-        nameTextField.backgroundColor = UIColor.clear
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "Username",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        nameTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Username")
     roleToggle.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
     roleToggle.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
 

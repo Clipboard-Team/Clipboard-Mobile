@@ -23,13 +23,7 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
         mainView.backgroundColor = UIColor(red:0.50, green:0.00, blue:0.50, alpha:1.0)
         titleLabel.textColor = UIColor.white
         subtitleLabel.textColor = UIColor.white
-        dynamicTextField.borderStyle = .none
-        dynamicTextField.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)
-        dynamicTextField.layer.borderColor = UIColor.white.cgColor
-        dynamicTextField.textColor = UIColor.white
-        dynamicTextField.tintColor = UIColor.white
-        dynamicTextField.backgroundColor = UIColor.clear
-        dynamicTextField.attributedPlaceholder = NSAttributedString(string: "Project name",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        dynamicTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Project name")
         backButton.createStandardHollowButton(color: UIColor.white)
         nextButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
 

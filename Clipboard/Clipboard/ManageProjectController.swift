@@ -23,9 +23,28 @@ class ManageProjectController: UIViewController {
     @IBOutlet weak var numAdminsLabel: UILabel!
     @IBOutlet weak var numLeadsLabel: UILabel!
     
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var projectView: UIView!
+    @IBOutlet weak var teamView: UIView!
+    @IBOutlet weak var accountView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Manage Project"
+        
+        logoutButton.createStandardFullButton(color: UIColor.red, fontColor: UIColor.white)
+        resetButton.createStandardHollowButton(color: UIColor.purple)
+        confirmButton.createStandardFullButton(color: UIColor.purple, fontColor: UIColor.white)
+        projectNameTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.purple, placeholderText: "Project name")
+        projectDescriptionTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.purple, placeholderText: "Optional project description")
+        teamNameTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.purple, placeholderText: "Team name")
+        teamDescriptionTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.purple, placeholderText: "Optional team description")
+        memberNameTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.purple, placeholderText: "Account name")
+        projectView.createSettingDetailComponent()
+        teamView.createSettingDetailComponent()
+        accountView.createSettingDetailComponent()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ManageProjectController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
