@@ -13,10 +13,17 @@ class ChooseIconController: UIViewController {
     public static var member = Member(name: "Default", role: "Default", team: "Default")
     var icons: [Icon] = []
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainView.backgroundColor = UIColor.purple
+        titleLabel.textColor = UIColor.white
+        tableView.layer.backgroundColor = UIColor.clear.cgColor
+        tableView.backgroundColor = .clear
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
@@ -35,6 +42,9 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "iconCell") as! IconCell
         let icon = icons[indexPath.row]
         cell.set(icon: icon)
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+        cell.backgroundColor = .clear
+        cell.iconLabel.textColor = UIColor.white
         return cell
     }
     

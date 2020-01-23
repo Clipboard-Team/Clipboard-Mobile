@@ -12,9 +12,29 @@ class AddMemberController: UIViewController {
     public static var state = String() // create, login
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var roleToggle: UISegmentedControl!
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.backgroundColor = UIColor.purple
+        titleLabel.textColor = UIColor.white
+        nameTextField.borderStyle = .none
+        nameTextField.addBottomBorderWithColor(color: UIColor.lightGray, width: 0.5)
+        nameTextField.layer.borderColor = UIColor.white.cgColor
+        nameTextField.textColor = UIColor.white
+        nameTextField.tintColor = UIColor.white
+        nameTextField.backgroundColor = UIColor.clear
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "Username",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+    roleToggle.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+    roleToggle.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+
+        backButton.createStandardHollowButton(color: UIColor.white)
+        nextButton.createStandardHollowButton(color: UIColor.white)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMemberController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
     }

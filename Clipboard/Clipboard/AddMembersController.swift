@@ -12,9 +12,24 @@ class AddMembersController: UIViewController{
     public static var previousMember = Member(name: "Default", role: "Default", team: "Default")
     private var memberToEditOrDelete = Member(name: "Default", role: "Default", team: "Default")
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var finalizeButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mainView.backgroundColor = UIColor.purple
+        titleLabel.textColor = UIColor.white
+        subtitleLabel.textColor = UIColor.white
+        tableView.layer.backgroundColor = UIColor.clear.cgColor
+        tableView.backgroundColor = .clear
+        backButton.createStandardHollowButton(color: UIColor.white)
+        addButton.createStandardHollowButton(color: UIColor.white)
+        finalizeButton.createStandardHollowButton(color: UIColor.white)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMembersController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         tableView.delegate = self
@@ -60,6 +75,9 @@ extension AddMembersController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell") as! MemberCell
         guard let member = Constants.currProject.getTeam()?.getMembers()[indexPath.row] else {return UITableViewCell()}
         cell.set(member: member)
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+        cell.backgroundColor = .clear
+        cell.memberNameLabel.textColor = UIColor.white
         return cell
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
