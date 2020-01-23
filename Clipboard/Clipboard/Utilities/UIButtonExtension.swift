@@ -20,7 +20,7 @@ extension UIButton {
     func createStandardFullButton(color: UIColor, fontColor: UIColor){
         frame = CGRect(x: 0, y: 0, width: 80, height: 20)
         backgroundColor = color
-        layer.cornerRadius = 10
+        layer.cornerRadius = frame.width * 0.1875
         layer.borderColor = color.cgColor
         layer.borderWidth = 1
         layer.shadowOpacity = 0.25
@@ -32,7 +32,7 @@ extension UIButton {
     func createStandardHollowButton(color: UIColor){
         frame = CGRect(x: 0, y: 0, width: 80, height: 20)
         backgroundColor = UIColor.clear
-        layer.cornerRadius = 10
+        layer.cornerRadius = frame.width * 0.1875
         layer.borderColor = color.cgColor
         layer.borderWidth = 1
         layer.shadowOpacity = 0.25

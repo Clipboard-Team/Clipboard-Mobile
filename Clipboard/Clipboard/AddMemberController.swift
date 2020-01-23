@@ -33,7 +33,7 @@ class AddMemberController: UIViewController {
     roleToggle.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
 
         backButton.createStandardHollowButton(color: UIColor.white)
-        nextButton.createStandardHollowButton(color: UIColor.white)
+        nextButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMemberController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)

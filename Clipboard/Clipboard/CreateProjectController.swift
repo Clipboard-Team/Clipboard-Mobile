@@ -31,7 +31,7 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
         dynamicTextField.backgroundColor = UIColor.clear
         dynamicTextField.attributedPlaceholder = NSAttributedString(string: "Project name",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         backButton.createStandardHollowButton(color: UIColor.white)
-        nextButton.createStandardHollowButton(color: UIColor.white)
+        nextButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
 
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateProjectController.viewTapped(gestureRecognizer:)))

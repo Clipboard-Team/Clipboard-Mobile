@@ -29,7 +29,7 @@ class AddMembersController: UIViewController{
         tableView.backgroundColor = .clear
         backButton.createStandardHollowButton(color: UIColor.white)
         addButton.createStandardHollowButton(color: UIColor.white)
-        finalizeButton.createStandardHollowButton(color: UIColor.white)
+        finalizeButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMembersController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         tableView.delegate = self
