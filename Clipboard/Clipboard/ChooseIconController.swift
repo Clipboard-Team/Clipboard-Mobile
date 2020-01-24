@@ -52,15 +52,14 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
         let icon = icons[indexPath.row]
         let count = (Constants.currProject.getTeam()?.getMembers().count)!-1
         for n in 0...count{
-            if(Constants.currProject.getTeam()?.getMembers()[n].getName() == ChooseIconController.member.getName()){
+            if(Constants.currProject.getTeam()?.getMembers()[n].getUUID() == ChooseIconController.member.getUUID()){
                 Constants.currProject.getTeam()?.getMembers()[n].setIcon(icon: icon.getImage())
-                ChooseIconController.member = (Constants.currProject.getTeam()?.getMembers()[n])!
+                ChooseIconController.member.setIcon(icon: icon.getImage())
                 break
             }
         }
         if(ChooseIconController.state == "login"){
             dismiss(animated: true, completion: nil)
-
         } else if(ChooseIconController.state == "edit"){
             if let navController = presentingViewController as? UINavigationController {
                let presenter = navController.topViewController as! EditMemberController

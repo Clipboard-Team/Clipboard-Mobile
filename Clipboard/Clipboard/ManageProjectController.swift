@@ -19,6 +19,7 @@ class ManageProjectController: UIViewController {
     @IBOutlet weak var teamDescriptionTextField: UITextField!
     @IBOutlet weak var memberNameTextField: UITextField!
     @IBOutlet weak var roleToggle: UISegmentedControl!
+    @IBOutlet weak var memberIconButton: UIButton!
     @IBOutlet weak var numMembersLabel: UILabel!
     @IBOutlet weak var numAdminsLabel: UILabel!
     @IBOutlet weak var numLeadsLabel: UILabel!
@@ -58,6 +59,9 @@ class ManageProjectController: UIViewController {
         displayOriginalProject()
     }
 
+    @IBAction func memberIconButtonTapped(_ sender: Any) {
+        
+    }
     @IBAction func editTapped(_ sender: Any) {
         performSegue(withIdentifier: "fromManageToManageMembers", sender: self)
     }
@@ -152,6 +156,7 @@ class ManageProjectController: UIViewController {
         } else{
             roleToggle.selectedSegmentIndex = 1
         }
+    memberIconButton.setBackgroundImage(Constants.currMember.getIcon(), for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

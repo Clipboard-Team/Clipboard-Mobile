@@ -37,7 +37,9 @@ class AddMemberController: UIViewController {
     @IBAction func backTapped(_ sender: Any) {
        
         if(AddMemberController.state == "login"){
-            _ = navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+        } else if (AddMemberController.state == "edit"){
+            dismiss(animated: true, completion: nil)
         } else {
              performSegue(withIdentifier: "fromAddMemberToAddMembers", sender: self)
         }
