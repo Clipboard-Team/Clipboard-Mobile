@@ -14,7 +14,7 @@ extension UIButton {
         tintColor = UIColor.purple
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOffset = CGSize(width: 0, height: 3)
     }
 
     func createStandardFullButton(color: UIColor, fontColor: UIColor){
@@ -25,19 +25,19 @@ extension UIButton {
         layer.borderWidth = 1
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOffset = CGSize(width: 0, height: 3)
         tintColor = fontColor
     }
     
-    func createStandardHollowButton(color: UIColor){
+    func createStandardHollowButton(color: UIColor, backColor: UIColor){
         frame = CGRect(x: 0, y: 0, width: 80, height: 20)
-        backgroundColor = UIColor.clear
+        backgroundColor = backColor
         layer.cornerRadius = frame.width * 0.1875
         layer.borderColor = color.cgColor
         layer.borderWidth = 1
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOffset = CGSize(width: 0, height: 3)
         tintColor = color
     }
 }
@@ -49,7 +49,7 @@ extension UIView {
         layer.cornerRadius = 5
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
     func createSettingDetailComponent(){
@@ -58,7 +58,7 @@ extension UIView {
         layer.cornerRadius = 5
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOffset = CGSize(width: 0, height: 3)
     }
 }
 

@@ -71,15 +71,6 @@ class TaskListController: UIViewController {
     }
     @IBAction func searchButtonTapped(_ sender: Any) {
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if let secondViewController = segue.destination as? EditTaskController {
-            secondViewController.modalPresentationStyle = .fullScreen
-            secondViewController.setTask(task: taskToEditOrDelete)
-        }
-    }
 }
 
 extension TaskListController: UITableViewDelegate, UITableViewDataSource {
@@ -250,7 +241,10 @@ extension TaskListController: UITableViewDelegate, UITableViewDataSource {
                 guard let task = Constants.currProject.getTeam()?.getTasks()[indexPath.row] else {return}
                 self.taskToEditOrDelete = task
             }
-            self.performSegue(withIdentifier: "fromTaskListToEditTask", sender: self)
+            let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "EditTaskController")
+            EditTaskController.setTask(task: self.taskToEditOrDelete)
+            self.navigationController?.pushViewController(vc, animated: true)
             success(true)
         })
         ViewAction.backgroundColor = .green

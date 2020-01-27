@@ -10,86 +10,108 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Clipboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AM7-Gv-Zt1">
-                                <rect key="frame" x="102" y="250" width="210" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="51" y="375" width="312" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's build something together" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0s-Gy-E0h">
-                                <rect key="frame" x="108" y="285" width="198" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="86" y="421.5" width="242" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-F4-DeP">
-                                <rect key="frame" x="107" y="322" width="200" height="34"/>
+                                <rect key="frame" x="82" y="503" width="250" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="qxv-K0-Rkc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="qxv-K0-Rkc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2V-sE-Qjj">
-                                <rect key="frame" x="107" y="364" width="200" height="34"/>
+                                <rect key="frame" x="82" y="577" width="250" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="TEH-7J-J7b"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="TEH-7J-J7b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-8C-9jM">
-                                <rect key="frame" x="140.5" y="444" width="133" height="30"/>
+                                <rect key="frame" x="119.5" y="727" width="175" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="Dlr-TE-LW4"/>
+                                </constraints>
                                 <state key="normal" title="Create New Project"/>
                                 <connections>
                                     <action selector="createTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="egn-3A-bJL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ne-aL-NW7">
-                                <rect key="frame" x="188" y="406" width="38" height="30"/>
+                                <rect key="frame" x="119.5" y="681" width="175" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="ev8-JO-0Kv"/>
+                                </constraints>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Juf-tB-WGS"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hc4-27-oNy">
+                                <rect key="frame" x="79.5" y="100" width="255" height="255"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="T53-47-3vE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="qVe-FB-FXg"/>
+                                    <constraint firstAttribute="width" secondItem="Hc4-27-oNy" secondAttribute="height" multiplier="1:1" id="wFQ-o0-5RS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Hc4-27-oNy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BDc-vo-afC"/>
                             <constraint firstItem="Q0s-Gy-E0h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C5r-tX-Gbb"/>
-                            <constraint firstItem="bcB-F4-DeP" firstAttribute="top" secondItem="Q0s-Gy-E0h" secondAttribute="bottom" constant="20" id="Cac-4J-QP1"/>
-                            <constraint firstItem="t9E-8C-9jM" firstAttribute="top" secondItem="1ne-aL-NW7" secondAttribute="bottom" constant="8" id="GQ3-2d-Kbl"/>
+                            <constraint firstItem="bcB-F4-DeP" firstAttribute="top" secondItem="Q0s-Gy-E0h" secondAttribute="bottom" constant="60" id="Cac-4J-QP1"/>
+                            <constraint firstItem="t9E-8C-9jM" firstAttribute="top" secondItem="1ne-aL-NW7" secondAttribute="bottom" constant="16" id="GQ3-2d-Kbl"/>
                             <constraint firstItem="Q0s-Gy-E0h" firstAttribute="top" secondItem="AM7-Gv-Zt1" secondAttribute="bottom" constant="8" id="JS2-4j-5pU"/>
                             <constraint firstItem="t9E-8C-9jM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KS6-pO-Ect"/>
                             <constraint firstItem="t2V-sE-Qjj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kxy-eG-sZo"/>
                             <constraint firstItem="1ne-aL-NW7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q2B-bK-SUM"/>
-                            <constraint firstItem="1ne-aL-NW7" firstAttribute="top" secondItem="t2V-sE-Qjj" secondAttribute="bottom" constant="8" id="VVY-ix-xAp"/>
+                            <constraint firstItem="1ne-aL-NW7" firstAttribute="top" secondItem="t2V-sE-Qjj" secondAttribute="bottom" constant="70" id="VVY-ix-xAp"/>
+                            <constraint firstItem="AM7-Gv-Zt1" firstAttribute="top" secondItem="Hc4-27-oNy" secondAttribute="bottom" constant="20" id="Ynj-fY-PMC"/>
+                            <constraint firstItem="Hc4-27-oNy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="gyA-HJ-5BL"/>
                             <constraint firstItem="bcB-F4-DeP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kiV-k4-XfZ"/>
-                            <constraint firstItem="t2V-sE-Qjj" firstAttribute="top" secondItem="bcB-F4-DeP" secondAttribute="bottom" constant="8" id="lO0-mt-qDm"/>
-                            <constraint firstItem="AM7-Gv-Zt1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="wvN-EJ-MtV"/>
+                            <constraint firstItem="t2V-sE-Qjj" firstAttribute="top" secondItem="bcB-F4-DeP" secondAttribute="bottom" constant="40" id="lO0-mt-qDm"/>
+                            <constraint firstItem="AM7-Gv-Zt1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="375" id="wvN-EJ-MtV"/>
                             <constraint firstItem="AM7-Gv-Zt1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zea-z7-noH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="fRO-ZU-aTJ"/>
                     <connections>
+                        <outlet property="createButton" destination="t9E-8C-9jM" id="x4d-sS-Ngq"/>
+                        <outlet property="loginButton" destination="1ne-aL-NW7" id="UvP-BZ-ASq"/>
+                        <outlet property="logoImageView" destination="Hc4-27-oNy" id="nNl-fD-1q7"/>
                         <outlet property="projectTextField" destination="bcB-F4-DeP" id="Pfe-gj-gZG"/>
+                        <outlet property="subtitleLabel" destination="Q0s-Gy-E0h" id="vTh-lc-GZv"/>
+                        <outlet property="titleLabel" destination="AM7-Gv-Zt1" id="y5Y-K4-Jt7"/>
                         <outlet property="usernameTextField" destination="t2V-sE-Qjj" id="bYo-Aj-8W8"/>
                         <segue destination="ZZ8-Nx-kPE" kind="show" identifier="fromLoginToCreateProject" id="rvc-Yj-s7X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-888" y="138"/>
+            <point key="canvasLocation" x="-888.40579710144937" y="137.94642857142856"/>
         </scene>
         <!--Create Project Controller-->
         <scene sceneID="f3c-qa-M2K">
             <objects>
-                <viewController id="ZZ8-Nx-kPE" customClass="CreateProjectController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateProjectController" id="ZZ8-Nx-kPE" customClass="CreateProjectController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eQE-ga-Sya">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +189,7 @@
         <!--Choose Icon Controller-->
         <scene sceneID="d9V-Iz-OaP">
             <objects>
-                <viewController id="ULX-34-kJs" customClass="ChooseIconController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseIconController" id="ULX-34-kJs" customClass="ChooseIconController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tpz-I3-owE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,7 +245,7 @@
         <!--Add Members Controller-->
         <scene sceneID="kgq-QA-8tB">
             <objects>
-                <viewController id="ohd-Uf-MFs" customClass="AddMembersController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMembersController" id="ohd-Uf-MFs" customClass="AddMembersController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fzw-Fq-p3g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,7 +345,7 @@
         <!--Add Member Controller-->
         <scene sceneID="l4Q-rT-ZIQ">
             <objects>
-                <viewController id="uYv-oj-buW" customClass="AddMemberController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMemberController" id="uYv-oj-buW" customClass="AddMemberController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udg-Br-MoQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -404,7 +426,7 @@
         <!--Edit Member Controller-->
         <scene sceneID="P7i-2n-b9B">
             <objects>
-                <viewController id="em7-fP-iIN" customClass="EditMemberController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditMemberController" id="em7-fP-iIN" customClass="EditMemberController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EdF-0p-QW1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,7 +489,7 @@
         <!--Home Controller-->
         <scene sceneID="nYe-DF-yxe">
             <objects>
-                <viewController id="jre-66-9fV" customClass="HomeController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeController" id="jre-66-9fV" customClass="HomeController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kmd-l1-M7L" customClass="hom">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -734,7 +756,7 @@
         <!--Edit Task Controller-->
         <scene sceneID="I5m-OA-l8P">
             <objects>
-                <viewController id="kxh-uA-jJt" customClass="EditTaskController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTaskController" id="kxh-uA-jJt" customClass="EditTaskController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rin-bp-X9T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -910,7 +932,7 @@
         <!--Create Task Controller-->
         <scene sceneID="gvx-7B-UZ8">
             <objects>
-                <viewController id="bVV-lN-vT5" customClass="CreateTaskController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateTaskController" id="bVV-lN-vT5" customClass="CreateTaskController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ph2-YK-FpF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1017,7 +1039,7 @@
         <!--Task List Controller-->
         <scene sceneID="1TH-R7-irt">
             <objects>
-                <viewController id="h8y-D5-DAN" customClass="TaskListController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskListController" id="h8y-D5-DAN" customClass="TaskListController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6rn-IS-b6i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1120,7 +1142,7 @@
         <!--Complete Task List Controller-->
         <scene sceneID="2kM-P3-xZE">
             <objects>
-                <viewController id="vaz-uN-IaX" customClass="CompleteTaskListController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompleteTaskListController" id="vaz-uN-IaX" customClass="CompleteTaskListController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hja-mS-DYn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1269,7 +1291,7 @@
         <!--Manage Project Controller-->
         <scene sceneID="hQy-9b-lck">
             <objects>
-                <viewController id="5E4-Hu-Bez" customClass="ManageProjectController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManageProjectController" id="5E4-Hu-Bez" customClass="ManageProjectController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PNt-2S-zLH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1476,6 +1498,9 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="n4D-al-XrR"/>
                                                 </constraints>
                                                 <state key="normal" title="Logout"/>
+                                                <connections>
+                                                    <action selector="logoutTapped:" destination="5E4-Hu-Bez" eventType="touchUpInside" id="AKh-Av-oSb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1546,6 +1571,7 @@
                         <outlet property="teamNameTextField" destination="Qqg-YH-KHf" id="uOd-IC-Kuw"/>
                         <outlet property="teamView" destination="oTf-ds-VTK" id="Qfc-ka-Jcu"/>
                         <segue destination="6h4-w3-E68" kind="show" identifier="fromManageToManageMembers" id="JCr-HU-wQv"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="fromManageProjectToLogin" id="uJ0-uw-dSm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1H9-ej-oPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1555,7 +1581,7 @@
         <!--Manage Members Controller-->
         <scene sceneID="NHq-eS-eeK">
             <objects>
-                <viewController id="6h4-w3-E68" customClass="ManageMembersController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManageMembersController" id="6h4-w3-E68" customClass="ManageMembersController" customModule="Clipboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fd0-ii-9ZK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1613,7 +1639,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mQr-9e-gPx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6dE-Kd-zU4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="6dE-Kd-zU4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="tb9-O1-K7W"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mhh-Vk-g1t">
@@ -1645,6 +1671,7 @@
         <segue reference="OQq-eE-3Ms"/>
         <segue reference="JDS-nX-6VN"/>
         <segue reference="CNu-fG-f7U"/>
-        <segue reference="lNw-1t-mPo"/>
+        <segue reference="p6d-to-xoS"/>
+        <segue reference="sxM-dO-jWK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,7 +26,7 @@ class AddMemberController: UIViewController {
     roleToggle.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
     roleToggle.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
 
-        backButton.createStandardHollowButton(color: UIColor.white)
+        backButton.createStandardHollowButton(color: UIColor.white, backColor: UIColor.purple)
         nextButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMemberController.viewTapped(gestureRecognizer:)))
@@ -41,7 +41,10 @@ class AddMemberController: UIViewController {
         } else if (AddMemberController.state == "edit"){
             dismiss(animated: true, completion: nil)
         } else {
-             performSegue(withIdentifier: "fromAddMemberToAddMembers", sender: self)
+            let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "AddMembersController")
+            ChooseIconController.member = Constants.currMember
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -52,25 +55,15 @@ class AddMemberController: UIViewController {
         Constants.currProject.getTeam()?.addMember(member: Member(name: name, role: role, team: team))
         
 
-        performSegue(withIdentifier: "fromAddMemberToChooseIcon", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        if let secondViewController = segue.destination as? AddMembersController{
-            secondViewController.modalPresentationStyle = .fullScreen
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseIconController")
+        guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
+        guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
+        ChooseIconController.member = member
+        if(AddMemberController.state == "login"){
+            ChooseIconController.state = "login"
         }
-        if let secondViewController = segue.destination as? ChooseIconController{
-            secondViewController.modalPresentationStyle = .formSheet
-            
-            guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
-            guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
-            ChooseIconController.member = member
-            if(AddMemberController.state == "login"){
-                ChooseIconController.state = "login"
-            }
-        }
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){

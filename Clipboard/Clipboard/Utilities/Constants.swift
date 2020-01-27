@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 let defaultImgFile = "icons8-question-mark-50"
+let logoPurple = "logo_purple"
+let logoWhite = "logo_white"
 let h = "icons8-"
 let t = "-50"
 let mid = [

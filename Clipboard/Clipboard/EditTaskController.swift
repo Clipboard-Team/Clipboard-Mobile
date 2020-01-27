@@ -9,8 +9,8 @@
 import UIKit
 
 class EditTaskController: UIViewController {
-    private var task = Task(title: "Default", status: "Default", difficulty: "Default")
-    private var backupTask = Task(title: "Default", status: "Default", difficulty: "Default")
+    static var task = Task(title: "Default", status: "Default", difficulty: "Default")
+    static var backupTask = Task(title: "Default", status: "Default", difficulty: "Default")
     private var pickerData = [Constants.statuses, Constants.difficulties]
     private var datePickerView: UIDatePicker?
     private var pickerView: UIPickerView?
@@ -24,7 +24,7 @@ class EditTaskController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    func setTask(task:Task){
+    static func setTask(task:Task){
         self.task = task
         self.backupTask = task
     }
@@ -66,21 +66,21 @@ class EditTaskController: UIViewController {
     func displayOriginalTask(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Constants.dateFormatShort
-        startDateLabel.text = dateFormatter.string(from: backupTask.getStartDate())
-        titleTextField.text = backupTask.getTitle()
-        statusTextField.text = backupTask.getStatus()
-        difficultyTextField.text = backupTask.getDifficulty()
-        assignedToTextField.text = backupTask.getAssignedTo()?.getName()
-        descriptionTextField.text = backupTask.getDescription()
+        startDateLabel.text = dateFormatter.string(from: EditTaskController.backupTask.getStartDate())
+        titleTextField.text = EditTaskController.backupTask.getTitle()
+        statusTextField.text = EditTaskController.backupTask.getStatus()
+        difficultyTextField.text = EditTaskController.backupTask.getDifficulty()
+        assignedToTextField.text = EditTaskController.backupTask.getAssignedTo()?.getName()
+        descriptionTextField.text = EditTaskController.backupTask.getDescription()
         commentTextField.text = ""
-        guard let date = backupTask.getDueDate() else {return}
+        guard let date = EditTaskController.backupTask.getDueDate() else {return}
         dueDateTextField.text = dateFormatter.string(from: date)
     }
     
     @IBAction func editTapped(_ sender: Any) {
         guard let tasks = Constants.currProject.getTeam()?.getTasks() else {return}
         for task in tasks {
-            if(task.getTitle() == backupTask.getTitle()){
+            if(task.getTitle() == EditTaskController.backupTask.getTitle()){
                 task.setTitle(title: titleTextField.text ?? "")
                 task.setStatus(status: statusTextField.text!)
                 task.setDifficulty(difficulty: difficultyTextField.text!)
@@ -150,14 +150,14 @@ extension EditTaskController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension EditTaskController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return task.getComments().count
+        return EditTaskController.task.getComments().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "commentCell")
 
-        guard let comment = task.getComments()[indexPath.row].getComment() else {return cell}
-        guard let date = task.getComments()[indexPath.row].getDate() else {return cell}
+        guard let comment = EditTaskController.task.getComments()[indexPath.row].getComment() else {return cell}
+        guard let date = EditTaskController.task.getComments()[indexPath.row].getDate() else {return cell}
         cell.textLabel?.text = comment
         
         let dateFormatter = DateFormatter()

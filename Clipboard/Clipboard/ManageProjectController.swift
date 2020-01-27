@@ -36,7 +36,7 @@ class ManageProjectController: UIViewController {
         navigationItem.title = "Manage Project"
         
         logoutButton.createStandardFullButton(color: UIColor.red, fontColor: UIColor.white)
-        resetButton.createStandardHollowButton(color: UIColor.purple)
+        resetButton.createStandardHollowButton(color: UIColor.purple, backColor: UIColor.white)
         confirmButton.createStandardFullButton(color: UIColor.purple, fontColor: UIColor.white)
         projectNameTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.purple, placeholderText: "Project name")
         projectDescriptionTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.purple, placeholderText: "Optional project description")
@@ -63,9 +63,17 @@ class ManageProjectController: UIViewController {
         
     }
     @IBAction func editTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromManageToManageMembers", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ManageMembersController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    @IBAction func logoutTapped(_ sender: Any) {
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ViewController")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
     @IBAction func resetTapped(_ sender: Any) {
         displayOriginalProject()
     }
@@ -157,14 +165,6 @@ class ManageProjectController: UIViewController {
             roleToggle.selectedSegmentIndex = 1
         }
     memberIconButton.setBackgroundImage(Constants.currMember.getIcon(), for: .normal)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if let secondViewController = segue.destination as? ManageMembersController {
-            secondViewController.modalPresentationStyle = .formSheet
-        }
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){

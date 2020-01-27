@@ -116,33 +116,45 @@ class HomeController: UIViewController {
     
     @objc func handleToDoTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
-        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CompleteTaskListController")
+        self.navigationController?.pushViewController(vc, animated: true)
         CompleteTaskListController.type = Constants.statuses[0]
     }
     
     @objc func handleInProgressTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
-        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CompleteTaskListController")
+        self.navigationController?.pushViewController(vc, animated: true)
         CompleteTaskListController.type = Constants.statuses[1]
     }
     
     @objc func handleHaltedTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
-        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CompleteTaskListController")
+        self.navigationController?.pushViewController(vc, animated: true)
         CompleteTaskListController.type = Constants.statuses[2]
     }
     
     @objc func handleDoneTapped(gesture: UITapGestureRecognizer) -> Void {
         print("caught tap gesture")
-        performSegue(withIdentifier: "fromHomeToCompleteTaskList", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CompleteTaskListController")
+        self.navigationController?.pushViewController(vc, animated: true)
         CompleteTaskListController.type = Constants.statuses[3]
     }
     
     @IBAction func manageBarButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromHomeToManage", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ManageProjectController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func taskListButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromHomeToTaskList", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "TaskListController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func analyticsBarButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Apologies", message: "The Analytics Page is an upcoming feature!", preferredStyle: UIAlertController.Style.alert)
@@ -150,31 +162,11 @@ class HomeController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     @IBAction func addTaskTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromHomeToCreateTask", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CreateTaskController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if let secondViewController = segue.destination as? CreateTaskController {
-            secondViewController.modalPresentationStyle = .fullScreen
-        }
-        if let secondViewController = segue.destination as? HomeController {
-            secondViewController.modalPresentationStyle = .fullScreen
-        }
-        if let secondViewController = segue.destination as? ManageProjectController {
-            secondViewController.modalPresentationStyle = .fullScreen
-        }
-        if let secondViewController = segue.destination as? EditTaskController {
-            secondViewController.modalPresentationStyle = .fullScreen
-            
-            guard let task = Constants.currProject.getTeam()?.getTasks()[0] else {return}
-            secondViewController.setTask(task: task)
-        }
-        if let secondViewController = segue.destination as? TaskListController {
-            secondViewController.modalPresentationStyle = .fullScreen
-        }
-    }
+
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)

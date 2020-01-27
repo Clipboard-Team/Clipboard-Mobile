@@ -29,22 +29,11 @@ class ManageMembersController: UIViewController {
     }
 
     @IBAction func addTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromManageMembersToAddMember", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        if let secondViewController = segue.destination as? AddMemberController {
-            secondViewController.modalPresentationStyle = .formSheet
-            AddMemberController.state = "login"
-        }
-        
-        if let secondViewController = segue.destination as? EditMemberController {
-            secondViewController.modalPresentationStyle = .fullScreen
-            secondViewController.setMember(member: memberToEditOrDelete)
-            EditMemberController.memberBackup = memberToEditOrDelete
-        }
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "AddMemberController")
+        AddMemberController.state = "login"
+        vc.modalPresentationStyle = .formSheet
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
@@ -72,7 +61,11 @@ extension ManageMembersController: UITableViewDelegate, UITableViewDataSource {
             print("Update action ...")
             guard let mem = Constants.currProject.getTeam()?.getMembers()[indexPath.row] else {return}
             self.memberToEditOrDelete = mem
-            self.performSegue(withIdentifier: "fromManageMembersToEditMember", sender: self)
+            let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "EditMemberController")
+            EditMemberController.setMember(member: self.memberToEditOrDelete)
+            EditMemberController.memberBackup = self.memberToEditOrDelete
+            self.navigationController?.pushViewController(vc, animated: true)
             success(true)
         })
         EditAction.backgroundColor = .blue

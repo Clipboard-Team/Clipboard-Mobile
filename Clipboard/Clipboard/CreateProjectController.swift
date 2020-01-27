@@ -23,8 +23,9 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
         mainView.backgroundColor = UIColor(red:0.50, green:0.00, blue:0.50, alpha:1.0)
         titleLabel.textColor = UIColor.white
         subtitleLabel.textColor = UIColor.white
+    
         dynamicTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Project name")
-        backButton.createStandardHollowButton(color: UIColor.white)
+        backButton.createStandardHollowButton(color: UIColor.white, backColor: UIColor.purple)
         nextButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
 
         
@@ -35,46 +36,16 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
     
     override func viewWillAppear(_ animated: Bool) {
         if(CreateProjectController.state == "project"){
-            //backButton.isHidden = true
-            /*
-             TODO: Figure out how to program a horizontal align on next button
-             */
         } else{
-            //backButton.isHidden = false
         }
     }
-    
-    
-//    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
-//        print("detected:")
-//        // Create the action buttons for the alert.
-//        let defaultAction = UIAlertAction(title: "Agree",
-//                             style: .default) { (action) in
-//         // Respond to user selection of the action.
-//        }
-//        let cancelAction = UIAlertAction(title: "Disagree",
-//                             style: .cancel) { (action) in
-//         // Respond to user selection of the action.
-//        }
-//        
-//        // Create and configure the alert controller.
-//        let alert = UIAlertController(title: "Terms and Conditions",
-//              message: "Click Agree to accept the terms and conditions.",
-//              preferredStyle: .alert)
-//        alert.addAction(defaultAction)
-//        alert.addAction(cancelAction)
-//             
-//        self.present(alert, animated: true) {
-//           // The alert was presented
-//        }
-//    }
 
     @IBAction func backTapped(_ sender: Any) {
         switch CreateProjectController.state {
         case "project":
             print("segue to login page")
             Constants.currProject.printEntireProject()
-            performSegue(withIdentifier: "fromCreateProjectToLogin", sender: self)
+            dismiss(animated: true, completion: nil)
         case "team":
             print("state team changing to state project")
             Constants.currProject.printEntireProject()
@@ -125,24 +96,15 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
                 Constants.currProject.getTeam()?.addMember(member: newMem)
                 Constants.currMember = newMem
                 Constants.currProject.printEntireProject()
-                performSegue(withIdentifier: "fromCreateProjectToChooseIcon", sender: self)
+                let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseIconController")
+                ChooseIconController.member = Constants.currMember
+                self.present(vc, animated: true, completion: nil)
             default:
                 break
             }
             
         } else{
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        if let secondViewController = segue.destination as? ViewController {
-            secondViewController.modalPresentationStyle = .fullScreen
-        }
-        if let secondViewController = segue.destination as? ChooseIconController{
-            secondViewController.modalPresentationStyle = .formSheet
-            ChooseIconController.member = Constants.currMember
         }
     }
     

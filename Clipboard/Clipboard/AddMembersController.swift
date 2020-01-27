@@ -27,8 +27,8 @@ class AddMembersController: UIViewController{
         subtitleLabel.textColor = UIColor.white
         tableView.layer.backgroundColor = UIColor.clear.cgColor
         tableView.backgroundColor = .clear
-        backButton.createStandardHollowButton(color: UIColor.white)
-        addButton.createStandardHollowButton(color: UIColor.white)
+        backButton.createStandardHollowButton(color: UIColor.white, backColor: UIColor.purple)
+        addButton.createStandardHollowButton(color: UIColor.white, backColor: UIColor.purple)
         finalizeButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AddMembersController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
@@ -39,28 +39,21 @@ class AddMembersController: UIViewController{
     }
 
     @IBAction func backTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromAddMembersToChooseIcon", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseIconController")
+        ChooseIconController.member = AddMembersController.previousMember
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func addTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromAddMembersToAddMember", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "AddMemberController")
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func finalizeTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromAddMembersToHome", sender: self)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-
-        if let secondViewController = segue.destination as? UINavigationController {
-            print("caught")
-            secondViewController.modalPresentationStyle = .fullScreen
-        }
-        if let secondViewController = segue.destination as? ChooseIconController{
-            secondViewController.modalPresentationStyle = .fullScreen
-            ChooseIconController.member = AddMembersController.previousMember
-        }
-        if let secondViewController = segue.destination as? AddMemberController{
-            secondViewController.modalPresentationStyle = .formSheet
-        }
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "NavigationController")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

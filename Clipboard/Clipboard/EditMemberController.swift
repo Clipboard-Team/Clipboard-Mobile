@@ -32,19 +32,14 @@ class EditMemberController: UIViewController {
     }
 
     @IBAction func iconButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromEditMemberToChooseIcon", sender: self)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseIconController")
+        vc.modalPresentationStyle = .formSheet
+        ChooseIconController.member = EditMemberController.member
+        ChooseIconController.state = "edit"
+        self.present(vc, animated: true, completion: nil)
     }
-    func setMember(member: Member){
+    static func setMember(member: Member){
         EditMemberController.member = member
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if let secondViewController = segue.destination as? ChooseIconController{
-            secondViewController.modalPresentationStyle = .formSheet
-            
-            ChooseIconController.member = EditMemberController.member
-            ChooseIconController.state = "edit"
-        }
     }
 }

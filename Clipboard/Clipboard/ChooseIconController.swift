@@ -61,13 +61,13 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
         if(ChooseIconController.state == "login"){
             dismiss(animated: true, completion: nil)
         } else if(ChooseIconController.state == "edit"){
-            if let navController = presentingViewController as? UINavigationController {
-               let presenter = navController.topViewController as! EditMemberController
-                presenter.setMember(member: ChooseIconController.member)
-            }
+            EditMemberController.setMember(member: ChooseIconController.member)
             dismiss(animated: true, completion: nil)
         } else{
-            performSegue(withIdentifier: "fromChooseIconToAddMembers", sender: self)
+            let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "AddMembersController")
+            AddMembersController.previousMember = ChooseIconController.member
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -76,14 +76,6 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
         {
             let vc = self.navigationController!.viewControllers[self.navigationController!.viewControllers.count - popViews - 1]
              self.navigationController?.popToViewController(vc, animated: animated)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if let secondViewController = segue.destination as? AddMembersController{
-            secondViewController.modalPresentationStyle = .formSheet
-            AddMembersController.previousMember = ChooseIconController.member
         }
     }
     
