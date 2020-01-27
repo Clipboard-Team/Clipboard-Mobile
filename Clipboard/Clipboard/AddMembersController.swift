@@ -39,10 +39,7 @@ class AddMembersController: UIViewController{
     }
 
     @IBAction func backTapped(_ sender: Any) {
-        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseIconController")
-        ChooseIconController.member = AddMembersController.previousMember
-        self.present(vc, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func addTapped(_ sender: Any) {
         let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

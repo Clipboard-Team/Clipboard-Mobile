@@ -285,7 +285,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcw-Be-OuZ">
                                 <rect key="frame" x="20" y="760" width="74" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="backTapped:" destination="ohd-Uf-MFs" eventType="touchUpInside" id="43s-Oh-r5O"/>
                                 </connections>
@@ -1671,7 +1671,7 @@
         <segue reference="OQq-eE-3Ms"/>
         <segue reference="JDS-nX-6VN"/>
         <segue reference="CNu-fG-f7U"/>
-        <segue reference="sch-yw-gEa"/>
+        <segue reference="p6d-to-xoS"/>
         <segue reference="sxM-dO-jWK"/>
     </inferredMetricsTieBreakers>
 </document>

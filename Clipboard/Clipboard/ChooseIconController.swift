@@ -66,6 +66,7 @@ extension ChooseIconController: UITableViewDelegate, UITableViewDataSource{
         } else{
             let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyBoard.instantiateViewController(withIdentifier: "AddMembersController")
+            vc.modalPresentationStyle = .fullScreen
             AddMembersController.previousMember = ChooseIconController.member
             self.present(vc, animated: true, completion: nil)
         }

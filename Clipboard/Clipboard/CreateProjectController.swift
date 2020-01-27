@@ -36,7 +36,9 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
     
     override func viewWillAppear(_ animated: Bool) {
         if(CreateProjectController.state == "project"){
+            backButton.setTitle("Cancel", for: .normal)
         } else{
+            backButton.setTitle("Back", for: .normal)
         }
     }
 
