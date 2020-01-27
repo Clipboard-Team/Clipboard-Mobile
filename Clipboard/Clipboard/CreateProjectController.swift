@@ -54,6 +54,7 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
                 title: "New Project",
                 subtitle: "Think of a cool name for your project!",
                 placeholder: "Project name")
+            backButton.setTitle("Cancel",for: .normal)
         case "admin":
             print("state admin changing to state team")
             Constants.currProject.printEntireProject()
@@ -80,6 +81,7 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
                     title: "New Team",
                     subtitle: "What do you want to name your team?",
                     placeholder: "Team name")
+                backButton.setTitle("Back",for: .normal)
             case "team":
                 print("state team changing to state admin")
                 Constants.currProject.setTeam(team: text)
@@ -89,6 +91,7 @@ class CreateProjectController: UIViewController, UIAdaptivePresentationControlle
                     title: "New Admin Account",
                     subtitle: "You can create more admin accounts later on",
                     placeholder: "Admin name")
+                nextButton.setTitle("Finalize",for: .normal)
             case "admin":
                 print("segue to choose icon page")
                 guard let teamTitle = Constants.currProject.getTeam()?.getTitle() else {return}
