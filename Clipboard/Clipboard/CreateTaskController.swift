@@ -18,7 +18,8 @@ class CreateTaskController: UIViewController {
     @IBOutlet weak var assignedToTextField: UITextField!
     @IBOutlet weak var dueDateTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
-
+    @IBOutlet weak var createTaskButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create Task"
@@ -41,6 +42,8 @@ class CreateTaskController: UIViewController {
         statusTextField.inputView = pickerView
         difficultyTextField.inputView = pickerView
         assignedToTextField.inputView = pickerView
+        
+        createTaskButton.createStandardFullButton(color: UIColor.purple, fontColor: UIColor.white)
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){

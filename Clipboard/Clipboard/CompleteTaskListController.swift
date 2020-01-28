@@ -41,6 +41,12 @@ class CompleteTaskListController: UIViewController {
             return team.getTasks()
         }
     }
+    @IBAction func addTaskTapped(_ sender: Any) {
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "CreateTaskController")
+        vc.modalPresentationStyle = .formSheet
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension CompleteTaskListController: UITableViewDelegate, UITableViewDataSource {
