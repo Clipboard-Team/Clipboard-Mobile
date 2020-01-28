@@ -39,7 +39,10 @@ class AddMembersController: UIViewController{
     }
 
     @IBAction func backTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "ViewController")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func addTapped(_ sender: Any) {
         let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

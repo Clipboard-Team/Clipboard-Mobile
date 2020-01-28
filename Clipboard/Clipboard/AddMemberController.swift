@@ -41,29 +41,29 @@ class AddMemberController: UIViewController {
         } else if (AddMemberController.state == "edit"){
             dismiss(animated: true, completion: nil)
         } else {
-            let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyBoard.instantiateViewController(withIdentifier: "AddMembersController")
+            dismiss(animated: true, completion: nil)
             ChooseIconController.member = Constants.currMember
-            self.present(vc, animated: true, completion: nil)
         }
     }
     
     @IBAction func nextTapped(_ sender: Any) {
-        guard let name = usernameTextField.text else {return}
-        guard let role = roleToggle.titleForSegment(at: roleToggle.selectedSegmentIndex) else {return}
-        guard let team = Constants.currProject.getTeam()?.getTitle() else {return}
-        Constants.currProject.getTeam()?.addMember(member: Member(name: name, role: role, team: team))
-        
+        if(usernameTextField.hasText){
+            guard let name = usernameTextField.text else {return}
+            guard let role = roleToggle.titleForSegment(at: roleToggle.selectedSegmentIndex) else {return}
+            guard let team = Constants.currProject.getTeam()?.getTitle() else {return}
+            Constants.currProject.getTeam()?.addMember(member: Member(name: name, role: role, team: team))
+            
 
-        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseIconController")
-        guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
-        guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
-        ChooseIconController.member = member
-        if(AddMemberController.state == "login"){
-            ChooseIconController.state = "login"
+            let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseIconController")
+            guard let count = Constants.currProject.getTeam()?.getMembers().count else {return}
+            guard let member = Constants.currProject.getTeam()?.getMembers()[count-1] else {return}
+            ChooseIconController.member = member
+            if(AddMemberController.state == "login"){
+                ChooseIconController.state = "login"
+            }
+            self.present(vc, animated: true, completion: nil)
         }
-        self.present(vc, animated: true, completion: nil)
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
