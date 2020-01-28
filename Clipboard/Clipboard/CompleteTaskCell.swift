@@ -17,10 +17,12 @@ class CompleteTaskCell: UITableViewCell {
     @IBOutlet weak var taskDescriptionLabel: UITextView!
     @IBOutlet weak var taskStartDateLabel: UILabel!
     @IBOutlet weak var taskDueDateLabel: UILabel!
+    @IBOutlet weak var viewButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         print("super")
+        viewButton.createStandardFullButton(color: UIColor.purple, fontColor: UIColor.white)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
