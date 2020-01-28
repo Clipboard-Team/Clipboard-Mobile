@@ -30,6 +30,39 @@ class HomeController: UIViewController {
     
     
     @IBOutlet weak var addButton: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        toDoCountLabel.text = String(Constants.currProject.getTeam()?.getToDoTasks().count ?? 0)
+        inProgressCountLabel.text = String(Constants.currProject.getTeam()?.getInProgressTasks().count ?? 0)
+        haltedCountLabel.text = String(Constants.currProject.getTeam()?.getHaltedTasks().count ?? 0)
+        doneCountLabel.text = String(Constants.currProject.getTeam()?.getDoneTasks().count ?? 0)
+        
+        quickBoardView.createStatusComponent()
+        
+        toDoCountLabel.textColor = UIColor.purple
+        inProgressCountLabel.textColor = UIColor.purple
+        haltedCountLabel.textColor = UIColor.purple
+        doneCountLabel.textColor = UIColor.purple
+
+        toDoTitleLabel.textColor = UIColor.white
+        inProgressTitleLabel.textColor = UIColor.white
+        haltedTitleLabel.textColor = UIColor.white
+        doneTitleLabel.textColor = UIColor.white
+
+        toDoTitleLabel.backgroundColor = UIColor.purple
+        inProgressTitleLabel.backgroundColor = UIColor.purple
+        haltedTitleLabel.backgroundColor = UIColor.purple
+        doneTitleLabel.backgroundColor = UIColor.purple
+
+        let toDoTap = UITapGestureRecognizer(target: self, action: #selector(handleToDoTapped))
+        toDoView.addGestureRecognizer(toDoTap)
+        let inProgressTap = UITapGestureRecognizer(target: self, action: #selector(handleInProgressTapped))
+        inProgressView.addGestureRecognizer(inProgressTap)
+        let haltedTap = UITapGestureRecognizer(target: self, action: #selector(handleHaltedTapped))
+        haltedView.addGestureRecognizer(haltedTap)
+        let doneTap = UITapGestureRecognizer(target: self, action: #selector(handleDoneTapped))
+        doneView.addGestureRecognizer(doneTap)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,36 +115,7 @@ class HomeController: UIViewController {
         haltedView.createStatusComponent()
         doneView.createStatusComponent()
         
-        toDoCountLabel.text = String(Constants.currProject.getTeam()?.getToDoTasks().count ?? 0)
-        inProgressCountLabel.text = String(Constants.currProject.getTeam()?.getInProgressTasks().count ?? 0)
-        haltedCountLabel.text = String(Constants.currProject.getTeam()?.getHaltedTasks().count ?? 0)
-        doneCountLabel.text = String(Constants.currProject.getTeam()?.getDoneTasks().count ?? 0)
         
-        quickBoardView.createStatusComponent()
-        
-        toDoCountLabel.textColor = UIColor.purple
-        inProgressCountLabel.textColor = UIColor.purple
-        haltedCountLabel.textColor = UIColor.purple
-        doneCountLabel.textColor = UIColor.purple
-
-        toDoTitleLabel.textColor = UIColor.white
-        inProgressTitleLabel.textColor = UIColor.white
-        haltedTitleLabel.textColor = UIColor.white
-        doneTitleLabel.textColor = UIColor.white
-
-        toDoTitleLabel.backgroundColor = UIColor.purple
-        inProgressTitleLabel.backgroundColor = UIColor.purple
-        haltedTitleLabel.backgroundColor = UIColor.purple
-        doneTitleLabel.backgroundColor = UIColor.purple
-
-        let toDoTap = UITapGestureRecognizer(target: self, action: #selector(handleToDoTapped))
-        toDoView.addGestureRecognizer(toDoTap)
-        let inProgressTap = UITapGestureRecognizer(target: self, action: #selector(handleInProgressTapped))
-        inProgressView.addGestureRecognizer(inProgressTap)
-        let haltedTap = UITapGestureRecognizer(target: self, action: #selector(handleHaltedTapped))
-        haltedView.addGestureRecognizer(haltedTap)
-        let doneTap = UITapGestureRecognizer(target: self, action: #selector(handleDoneTapped))
-        doneView.addGestureRecognizer(doneTap)
     }
     
     @objc func handleToDoTapped(gesture: UITapGestureRecognizer) -> Void {
@@ -164,7 +168,8 @@ class HomeController: UIViewController {
     @IBAction func addTaskTapped(_ sender: Any) {
         let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "CreateTaskController")
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .formSheet
+        present(vc, animated: true, completion: nil)
     }
 
     

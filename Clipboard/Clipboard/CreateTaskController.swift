@@ -19,11 +19,23 @@ class CreateTaskController: UIViewController {
     @IBOutlet weak var dueDateTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var createTaskButton: UIButton!
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Create Task"
+        titleLabel.textColor = UIColor.white
+        mainView.backgroundColor = UIColor.purple
+        titleTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "What is the task?")
+        statusTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Status")
+        difficultyTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Difficulty")
         
+        assignedToTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Assigned To")
+        
+        dueDateTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Optional Due Date")
+        
+        descriptionTextField.createBottomBorderTextField(borderColor: UIColor.lightGray, width: 0.5, fontColor: UIColor.white, placeholderText: "Optional Description")
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateTaskController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         
@@ -43,7 +55,7 @@ class CreateTaskController: UIViewController {
         difficultyTextField.inputView = pickerView
         assignedToTextField.inputView = pickerView
         
-        createTaskButton.createStandardFullButton(color: UIColor.purple, fontColor: UIColor.white)
+        createTaskButton.createStandardFullButton(color: UIColor.white, fontColor: UIColor.purple)
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -90,7 +102,7 @@ class CreateTaskController: UIViewController {
             Constants.currProject.getTeam()?.addTask(task: t)
             print("added new task")
             Constants.currProject.printEntireProject()
-            _ = navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         } else{
         }
 

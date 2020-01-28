@@ -943,7 +943,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is the task?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPr-8v-qWw">
-                                <rect key="frame" x="20" y="20" width="250" height="34"/>
+                                <rect key="frame" x="20" y="318" width="250" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="V3i-US-JlB"/>
                                 </constraints>
@@ -951,7 +951,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38B-kn-PHI">
-                                <rect key="frame" x="20" y="84" width="130" height="34"/>
+                                <rect key="frame" x="20" y="382" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="0Zv-XI-FwB"/>
                                 </constraints>
@@ -959,7 +959,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Difficulty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28w-5e-gE2">
-                                <rect key="frame" x="20" y="126" width="130" height="34"/>
+                                <rect key="frame" x="20" y="456" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="uDG-JV-aO9"/>
                                 </constraints>
@@ -967,7 +967,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Assigned To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-1f-35V">
-                                <rect key="frame" x="20" y="168" width="130" height="34"/>
+                                <rect key="frame" x="20" y="530" width="130" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="bsH-D6-spm"/>
                                 </constraints>
@@ -975,7 +975,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Due Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-Dt-rEO">
-                                <rect key="frame" x="20" y="210" width="146.5" height="34"/>
+                                <rect key="frame" x="20" y="604" width="146.5" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="JSP-Ks-w5S"/>
                                 </constraints>
@@ -983,7 +983,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EO8-OH-L4O">
-                                <rect key="frame" x="20" y="252" width="300" height="34"/>
+                                <rect key="frame" x="20" y="678" width="300" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="1ph-5x-him"/>
                                 </constraints>
@@ -991,37 +991,45 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-uv-gBN">
-                                <rect key="frame" x="157" y="436" width="100" height="30"/>
+                                <rect key="frame" x="132" y="762" width="150" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="uPP-GW-pqR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="uPP-GW-pqR"/>
                                 </constraints>
                                 <state key="normal" title="Create Task"/>
                                 <connections>
                                     <action selector="createTaskTapped:" destination="bVV-lN-vT5" eventType="touchUpInside" id="uJC-2j-7a0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4O-QZ-ybM">
+                                <rect key="frame" x="16" y="250" width="207" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="fPr-8v-qWw" firstAttribute="top" secondItem="KoM-Ar-Haz" secondAttribute="top" constant="20" id="1PC-dO-ONK"/>
-                            <constraint firstItem="UJG-1f-35V" firstAttribute="top" secondItem="28w-5e-gE2" secondAttribute="bottom" constant="8" id="2s3-fg-7qM"/>
+                            <constraint firstItem="UJG-1f-35V" firstAttribute="top" secondItem="28w-5e-gE2" secondAttribute="bottom" constant="40" id="2s3-fg-7qM"/>
                             <constraint firstItem="EO8-OH-L4O" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="6sd-zj-cRl"/>
                             <constraint firstItem="KoM-Ar-Haz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="28w-5e-gE2" secondAttribute="trailing" constant="264" id="8Lf-Nw-2J7"/>
                             <constraint firstItem="UJG-1f-35V" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="9KH-my-A5Y"/>
+                            <constraint firstItem="h4O-QZ-ybM" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="16" id="AhG-qd-Adw"/>
                             <constraint firstItem="38B-kn-PHI" firstAttribute="top" secondItem="fPr-8v-qWw" secondAttribute="bottom" constant="30" id="CYU-wJ-PgG"/>
                             <constraint firstItem="KoM-Ar-Haz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="EO8-OH-L4O" secondAttribute="trailing" constant="100" id="NgQ-3z-9Hf"/>
                             <constraint firstItem="KoM-Ar-Haz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="SH8-Dt-rEO" secondAttribute="trailing" constant="247.5" id="PO1-RZ-wRA"/>
+                            <constraint firstItem="h4O-QZ-ybM" firstAttribute="top" secondItem="KoM-Ar-Haz" secondAttribute="top" constant="250" id="Qf2-dV-4hC"/>
                             <constraint firstItem="5ag-uv-gBN" firstAttribute="centerX" secondItem="ph2-YK-FpF" secondAttribute="centerX" id="XRH-Mh-EaR"/>
                             <constraint firstItem="KoM-Ar-Haz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="38B-kn-PHI" secondAttribute="trailing" constant="264" id="bPs-tB-xNh"/>
-                            <constraint firstItem="28w-5e-gE2" firstAttribute="top" secondItem="38B-kn-PHI" secondAttribute="bottom" constant="8" id="d6E-fb-mnX"/>
+                            <constraint firstItem="28w-5e-gE2" firstAttribute="top" secondItem="38B-kn-PHI" secondAttribute="bottom" constant="40" id="d6E-fb-mnX"/>
                             <constraint firstItem="38B-kn-PHI" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="g41-aQ-urG"/>
                             <constraint firstItem="fPr-8v-qWw" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="glf-BR-xcl"/>
-                            <constraint firstItem="SH8-Dt-rEO" firstAttribute="top" secondItem="UJG-1f-35V" secondAttribute="bottom" constant="8" id="gwm-L2-hBg"/>
-                            <constraint firstItem="EO8-OH-L4O" firstAttribute="top" secondItem="SH8-Dt-rEO" secondAttribute="bottom" constant="8" id="jNy-IH-Vr9"/>
+                            <constraint firstItem="SH8-Dt-rEO" firstAttribute="top" secondItem="UJG-1f-35V" secondAttribute="bottom" constant="40" id="gwm-L2-hBg"/>
+                            <constraint firstItem="EO8-OH-L4O" firstAttribute="top" secondItem="SH8-Dt-rEO" secondAttribute="bottom" constant="40" id="jNy-IH-Vr9"/>
                             <constraint firstItem="28w-5e-gE2" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="loV-Hr-ohO"/>
                             <constraint firstItem="SH8-Dt-rEO" firstAttribute="leading" secondItem="KoM-Ar-Haz" secondAttribute="leading" constant="20" id="nOx-c9-p1S"/>
-                            <constraint firstItem="5ag-uv-gBN" firstAttribute="top" secondItem="EO8-OH-L4O" secondAttribute="bottom" constant="150" id="nTq-W9-SnC"/>
+                            <constraint firstItem="5ag-uv-gBN" firstAttribute="top" secondItem="EO8-OH-L4O" secondAttribute="bottom" constant="50" id="nTq-W9-SnC"/>
                             <constraint firstItem="KoM-Ar-Haz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="fPr-8v-qWw" secondAttribute="trailing" constant="144" id="tsf-Cm-4JP"/>
+                            <constraint firstItem="fPr-8v-qWw" firstAttribute="top" secondItem="h4O-QZ-ybM" secondAttribute="bottom" constant="20" id="vyf-0h-OZG"/>
                             <constraint firstItem="KoM-Ar-Haz" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="UJG-1f-35V" secondAttribute="trailing" constant="264" id="wtC-fD-3GC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KoM-Ar-Haz"/>
@@ -1033,7 +1041,9 @@
                         <outlet property="descriptionTextField" destination="EO8-OH-L4O" id="aLd-EM-8Fa"/>
                         <outlet property="difficultyTextField" destination="28w-5e-gE2" id="aLx-Dy-IFh"/>
                         <outlet property="dueDateTextField" destination="SH8-Dt-rEO" id="cB9-k6-Gvb"/>
+                        <outlet property="mainView" destination="ph2-YK-FpF" id="meJ-42-ncr"/>
                         <outlet property="statusTextField" destination="38B-kn-PHI" id="X4V-e7-BFd"/>
+                        <outlet property="titleLabel" destination="h4O-QZ-ybM" id="AjO-69-rAs"/>
                         <outlet property="titleTextField" destination="fPr-8v-qWw" id="cL6-Hc-aeg"/>
                         <segue destination="jre-66-9fV" kind="show" identifier="fromCreateTaskToHome" id="VoE-bi-8dI"/>
                     </connections>
@@ -1681,13 +1691,12 @@
         <image name="wrench" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2up-Eo-FGQ"/>
         <segue reference="KCx-3G-Bm3"/>
         <segue reference="VoE-bi-8dI"/>
         <segue reference="jEg-lJ-eyY"/>
         <segue reference="E4e-ou-DyC"/>
-        <segue reference="k5s-eK-PCD"/>
-        <segue reference="p6d-to-xoS"/>
+        <segue reference="CNu-fG-f7U"/>
+        <segue reference="UoZ-KM-M0d"/>
         <segue reference="sxM-dO-jWK"/>
     </inferredMetricsTieBreakers>
 </document>
