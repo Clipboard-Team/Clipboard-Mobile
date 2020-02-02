@@ -3,6 +3,8 @@
 <p align="center">Let's Build Something Together</p>
 <br>
 
+<p align="center">View mobile version: https://github.com/XavierLaRosa/Clipboard </p>
+
 ## Basic Overview
 
 I have a strong value for team management and organization. Applications like JIRA and Trello have inspired me to develop my own project management application.
