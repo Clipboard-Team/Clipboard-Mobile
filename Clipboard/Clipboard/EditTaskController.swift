@@ -23,6 +23,9 @@ class EditTaskController: UIViewController {
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     static func setTask(task:Task){
         self.task = task
@@ -57,6 +60,10 @@ class EditTaskController: UIViewController {
         statusTextField.inputView = pickerView
         difficultyTextField.inputView = pickerView
         assignedToTextField.inputView = pickerView
+        
+        resetButton.createStandardHollowButton(color: UIColor.purple, backColor: UIColor.white)
+        editButton.createStandardFullButton(color: UIColor.purple, fontColor: UIColor.white)
+        deleteButton.createStandardFullButton(color: UIColor.red, fontColor: UIColor.white)
     }
     
     @IBAction func resetTapped(_ sender: Any) {
